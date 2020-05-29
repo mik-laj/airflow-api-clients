@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-responsive.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <script src="assets/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+  <script src="assets/js/main.js" type="text/javascript"></script>
+
+  <title>REST API Resources</title>
+</head>
+<body>
+  <div class="header">
+    <div class="top-bar">
+      <h1 id="logo"><a class="logo" href="/"><span>OpenAPI</span><span class="light">API Docs</span></a></h1>
+    </div>
+  </div>
+  <div class="model-container"></div>
+  <div class="content">
+    <div class="box clearfix">
+      <div class="sidebar">
+        <div class="section-box">
+          <div class="section-header">
+            Overview
+          </div>
+          <ul>
+            <li>Getting Started</li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/ConfigApi">ConfigApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/ConfigApi#getConfig">getConfig</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/ConnectionApi">ConnectionApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/ConnectionApi#createConnection">createConnection</a></li>
+            <li><a href="#!/ConnectionApi#deleteConnection">deleteConnection</a></li>
+            <li><a href="#!/ConnectionApi#getConnection">getConnection</a></li>
+            <li><a href="#!/ConnectionApi#getConnections">getConnections</a></li>
+            <li><a href="#!/ConnectionApi#updateConnection">updateConnection</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/DAGApi">DAGApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/DAGApi#clearTaskInstance">clearTaskInstance</a></li>
+            <li><a href="#!/DAGApi#getDag">getDag</a></li>
+            <li><a href="#!/DAGApi#getDagDetail">getDagDetail</a></li>
+            <li><a href="#!/DAGApi#getDagSource">getDagSource</a></li>
+            <li><a href="#!/DAGApi#getDags">getDags</a></li>
+            <li><a href="#!/DAGApi#getTask">getTask</a></li>
+            <li><a href="#!/DAGApi#getTasks">getTasks</a></li>
+            <li><a href="#!/DAGApi#updateDag">updateDag</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/DAGRunApi">DAGRunApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/DAGRunApi#createDagRun">createDagRun</a></li>
+            <li><a href="#!/DAGRunApi#deleteDagRun">deleteDagRun</a></li>
+            <li><a href="#!/DAGRunApi#getDagRun">getDagRun</a></li>
+            <li><a href="#!/DAGRunApi#getDagRuns">getDagRuns</a></li>
+            <li><a href="#!/DAGRunApi#getDagRunsBatch">getDagRunsBatch</a></li>
+            <li><a href="#!/DAGRunApi#updateDagRun">updateDagRun</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/EventLogApi">EventLogApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/EventLogApi#getEventLog">getEventLog</a></li>
+            <li><a href="#!/EventLogApi#getEventLogEntry">getEventLogEntry</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/ImportErrorApi">ImportErrorApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/ImportErrorApi#deleteImportError">deleteImportError</a></li>
+            <li><a href="#!/ImportErrorApi#getImportError">getImportError</a></li>
+            <li><a href="#!/ImportErrorApi#getImportErrors">getImportErrors</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/PoolApi">PoolApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/PoolApi#createPool">createPool</a></li>
+            <li><a href="#!/PoolApi#deletePool">deletePool</a></li>
+            <li><a href="#!/PoolApi#getPool">getPool</a></li>
+            <li><a href="#!/PoolApi#getPools">getPools</a></li>
+            <li><a href="#!/PoolApi#updatePool">updatePool</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/TaskInstanceApi">TaskInstanceApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/TaskInstanceApi#getExtraLinks">getExtraLinks</a></li>
+            <li><a href="#!/TaskInstanceApi#getLogs">getLogs</a></li>
+            <li><a href="#!/TaskInstanceApi#getTaskInstance">getTaskInstance</a></li>
+            <li><a href="#!/TaskInstanceApi#getTaskInstances">getTaskInstances</a></li>
+            <li><a href="#!/TaskInstanceApi#getTaskInstancesBatch">getTaskInstancesBatch</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/VariableApi">VariableApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/VariableApi#createVariable">createVariable</a></li>
+            <li><a href="#!/VariableApi#deleteVariable">deleteVariable</a></li>
+            <li><a href="#!/VariableApi#getVariable">getVariable</a></li>
+            <li><a href="#!/VariableApi#getVariables">getVariables</a></li>
+            <li><a href="#!/VariableApi#updateVariable">updateVariable</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/XComApi">XComApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/XComApi#deleteXComValue">deleteXComValue</a></li>
+            <li><a href="#!/XComApi#getXComEntry">getXComEntry</a></li>
+            <li><a href="#!/XComApi#getXComValue">getXComValue</a></li>
+            <li><a href="#!/XComApi#updateXComEntry">updateXComEntry</a></li>
+            <li><a href="#!/XComApi#updateXComValue">updateXComValue</a></li>
+          </ul>
+        </div>
+      </div>
+    <div class="non-sidebar">
+      <div class="main-content">
+        <h2>Getting Started</h2>
+        <p>To begin using your fancy HTTP API, follow the steps below.</p>
+        <p>You can add some helpful tips, here</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

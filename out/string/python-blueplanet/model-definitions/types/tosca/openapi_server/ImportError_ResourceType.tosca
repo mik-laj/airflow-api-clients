@@ -1,0 +1,50 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ImportError"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ImportError"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  ImportError {
+    title = ImportError
+    description = ImportError
+    derivedFrom = Root
+    properties {
+        import_error_id {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        timestamp {
+          type =  string
+          description = ""
+          optional = false
+        }
+        filename {
+          type =  string
+          description = ""
+          optional = false
+        }
+        stack_trace {
+          type =  string
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ImportError {
+    title = ImportError
+    description = ImportError
+    implements = openapi_server.resourceTypes.ImportError
+
+  }
+}

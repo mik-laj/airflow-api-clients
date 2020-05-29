@@ -1,0 +1,25 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "page_offset" },
+      {"model": "page_limit" },
+      {"model": "dag_ids" },
+      {"model": "execution_date_gte" },
+      {"model": "execution_date_lte" },
+      {"model": "start_date_gte" },
+      {"model": "start_date_lte" },
+      {"model": "end_date_gte" },
+      {"model": "end_date_lte" },
+    ]
+  }]
+}

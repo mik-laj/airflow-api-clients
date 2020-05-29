@@ -1,0 +1,33 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "type" },
+      {"model": "days" },
+      {"model": "seconds" },
+      {"model": "microsecond" },
+      {"model": "years" },
+      {"model": "months" },
+      {"model": "leapdays" },
+      {"model": "hours" },
+      {"model": "minutes" },
+      {"model": "microseconds" },
+      {"model": "year" },
+      {"model": "month" },
+      {"model": "day" },
+      {"model": "hour" },
+      {"model": "minute" },
+      {"model": "second" },
+      {"model": "value" },
+    ]
+  }]
+}

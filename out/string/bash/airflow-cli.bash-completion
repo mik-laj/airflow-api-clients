@@ -1,0 +1,336 @@
+# airflow-cli completion                               -*- shell-script -*-
+
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# !
+# ! Note:
+# !
+# ! THIS SCRIPT HAS BEEN AUTOMATICALLY GENERATED USING
+# ! openapi-generator (https://openapi-generator.tech)
+# ! FROM OPENAPI SPECIFICATION IN JSON.
+# !
+# !
+# !
+# ! System wide installation:
+# !
+# ! $ sudo cp airflow-cli.bash-completion /etc/bash-completion.d/airflow-cli
+# !
+# !
+# ! User home installation (add this line to .bash_profile):
+# !
+# ! [ -r ~/airflow-cli.bash-completion ] && source ~/airflow-cli.bash-completion
+# !
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+declare -A mime_type_abbreviations
+# text/*
+mime_type_abbreviations["text"]="text/plain"
+mime_type_abbreviations["html"]="text/html"
+mime_type_abbreviations["md"]="text/x-markdown"
+mime_type_abbreviations["csv"]="text/csv"
+mime_type_abbreviations["css"]="text/css"
+mime_type_abbreviations["rtf"]="text/rtf"
+# application/*
+mime_type_abbreviations["json"]="application/json"
+mime_type_abbreviations["xml"]="application/xml"
+mime_type_abbreviations["yaml"]="application/yaml"
+mime_type_abbreviations["js"]="application/javascript"
+mime_type_abbreviations["bin"]="application/octet-stream"
+mime_type_abbreviations["rdf"]="application/rdf+xml"
+# image/*
+mime_type_abbreviations["jpg"]="image/jpeg"
+mime_type_abbreviations["png"]="image/png"
+mime_type_abbreviations["gif"]="image/gif"
+mime_type_abbreviations["bmp"]="image/bmp"
+mime_type_abbreviations["tiff"]="image/tiff"
+
+
+#
+# Check if this is OSX, if so defined custom init_completion
+#
+if [[ `uname` =~ "Darwin" ]]; then
+    __osx_init_completion()
+    {
+        COMPREPLY=()
+        _get_comp_words_by_ref cur prev words cword
+    }
+fi
+
+_airflow-cli()
+{
+    local cur
+    local prev
+    local words
+    local cword
+
+    # The reference of currently selected REST operation
+    local operation=""
+
+    # The list of available operation in the REST service
+    # It's modelled as an associative array for efficient key lookup
+    declare -A operations
+    operations["getConfig"]=1
+    operations["createConnection"]=1
+    operations["deleteConnection"]=1
+    operations["getConnection"]=1
+    operations["getConnections"]=1
+    operations["updateConnection"]=1
+    operations["clearTaskInstance"]=1
+    operations["getDag"]=1
+    operations["getDagDetail"]=1
+    operations["getDagSource"]=1
+    operations["getDags"]=1
+    operations["getTask"]=1
+    operations["getTasks"]=1
+    operations["updateDag"]=1
+    operations["createDagRun"]=1
+    operations["deleteDagRun"]=1
+    operations["getDagRun"]=1
+    operations["getDagRuns"]=1
+    operations["getDagRunsBatch"]=1
+    operations["updateDagRun"]=1
+    operations["getEventLog"]=1
+    operations["getEventLogEntry"]=1
+    operations["deleteImportError"]=1
+    operations["getImportError"]=1
+    operations["getImportErrors"]=1
+    operations["createPool"]=1
+    operations["deletePool"]=1
+    operations["getPool"]=1
+    operations["getPools"]=1
+    operations["updatePool"]=1
+    operations["getExtraLinks"]=1
+    operations["getLogs"]=1
+    operations["getTaskInstance"]=1
+    operations["getTaskInstances"]=1
+    operations["getTaskInstancesBatch"]=1
+    operations["createVariable"]=1
+    operations["deleteVariable"]=1
+    operations["getVariable"]=1
+    operations["getVariables"]=1
+    operations["updateVariable"]=1
+    operations["deleteXComValue"]=1
+    operations["getXComEntry"]=1
+    operations["getXComValue"]=1
+    operations["updateXComEntry"]=1
+    operations["updateXComValue"]=1
+
+    # An associative array of operations to their parameters
+    # Only include path, query and header parameters
+    declare -A operation_parameters
+    operation_parameters["getConfig"]="limit= offset= "
+    operation_parameters["createConnection"]=""
+    operation_parameters["deleteConnection"]="connection_id= "
+    operation_parameters["getConnection"]="connection_id= "
+    operation_parameters["getConnections"]="limit= offset= "
+    operation_parameters["updateConnection"]="connection_id= update_mask= "
+    operation_parameters["clearTaskInstance"]="dag_id= "
+    operation_parameters["getDag"]="dag_id= "
+    operation_parameters["getDagDetail"]="dag_id= "
+    operation_parameters["getDagSource"]="file_token= "
+    operation_parameters["getDags"]="limit= offset= "
+    operation_parameters["getTask"]="dag_id= task_id= "
+    operation_parameters["getTasks"]="dag_id= "
+    operation_parameters["updateDag"]="dag_id= "
+    operation_parameters["createDagRun"]="dag_id= dag_run_id= "
+    operation_parameters["deleteDagRun"]="dag_id= dag_run_id= "
+    operation_parameters["getDagRun"]="dag_id= dag_run_id= "
+    operation_parameters["getDagRuns"]="dag_id= limit= offset= execution_date_gte= execution_date_lte= start_date_gte= start_date_lte= end_date_gte= end_date_lte= "
+    operation_parameters["getDagRunsBatch"]=""
+    operation_parameters["updateDagRun"]="dag_id= dag_run_id= update_mask= "
+    operation_parameters["getEventLog"]="limit= offset= "
+    operation_parameters["getEventLogEntry"]="event_log_id= "
+    operation_parameters["deleteImportError"]="import_error_id= "
+    operation_parameters["getImportError"]="import_error_id= "
+    operation_parameters["getImportErrors"]="limit= offset= "
+    operation_parameters["createPool"]=""
+    operation_parameters["deletePool"]="pool_name= "
+    operation_parameters["getPool"]="pool_name= "
+    operation_parameters["getPools"]="limit= offset= "
+    operation_parameters["updatePool"]="pool_name= update_mask= "
+    operation_parameters["getExtraLinks"]="dag_id= dag_run_id= task_id= "
+    operation_parameters["getLogs"]="dag_id= dag_run_id= task_id= task_try_number= full_content= token= "
+    operation_parameters["getTaskInstance"]="dag_id= dag_run_id= task_id= "
+    operation_parameters["getTaskInstances"]="dag_id= dag_run_id= execution_date_gte= execution_date_lte= start_date_gte= start_date_lte= end_date_gte= end_date_lte= duration_gte= duration_lte= state= pool= Queue= limit= offset= "
+    operation_parameters["getTaskInstancesBatch"]=""
+    operation_parameters["createVariable"]=""
+    operation_parameters["deleteVariable"]="variable_key= "
+    operation_parameters["getVariable"]="variable_key= "
+    operation_parameters["getVariables"]="limit= offset= "
+    operation_parameters["updateVariable"]="variable_key= update_mask= "
+    operation_parameters["deleteXComValue"]="dag_id= dag_run_id= task_id= key= "
+    operation_parameters["getXComEntry"]="dag_id= dag_run_id= task_id= limit= offset= "
+    operation_parameters["getXComValue"]="dag_id= dag_run_id= task_id= key= "
+    operation_parameters["updateXComEntry"]="dag_id= dag_run_id= task_id= "
+    operation_parameters["updateXComValue"]="dag_id= dag_run_id= task_id= key= update_mask= "
+
+    # An associative array of possible values for enum parameters
+    declare -A operation_parameters_enum_values
+    operation_parameters_enum_values["getLogs::full_content"]="true false"
+    operation_parameters_enum_values["getLogs::full_content"]="true false"
+    operation_parameters_enum_values["getLogs::full_content"]="true false"
+    operation_parameters_enum_values["getLogs::full_content"]="true false"
+    operation_parameters_enum_values["getLogs::full_content"]="true false"
+    operation_parameters_enum_values["getLogs::full_content"]="true false"
+
+    #
+    # Check if this is OSX and use special __osx_init_completion function
+    #
+    if [[ `uname` =~ "Darwin" ]]; then
+        __osx_init_completion || return
+    else
+        _init_completion -s || return
+    fi
+
+
+    # Check if operation is already in the command line provided
+    for word in "${words[@]}"; do
+        if [[ -n $word && ${operations[$word]} ]]; then
+            operation="${word}"
+        fi
+    done
+
+    if [[ -z $operation ]]; then
+        case $prev in
+            --ciphers|--connect-timeout|-C|--continue-at|-F|--form|--form-string|\
+            --ftp-account|--ftp-alternative-to-user|-P|--ftp-port|-H|--header|-h|\
+            --help|--hostpubmd5|--keepalive-time|--krb|--limit-rate|--local-port|\
+            --mail-from|--mail-rcpt|--max-filesize|--max-redirs|-m|--max-time|\
+            --pass|--proto|--proto-redir|--proxy-user|--proxy1.0|-Q|--quote|-r|\
+            --range|-X|--request|--retry|--retry-delay|--retry-max-time|\
+            --socks5-gssapi-service|-t|--telnet-option|--tftp-blksize|-z|\
+            --time-cond|--url|-u|--user|-A|--user-agent|-V|--version|-w|\
+            --write-out|--resolve|--tlsuser|--tlspassword|--about)
+                return
+                ;;
+            -K|--config|-b|--cookie|-c|--cookie-jar|-D|--dump-header|--egd-file|\
+            --key|--libcurl|-o|--output|--random-file|-T|--upload-file|--trace|\
+            --trace-ascii|--netrc-file)
+                _filedir
+                return
+                ;;
+            --cacert|-E|--cert)
+                _filedir '@(c?(e)rt|cer|pem|der)'
+                return
+                ;;
+            --capath)
+                _filedir -d
+                return
+                ;;
+            --cert-type|--key-type)
+                COMPREPLY=( $( compgen -W 'DER PEM ENG' -- "$cur" ) )
+                return
+                ;;
+            --crlfile)
+                _filedir crl
+                return
+                ;;
+            -d|--data|--data-ascii|--data-binary|--data-urlencode)
+                if [[ $cur == \@* ]]; then
+                    cur=${cur:1}
+                    _filedir
+                    COMPREPLY=( "${COMPREPLY[@]/#/@}" )
+                fi
+                return
+                ;;
+            --delegation)
+                COMPREPLY=( $( compgen -W 'none policy always' -- "$cur" ) )
+                return
+                ;;
+            --engine)
+                COMPREPLY=( $( compgen -W 'list' -- "$cur" ) )
+                return
+                ;;
+            --ftp-method)
+                COMPREPLY=( $( compgen -W 'multicwd nocwd singlecwd' -- "$cur" ) )
+                return
+                ;;
+            --ftp-ssl-ccc-mode)
+                COMPREPLY=( $( compgen -W 'active passive' -- "$cur" ) )
+                return
+                ;;
+            --interface)
+                _available_interfaces -a
+                return
+                ;;
+            -x|--proxy|--socks4|--socks4a|--socks5|--socks5-hostname)
+                _known_hosts_real
+                return
+                ;;
+            --pubkey)
+                _filedir pub
+                return
+                ;;
+            --stderr)
+                COMPREPLY=( $( compgen -W '-' -- "$cur" ) )
+                _filedir
+                return
+                ;;
+            --tlsauthtype)
+                COMPREPLY=( $( compgen -W 'SRP' -- "$cur" ) )
+                return
+                ;;
+            --host)
+                COMPREPLY=( $( compgen -W 'http:// https://' -- "$cur" ) )
+                return
+                ;;
+            -ct|--content-type|-ac|--accept)
+                COMPREPLY=( $( compgen -W '${!mime_type_abbreviations[*]}' -- "$cur" ) )
+                return
+                ;;
+        esac
+    fi
+
+    #
+    # Complete the server address based on ~/.ssh/known_hosts
+    # and ~/.ssh/config
+    #
+    local prefix=${COMP_WORDS[COMP_CWORD-2]}
+    local colon=${COMP_WORDS[COMP_CWORD-1]}
+    if [[ "$colon" == ":" && ( $prefix == "https" || $prefix == "http" ) ]]; then
+        COMPREPLY=()
+        local comp_ssh_hosts=`[[ -f ~/.ssh/known_hosts ]] && \
+                              ( cat ~/.ssh/known_hosts | \
+                              grep '^[a-zA-Z0-9]' | \
+                              cut -f 1 -d ' ' | \
+                              sed -e s/,.*//g | \
+                              grep -v ^# | \
+                              uniq | \
+                              grep -v "\[" ) ;
+                              [[ -f ~/.ssh/config ]] && \
+                              ( cat ~/.ssh/config | \
+                              grep "^Host " | \
+                              awk '{print $2}' )`
+        COMPREPLY=( $( compgen -P '//' -W '${comp_ssh_hosts}' -- "${cur:2}") )
+        return
+    fi
+
+    #
+    # Complete the airflow-cli and cURL's arguments
+    #
+    if [[ $cur == -* ]]; then
+        COMPREPLY=( $( compgen -W '$(_parse_help curl) $(_parse_help $1)' -- "$cur" ) )
+        return
+    fi
+
+    #
+    # If the argument starts with a letter this could be either an operation
+    # or an operation parameter
+    # When $cur is empty, suggest the list of operations by default
+    #
+    if [[ $cur =~ ^[A-Za-z_0-9]* ]]; then
+        # If operation has not been yet selected, suggest the list of operations
+        # otherwise suggest arguments of this operation as declared in the
+        # OpenAPI specification
+        if [[ -z $operation ]]; then
+            COMPREPLY=( $(compgen -W '${!operations[*]}' -- ${cur}) )
+        else
+            COMPREPLY=( $(compgen -W '${operation_parameters[$operation]}' -- ${cur}) )
+            compopt -o nospace
+        fi
+        return
+    fi
+
+} &&
+complete -F _airflow-cli airflow-cli
+
+# ex: ts=4 sw=4 et filetype=sh

@@ -1,0 +1,46 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ExtraLink"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ExtraLink"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ClassReference = openapi_server.resourceTypes.ClassReference
+}
+resourceTypes {
+
+  ExtraLink {
+    title = ExtraLink
+    description = ExtraLink
+    derivedFrom = Root
+    properties {
+        class_ref {
+          type = ClassReference
+          description = ""
+          optional = false
+        }
+        name {
+          type =  string
+          description = ""
+          optional = false
+        }
+        href {
+          type =  string
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ExtraLink {
+    title = ExtraLink
+    description = ExtraLink
+    implements = openapi_server.resourceTypes.ExtraLink
+
+  }
+}

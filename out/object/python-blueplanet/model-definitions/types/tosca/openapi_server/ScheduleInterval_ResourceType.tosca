@@ -1,0 +1,118 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ScheduleInterval"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ScheduleInterval"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  CronExpression = openapi_server.resourceTypes.CronExpression
+  RelativeDelta = openapi_server.resourceTypes.RelativeDelta
+  TimeDelta = openapi_server.resourceTypes.TimeDelta
+}
+resourceTypes {
+
+  ScheduleInterval {
+    title = ScheduleInterval
+    description = ScheduleInterval
+    derivedFrom = Root
+    properties {
+        type {
+          type =  string
+          description = ""
+          optional = true
+        }
+        days {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        seconds {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        microsecond {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        years {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        months {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        leapdays {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        hours {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        minutes {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        microseconds {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        year {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        month {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        day {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        hour {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        minute {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        second {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        value {
+          type =  string
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ScheduleInterval {
+    title = ScheduleInterval
+    description = ScheduleInterval
+    implements = openapi_server.resourceTypes.ScheduleInterval
+
+  }
+}

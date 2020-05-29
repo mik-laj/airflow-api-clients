@@ -1,0 +1,37 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server TaskInstanceCollection"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a TaskInstanceCollection"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  TaskInstance = openapi_server.resourceTypes.TaskInstance
+}
+resourceTypes {
+
+  TaskInstanceCollection {
+    title = TaskInstanceCollection
+    description = TaskInstanceCollection
+    derivedFrom = Root
+    properties {
+        task_instances {
+          type = array
+          items.type = TaskInstance
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  TaskInstanceCollection {
+    title = TaskInstanceCollection
+    description = TaskInstanceCollection
+    implements = openapi_server.resourceTypes.TaskInstanceCollection
+
+  }
+}

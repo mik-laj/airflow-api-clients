@@ -1,0 +1,24 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "timezone" },
+      {"model": "catchup" },
+      {"model": "orientation" },
+      {"model": "concurrency" },
+      {"model": "start_date" },
+      {"model": "dag_run_timeout" },
+      {"model": "doc_md" },
+      {"model": "default_view" },
+    ]
+  }]
+}

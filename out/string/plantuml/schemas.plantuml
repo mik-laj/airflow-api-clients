@@ -1,0 +1,415 @@
+@startuml
+
+title Airflow API (Stable) Schemas Diagram
+
+entity ClassReference { 
+    module_path: String
+    class_name: String
+}
+
+entity ClearTaskInstance { 
+    dry_run: Boolean
+    start_date: String
+    end_date: String
+    only_failed: String
+    only_running: String
+    include_subdags: Boolean
+    include_parentdag: Boolean
+    reset_dag_runs: Boolean
+}
+
+entity CollectionInfo { 
+    total_entries: Integer
+}
+
+entity Config { 
+    sections: List<ConfigSection>
+}
+
+entity ConfigOption { 
+    key: String
+    value: String
+}
+
+entity ConfigSection { 
+    name: String
+    options: List<ConfigOption>
+}
+
+entity Connection { 
+    password: String
+    extra: String
+}
+
+entity ConnectionCollection { 
+    connections: List<ConnectionCollectionItem>
+}
+
+entity ConnectionCollectionItem { 
+    connection_id: String
+    conn_type: String
+    host: String
+    login: String
+    schema: String
+    port: Integer
+}
+
+entity CronExpression { 
+    * __type: String
+    value: String
+}
+
+entity DAG { 
+    dag_id: String
+    root_dag_id: String
+    is_paused: Boolean
+    is_subdag: Boolean
+    fileloc: String
+    file_token: String
+    owners: List<String>
+    description: String
+    schedule_interval: OneOf<ScheduleInterval>
+    tags: List<Tag>
+}
+
+entity DAGCollection { 
+    dags: List<DAG>
+}
+
+entity DAGDetail { 
+    timezone: String
+    catchup: Boolean
+    orientation: String
+    concurrency: BigDecimal
+    start_date: Date
+    dag_run_timeout: TimeDelta
+    doc_md: String
+    default_view: String
+}
+
+entity DAGRun { 
+    dag_run_id: String
+    * dag_id: String
+    execution_date: Date
+    start_date: Date
+    end_date: Date
+    state: DagState
+    external_trigger: Boolean
+    conf: String
+}
+
+entity DAGRunCollection { 
+    dag_runs: List<DAGRun>
+}
+
+entity DagState { 
+}
+
+entity Error { 
+    * type: String
+    * title: String
+    * status: BigDecimal
+    details: String
+    instance: String
+}
+
+entity EventLog { 
+    event_log_id: Integer
+    when: String
+    dag_id: String
+    task_id: String
+    event: String
+    execution_date: String
+    owner: String
+    extra: String
+}
+
+entity EventLogCollection { 
+    event_logs: List<EventLog>
+}
+
+entity ExtraLink { 
+    class_ref: ClassReference
+    name: String
+    href: String
+}
+
+entity ExtraLinkCollection { 
+    extra_links: List<ExtraLink>
+}
+
+entity ImportError { 
+    import_error_id: Integer
+    timestamp: String
+    filename: String
+    stack_trace: String
+}
+
+entity ImportErrorCollection { 
+    import_errors: List<ImportError>
+}
+
+entity InlineResponse200 { 
+    continuation_token: String
+    content: String
+}
+
+entity InlineResponse2001 { 
+    content: String
+}
+
+entity ListDagRunsForm { 
+    page_offset: Integer
+    page_limit: Integer
+    dag_ids: List<String>
+    execution_date_gte: Date
+    execution_date_lte: Date
+    start_date_gte: Date
+    start_date_lte: Date
+    end_date_gte: Date
+    end_date_lte: Date
+}
+
+entity ListTaskInstanceForm { 
+    dag_ids: List<String>
+    execution_date_gte: Date
+    execution_date_lte: Date
+    start_date_gte: Date
+    start_date_lte: Date
+    end_date_gte: Date
+    end_date_lte: Date
+    duration_gte: BigDecimal
+    duration_lte: BigDecimal
+    State: List<String>
+    Pool: List<String>
+    Queue: List<String>
+}
+
+entity Pool { 
+    name: String
+    slots: Integer
+    occupied_slots: Integer
+    used_slots: Integer
+    queued_slots: Integer
+    open_slots: Integer
+}
+
+entity PoolCollection { 
+    pools: List<Pool>
+}
+
+entity RelativeDelta { 
+    * __type: String
+    years: Integer
+    months: Integer
+    days: Integer
+    leapdays: Integer
+    hours: Integer
+    minutes: Integer
+    seconds: Integer
+    microseconds: Integer
+    year: Integer
+    month: Integer
+    day: Integer
+    hour: Integer
+    minute: Integer
+    second: Integer
+    microsecond: Integer
+}
+
+entity SLAMiss { 
+    task_id: String
+    dag_id: String
+    execution_date: String
+    email_sent: Boolean
+    timestamp: String
+    description: String
+    notification_sent: Boolean
+}
+
+entity SLAMissCollection { 
+    sla_misses: List<SLAMiss>
+}
+
+entity ScheduleInterval { 
+    * __type: String
+    days: Integer
+    seconds: Integer
+    microsecond: Integer
+    years: Integer
+    months: Integer
+    leapdays: Integer
+    hours: Integer
+    minutes: Integer
+    microseconds: Integer
+    year: Integer
+    month: Integer
+    day: Integer
+    hour: Integer
+    minute: Integer
+    second: Integer
+    value: String
+}
+
+entity Tag { 
+    name: String
+}
+
+entity Task { 
+    class_ref: ClassReference
+    task_id: String
+    owner: String
+    start_date: Date
+    end_date: Date
+    trigger_rule: TriggerRule
+    extra_links: List<TaskExtraLinks>
+    depends_on_past: Boolean
+    wait_for_downstream: Boolean
+    retries: BigDecimal
+    queue: String
+    pool: String
+    pool_slots: BigDecimal
+    execution_timeout: TimeDelta
+    retry_delay: TimeDelta
+    retry_exponential_backoff: Boolean
+    priority_weight: BigDecimal
+    weight_rule: WeightRule
+    ui_color: String
+    ui_fgcolor: String
+    template_fields: List<String>
+    sub_dag: DAG
+    downstream_task_ids: List<String>
+}
+
+entity TaskCollection { 
+    tasks: List<Task>
+}
+
+entity TaskExtraLinks { 
+    class_ref: ClassReference
+}
+
+entity TaskFail { 
+    task_id: String
+    dag_id: String
+    execution_date: String
+    start_date: String
+    end_date: String
+    duration: Integer
+}
+
+entity TaskInstance { 
+    task_id: String
+    dag_id: String
+    execution_date: String
+    start_date: String
+    end_date: String
+    duration: BigDecimal
+    state: TaskState
+    try_number: Integer
+    max_tries: Integer
+    hostname: String
+    unixname: String
+    pool: String
+    pool_slots: Integer
+    queue: String
+    priority_weight: Integer
+    operator: String
+    queued_when: String
+    pid: Integer
+    executor_config: String
+    sla_miss: SLAMiss
+}
+
+entity TaskInstanceCollection { 
+    task_instances: List<TaskInstance>
+}
+
+entity TaskInstanceReference { 
+    task_id: String
+    dag_id: String
+    execution_date: String
+    dag_run_id: String
+}
+
+entity TaskInstanceReferenceCollection { 
+    task_instances: List<TaskInstanceReference>
+}
+
+entity TaskState { 
+}
+
+entity TimeDelta { 
+    * __type: String
+    days: Integer
+    seconds: Integer
+    microsecond: Integer
+}
+
+entity TriggerRule { 
+}
+
+entity Variable { 
+    value: String
+}
+
+entity VariableCollection { 
+    variables: List<VariableCollectionItem>
+}
+
+entity VariableCollectionItem { 
+    key: String
+}
+
+entity WeightRule { 
+}
+
+entity XCom { 
+    value: String
+}
+
+entity XComCollection { 
+    xcom_entries: List<XComCollectionItem>
+}
+
+entity XComCollectionItem { 
+    key: String
+    timestamp: String
+    execution_date: String
+    task_id: String
+    dag_id: String
+}
+
+ConnectionCollectionItem <|--- Connection
+DAG <|--- DAGDetail
+VariableCollectionItem <|--- Variable
+XComCollectionItem <|--- XCom
+
+TaskInstanceReferenceCollection -- "0..*" TaskInstanceReference : task_instances
+Task -- ClassReference : class_ref
+Task -- "0..*" TaskExtraLinks : extra_links
+Task -- TimeDelta : execution_timeout
+Task -- TimeDelta : retry_delay
+Task -- DAG : sub_dag
+ConfigSection -- "0..*" ConfigOption : options
+TaskInstanceCollection -- "0..*" TaskInstance : task_instances
+TaskInstance -- SLAMiss : sla_miss
+TaskExtraLinks -- ClassReference : class_ref
+ExtraLinkCollection -- "0..*" ExtraLink : extra_links
+EventLogCollection -- "0..*" EventLog : event_logs
+Config -- "0..*" ConfigSection : sections
+PoolCollection -- "0..*" Pool : pools
+DAGRunCollection -- "0..*" DAGRun : dag_runs
+DAGDetail -- TimeDelta : dag_run_timeout
+ExtraLink -- ClassReference : class_ref
+VariableCollection -- "0..*" VariableCollectionItem : variables
+ConnectionCollection -- "0..*" ConnectionCollectionItem : connections
+DAG -- OneOf<ScheduleInterval> : schedule_interval
+DAG -- "0..*" Tag : tags
+XComCollection -- "0..*" XComCollectionItem : xcom_entries
+TaskCollection -- "0..*" Task : tasks
+ImportErrorCollection -- "0..*" ImportError : import_errors
+DAGCollection -- "0..*" DAG : dags
+SLAMissCollection -- "0..*" SLAMiss : sla_misses
+
+@enduml

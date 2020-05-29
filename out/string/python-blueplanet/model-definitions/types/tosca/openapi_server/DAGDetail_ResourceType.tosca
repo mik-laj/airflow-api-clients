@@ -1,0 +1,127 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server DAGDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a DAGDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  DAG = openapi_server.resourceTypes.DAG
+  DAGDetailAllOf = openapi_server.resourceTypes.DAGDetailAllOf
+  OneOfScheduleInterval = openapi_server.resourceTypes.OneOfScheduleInterval
+  Tag = openapi_server.resourceTypes.Tag
+  TimeDelta = openapi_server.resourceTypes.TimeDelta
+}
+resourceTypes {
+
+  DAGDetail {
+    title = DAGDetail
+    description = DAGDetail
+    derivedFrom = Root
+    properties {
+        dag_id {
+          type =  string
+          description = ""
+          optional = false
+        }
+        root_dag_id {
+          type =  string
+          description = ""
+          optional = false
+        }
+        is_paused {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+        is_subdag {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+        fileloc {
+          type =  string
+          description = ""
+          optional = false
+        }
+        file_token {
+          type =  string
+          description = "The key containing the encrypted path to the file. Encryption and decryption take place only on the server. This prevents the client from reading an non-DAG file. This also ensures API extensibility, because the format of encrypted data may change. "
+          optional = false
+        }
+        owners {
+          type = array
+          items.type =  string
+          description = ""
+          optional = false
+        }
+        description {
+          type =  string
+          description = ""
+          optional = false
+        }
+        schedule_interval {
+          type = OneOfScheduleInterval
+          description = ""
+          optional = false
+        }
+        tags {
+          type = array
+          items.type = Tag
+          description = ""
+          optional = false
+        }
+        timezone {
+          type =  string
+          description = ""
+          optional = false
+        }
+        catchup {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+        orientation {
+          type =  string
+          description = ""
+          optional = false
+        }
+        concurrency {
+          type =  
+          description = ""
+          optional = false
+        }
+        start_date {
+          type =  string
+          description = ""
+          optional = false
+        }
+        dag_run_timeout {
+          type = TimeDelta
+          description = ""
+          optional = false
+        }
+        doc_md {
+          type =  string
+          description = ""
+          optional = false
+        }
+        default_view {
+          type =  string
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  DAGDetail {
+    title = DAGDetail
+    description = DAGDetail
+    implements = openapi_server.resourceTypes.DAGDetail
+
+  }
+}

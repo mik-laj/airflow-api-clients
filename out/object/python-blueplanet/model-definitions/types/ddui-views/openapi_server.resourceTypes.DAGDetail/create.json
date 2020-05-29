@@ -1,0 +1,34 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "dag_id" },
+      {"model": "root_dag_id" },
+      {"model": "is_paused" },
+      {"model": "is_subdag" },
+      {"model": "fileloc" },
+      {"model": "file_token" },
+      {"model": "owners" },
+      {"model": "description" },
+      {"model": "schedule_interval" },
+      {"model": "tags" },
+      {"model": "timezone" },
+      {"model": "catchup" },
+      {"model": "orientation" },
+      {"model": "concurrency" },
+      {"model": "start_date" },
+      {"model": "dag_run_timeout" },
+      {"model": "doc_md" },
+      {"model": "default_view" },
+    ]
+  }]
+}

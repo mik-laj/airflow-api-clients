@@ -1,0 +1,70 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ClearTaskInstance"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ClearTaskInstance"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  ClearTaskInstance {
+    title = ClearTaskInstance
+    description = ClearTaskInstance
+    derivedFrom = Root
+    properties {
+        dry_run {
+          type =  boolean
+          description = "If set, don&#39;t actually run this operation. The response will contain a list of task instances planned to be cleaned, but not modified in any way. "
+          optional = false
+        }
+        start_date {
+          type =  string
+          description = "The minimum execution date to clear."
+          optional = false
+        }
+        end_date {
+          type =  string
+          description = "The maximum execution date to clear."
+          optional = false
+        }
+        only_failed {
+          type =  string
+          description = "Only clear failed tasks."
+          optional = false
+        }
+        only_running {
+          type =  string
+          description = "Only clear running tasks."
+          optional = false
+        }
+        include_subdags {
+          type =  boolean
+          description = "Clear tasks in subdags and clear external tasks indicated by ExternalTaskMarker."
+          optional = false
+        }
+        include_parentdag {
+          type =  boolean
+          description = "Clear tasks in the parent dag of the subdag."
+          optional = false
+        }
+        reset_dag_runs {
+          type =  boolean
+          description = "Set state of DAG Runs to RUNNING."
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ClearTaskInstance {
+    title = ClearTaskInstance
+    description = ClearTaskInstance
+    implements = openapi_server.resourceTypes.ClearTaskInstance
+
+  }
+}

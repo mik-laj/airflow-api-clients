@@ -1,0 +1,30 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server DagState"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a DagState"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  DagState {
+    title = DagState
+    description = DagState
+    derivedFrom = Root
+    properties {
+    }
+  }
+}
+
+serviceTemplates {
+
+  DagState {
+    title = DagState
+    description = DagState
+    implements = openapi_server.resourceTypes.DagState
+
+  }
+}

@@ -1,0 +1,7222 @@
+= Airflow API (Stable)
+dev@airflow.apache.org
+1.0.0
+:toc: left
+:numbered:
+:toclevels: 3
+:source-highlighter: highlightjs
+:keywords: openapi, rest, Airflow API (Stable) 
+:specDir: 
+:snippetDir: 
+:generator-template: v1 2019-12-20
+:info-url: https://airflow.apache.org
+:app-name: Airflow API (Stable)
+
+[abstract]
+.Abstract
+Apache Airflow management API.
+
+
+// markup not found, no include::{specDir}intro.adoc[opts=optional]
+
+
+
+== Endpoints
+
+
+[.Config]
+=== Config
+
+
+[.getConfig]
+==== getConfig
+    
+`GET /config`
+
+Get current configuration
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}config/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| limit 
+| The numbers of items to return.  
+| - 
+| 100 
+|  
+
+| offset 
+| The number of items to skip before starting to collect the result set.  
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<Config>>
+
+
+===== Content Type
+
+* application/json
+* text/plain
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Return current configuration.
+|  <<Config>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}config/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}config/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :config/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}config/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.Connection]
+=== Connection
+
+
+[.createConnection]
+==== createConnection
+    
+`POST /connections`
+
+Create connection entry
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}connections/POST/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+===== Body Parameter
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| Connection 
+|  <<Connection>> 
+| X 
+|  
+|  
+
+|===         
+
+
+
+
+
+===== Return Type
+
+<<Connection>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<Connection>>
+
+
+| 400
+| Client specified an invalid argument.
+|  <<Error>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}connections/POST/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}connections/POST/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :connections/POST/POST.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}connections/POST/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.deleteConnection]
+==== deleteConnection
+    
+`DELETE /connections/{connection_id}`
+
+Delete a connection entry
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}connections/\{connection_id\}/DELETE/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| connection_id 
+| The Connection ID.  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+
+
+===== Return Type
+
+
+
+-
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 204
+| No content.
+|  <<>>
+
+
+| 400
+| Client specified an invalid argument.
+|  <<Error>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}connections/\{connection_id\}/DELETE/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}connections/\{connection_id\}/DELETE/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :connections/{connection_id}/DELETE/DELETE.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}connections/\{connection_id\}/DELETE/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getConnection]
+==== getConnection
+    
+`GET /connections/{connection_id}`
+
+Get a connection entry
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}connections/\{connection_id\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| connection_id 
+| The Connection ID.  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+
+
+===== Return Type
+
+<<Connection>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<Connection>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+
+| 404
+| A specified resource is not found.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}connections/\{connection_id\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}connections/\{connection_id\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :connections/{connection_id}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}connections/\{connection_id\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getConnections]
+==== getConnections
+    
+`GET /connections`
+
+Get all connection entries
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}connections/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| limit 
+| The numbers of items to return.  
+| - 
+| 100 
+|  
+
+| offset 
+| The number of items to skip before starting to collect the result set.  
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<ConnectionCollection>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| List of connection entry.
+|  <<ConnectionCollection>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}connections/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}connections/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :connections/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}connections/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.updateConnection]
+==== updateConnection
+    
+`PATCH /connections/{connection_id}`
+
+Update a connection entry
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}connections/\{connection_id\}/PATCH/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| connection_id 
+| The Connection ID.  
+| X 
+| null 
+|  
+
+|===         
+
+===== Body Parameter
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| Connection 
+|  <<Connection>> 
+| X 
+|  
+|  
+
+|===         
+
+
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| update_mask 
+| The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  <<String>> 
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<Connection>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<Connection>>
+
+
+| 400
+| Client specified an invalid argument.
+|  <<Error>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+
+| 404
+| A specified resource is not found.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}connections/\{connection_id\}/PATCH/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}connections/\{connection_id\}/PATCH/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :connections/{connection_id}/PATCH/PATCH.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}connections/\{connection_id\}/PATCH/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.DAG]
+=== DAG
+
+
+[.clearTaskInstance]
+==== clearTaskInstance
+    
+`POST /dags/{dag_id}/clearTaskInstances`
+
+Clears a set of task instances associated with the DAG for a specified date range.
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/clearTaskInstances/POST/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| dag_id 
+| The DAG ID.  
+| X 
+| null 
+|  
+
+|===         
+
+===== Body Parameter
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| ClearTaskInstance 
+| Parameters of action <<ClearTaskInstance>> 
+| X 
+|  
+|  
+
+|===         
+
+
+
+
+
+===== Return Type
+
+<<TaskInstanceReferenceCollection>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| A list of cleared task references
+|  <<TaskInstanceReferenceCollection>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+
+| 404
+| A specified resource is not found.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/clearTaskInstances/POST/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/clearTaskInstances/POST/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :dags/{dag_id}/clearTaskInstances/POST/POST.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/clearTaskInstances/POST/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getDag]
+==== getDag
+    
+`GET /dags/{dag_id}`
+
+Get basic information about a DAG
+
+===== Description 
+
+Presents only information available in database (DAGModel). If you need detailed information, consider using GET /dags/{dag_id}/detail. 
+
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| dag_id 
+| The DAG ID.  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+
+
+===== Return Type
+
+<<DAG>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<DAG>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+
+| 404
+| A specified resource is not found.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :dags/{dag_id}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getDagDetail]
+==== getDagDetail
+    
+`GET /dags/{dag_id}/details`
+
+Get a simplified representation of DAG.
+
+===== Description 
+
+The response contains many DAG attributes, so the response can be large. If possible, consider using GET /dags/{dag_id}. 
+
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/details/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| dag_id 
+| The DAG ID.  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+
+
+===== Return Type
+
+<<DAGDetail>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<DAGDetail>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+
+| 404
+| A specified resource is not found.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/details/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/details/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :dags/{dag_id}/details/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/details/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getDagSource]
+==== getDagSource
+    
+`GET /dagSources/{file_token}`
+
+Get source code using file token
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}dagSources/\{file_token\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| file_token 
+| The key containing the encrypted path to the file. Encryption and decryption take place only on the server. This prevents the client from reading an non-DAG file. This also ensures API extensibility, because the format of encrypted data may change.   
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+
+
+===== Return Type
+
+<<inline_response_200_1>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<inline_response_200_1>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+
+| 404
+| A specified resource is not found.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}dagSources/\{file_token\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}dagSources/\{file_token\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :dagSources/{file_token}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}dagSources/\{file_token\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getDags]
+==== getDags
+    
+`GET /dags`
+
+Get all DAGs
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}dags/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| limit 
+| The numbers of items to return.  
+| - 
+| 100 
+|  
+
+| offset 
+| The number of items to skip before starting to collect the result set.  
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<DAGCollection>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| List of DAGs.
+|  <<DAGCollection>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}dags/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}dags/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :dags/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}dags/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getTask]
+==== getTask
+    
+`GET /dags/{dag_id}/tasks/{task_id}`
+
+Get simplified representation of a task.
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/tasks/\{task_id\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| dag_id 
+| The DAG ID.  
+| X 
+| null 
+|  
+
+| task_id 
+| The Task ID.  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+
+
+===== Return Type
+
+<<Task>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<Task>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+
+| 404
+| A specified resource is not found.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/tasks/\{task_id\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/tasks/\{task_id\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :dags/{dag_id}/tasks/{task_id}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/tasks/\{task_id\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getTasks]
+==== getTasks
+    
+`GET /dags/{dag_id}/tasks`
+
+Get tasks for DAG
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/tasks/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| dag_id 
+| The DAG ID.  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+
+
+===== Return Type
+
+<<TaskCollection>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<TaskCollection>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+
+| 404
+| A specified resource is not found.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/tasks/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/tasks/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :dags/{dag_id}/tasks/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/tasks/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.updateDag]
+==== updateDag
+    
+`PATCH /dags/{dag_id}`
+
+Update a DAG
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/PATCH/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| dag_id 
+| The DAG ID.  
+| X 
+| null 
+|  
+
+|===         
+
+===== Body Parameter
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| DAG 
+|  <<DAG>> 
+| X 
+|  
+|  
+
+|===         
+
+
+
+
+
+===== Return Type
+
+<<DAG>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<DAG>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+
+| 404
+| A specified resource is not found.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/PATCH/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/PATCH/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :dags/{dag_id}/PATCH/PATCH.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/PATCH/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.DAGRun]
+=== DAGRun
+
+
+[.createDagRun]
+==== createDagRun
+    
+`POST /dags/{dag_id}/dagRuns/{dag_run_id}`
+
+Trigger a DAG Run
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/POST/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| dag_id 
+| The DAG ID.  
+| X 
+| null 
+|  
+
+| dag_run_id 
+| The DAG Run ID.  
+| X 
+| null 
+|  
+
+|===         
+
+===== Body Parameter
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| DAGRun 
+|  <<DAGRun>> 
+| X 
+|  
+|  
+
+|===         
+
+
+
+
+
+===== Return Type
+
+<<DAGRun>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<DAGRun>>
+
+
+| 400
+| Client specified an invalid argument.
+|  <<Error>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 409
+| The resource that a client tried to create already exists.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/POST/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/POST/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :dags/{dag_id}/dagRuns/{dag_run_id}/POST/POST.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/POST/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.deleteDagRun]
+==== deleteDagRun
+    
+`DELETE /dags/{dag_id}/dagRuns/{dag_run_id}`
+
+Delete a DAG Run
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/DELETE/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| dag_id 
+| The DAG ID.  
+| X 
+| null 
+|  
+
+| dag_run_id 
+| The DAG Run ID.  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+
+
+===== Return Type
+
+
+
+-
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 204
+| No content.
+|  <<>>
+
+
+| 400
+| Client specified an invalid argument.
+|  <<Error>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/DELETE/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/DELETE/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :dags/{dag_id}/dagRuns/{dag_run_id}/DELETE/DELETE.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/DELETE/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getDagRun]
+==== getDagRun
+    
+`GET /dags/{dag_id}/dagRuns/{dag_run_id}`
+
+Get a DAG Run
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| dag_id 
+| The DAG ID.  
+| X 
+| null 
+|  
+
+| dag_run_id 
+| The DAG Run ID.  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+
+
+===== Return Type
+
+<<DAGRun>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<DAGRun>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+
+| 404
+| A specified resource is not found.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :dags/{dag_id}/dagRuns/{dag_run_id}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getDagRuns]
+==== getDagRuns
+    
+`GET /dags/{dag_id}/dagRuns`
+
+Get all DAG Runs
+
+===== Description 
+
+This endpoint allows specifying `~` as the dag_id to retrieve DAG Runs for all DAGs. 
+
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| dag_id 
+| The DAG ID.  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| limit 
+| The numbers of items to return.  
+| - 
+| 100 
+|  
+
+| offset 
+| The number of items to skip before starting to collect the result set.  
+| - 
+| null 
+|  
+
+| execution_date_gte 
+| Returns objects greater or equal to the specified date. This can be combined with execution_date_lte parameter to receive only the selected period.   
+| - 
+| null 
+|  
+
+| execution_date_lte 
+| Returns objects less than or equal to the specified date. This can be combined with execution_date_gte parameter to receive only the selected period.   
+| - 
+| null 
+|  
+
+| start_date_gte 
+| Returns objects greater or equal the specified date. This can be combined with startd_ate_lte parameter to receive only the selected period.   
+| - 
+| null 
+|  
+
+| start_date_lte 
+| Returns objects less or equal the specified date. This can be combined with start_date_gte parameter to receive only the selected period.   
+| - 
+| null 
+|  
+
+| end_date_gte 
+| Returns objects greater or equal the specified date. This can be combined with start_date_lte parameter to receive only the selected period.   
+| - 
+| null 
+|  
+
+| end_date_lte 
+| Returns objects less than or equal to the specified date. This can be combined with start_date_gte parameter to receive only the selected period.   
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<DAGRunCollection>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| List of DAG Runs.
+|  <<DAGRunCollection>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :dags/{dag_id}/dagRuns/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getDagRunsBatch]
+==== getDagRunsBatch
+    
+`POST /dags/~/dagRuns/list`
+
+Get all DAG Runs from aall DAGs.
+
+===== Description 
+
+This endpoint is a POST to allow filtering across a large number of DAG IDs, where as a GET it would run in to maximum HTTP request URL lengthlimits 
+
+
+// markup not found, no include::{specDir}dags/~/dagRuns/list/POST/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+===== Body Parameter
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| ListDagRunsForm 
+|  <<ListDagRunsForm>> 
+| X 
+|  
+|  
+
+|===         
+
+
+
+
+
+===== Return Type
+
+<<DAGRunCollection>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| List of DAG Runs.
+|  <<DAGRunCollection>>
+
+
+| 400
+| Client specified an invalid argument.
+|  <<Error>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}dags/~/dagRuns/list/POST/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}dags/~/dagRuns/list/POST/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :dags/~/dagRuns/list/POST/POST.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}dags/~/dagRuns/list/POST/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.updateDagRun]
+==== updateDagRun
+    
+`PATCH /dags/{dag_id}/dagRuns/{dag_run_id}`
+
+Update a DAG Run
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/PATCH/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| dag_id 
+| The DAG ID.  
+| X 
+| null 
+|  
+
+| dag_run_id 
+| The DAG Run ID.  
+| X 
+| null 
+|  
+
+|===         
+
+===== Body Parameter
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| DAGRun 
+|  <<DAGRun>> 
+| X 
+|  
+|  
+
+|===         
+
+
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| update_mask 
+| The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  <<String>> 
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<DAGRun>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<DAGRun>>
+
+
+| 400
+| Client specified an invalid argument.
+|  <<Error>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+
+| 404
+| A specified resource is not found.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/PATCH/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/PATCH/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :dags/{dag_id}/dagRuns/{dag_run_id}/PATCH/PATCH.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/PATCH/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.EventLog]
+=== EventLog
+
+
+[.getEventLog]
+==== getEventLog
+    
+`GET /eventLogs`
+
+Get all log entries from event log
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}eventLogs/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| limit 
+| The numbers of items to return.  
+| - 
+| 100 
+|  
+
+| offset 
+| The number of items to skip before starting to collect the result set.  
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<EventLogCollection>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| List of log entries.
+|  <<EventLogCollection>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}eventLogs/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}eventLogs/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :eventLogs/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}eventLogs/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getEventLogEntry]
+==== getEventLogEntry
+    
+`GET /eventLogs/{event_log_id}`
+
+Get a log entry
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}eventLogs/\{event_log_id\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| event_log_id 
+| The Event Log ID.  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+
+
+===== Return Type
+
+<<EventLog>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<EventLog>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+
+| 404
+| A specified resource is not found.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}eventLogs/\{event_log_id\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}eventLogs/\{event_log_id\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :eventLogs/{event_log_id}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}eventLogs/\{event_log_id\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.ImportError]
+=== ImportError
+
+
+[.deleteImportError]
+==== deleteImportError
+    
+`DELETE /importErrors/{import_error_id}`
+
+Delete an import error
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}importErrors/\{import_error_id\}/DELETE/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| import_error_id 
+| The Import Error ID.  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+
+
+===== Return Type
+
+
+
+-
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 204
+| No content.
+|  <<>>
+
+
+| 400
+| Client specified an invalid argument.
+|  <<Error>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}importErrors/\{import_error_id\}/DELETE/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}importErrors/\{import_error_id\}/DELETE/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :importErrors/{import_error_id}/DELETE/DELETE.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}importErrors/\{import_error_id\}/DELETE/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getImportError]
+==== getImportError
+    
+`GET /importErrors/{import_error_id}`
+
+Get an import error
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}importErrors/\{import_error_id\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| import_error_id 
+| The Import Error ID.  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+
+
+===== Return Type
+
+<<ImportError>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<ImportError>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+
+| 404
+| A specified resource is not found.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}importErrors/\{import_error_id\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}importErrors/\{import_error_id\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :importErrors/{import_error_id}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}importErrors/\{import_error_id\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getImportErrors]
+==== getImportErrors
+    
+`GET /importErrors`
+
+Get all import errors
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}importErrors/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| limit 
+| The numbers of items to return.  
+| - 
+| 100 
+|  
+
+| offset 
+| The number of items to skip before starting to collect the result set.  
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<ImportErrorCollection>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| List of import errors.
+|  <<ImportErrorCollection>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}importErrors/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}importErrors/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :importErrors/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}importErrors/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.Pool]
+=== Pool
+
+
+[.createPool]
+==== createPool
+    
+`POST /pools`
+
+Create a pool
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}pools/POST/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+===== Body Parameter
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| Pool 
+|  <<Pool>> 
+| X 
+|  
+|  
+
+|===         
+
+
+
+
+
+===== Return Type
+
+<<Pool>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<Pool>>
+
+
+| 400
+| Client specified an invalid argument.
+|  <<Error>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}pools/POST/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}pools/POST/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :pools/POST/POST.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}pools/POST/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.deletePool]
+==== deletePool
+    
+`DELETE /pools/{pool_name}`
+
+Delete a pool
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}pools/\{pool_name\}/DELETE/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| pool_name 
+| The Pool name.  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+
+
+===== Return Type
+
+
+
+-
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 204
+| No content.
+|  <<>>
+
+
+| 400
+| Client specified an invalid argument.
+|  <<Error>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}pools/\{pool_name\}/DELETE/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}pools/\{pool_name\}/DELETE/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :pools/{pool_name}/DELETE/DELETE.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}pools/\{pool_name\}/DELETE/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getPool]
+==== getPool
+    
+`GET /pools/{pool_name}`
+
+Get a pool
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}pools/\{pool_name\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| pool_name 
+| The Pool name.  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+
+
+===== Return Type
+
+<<Pool>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<Pool>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+
+| 404
+| A specified resource is not found.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}pools/\{pool_name\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}pools/\{pool_name\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :pools/{pool_name}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}pools/\{pool_name\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getPools]
+==== getPools
+    
+`GET /pools`
+
+Get all pools
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}pools/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| limit 
+| The numbers of items to return.  
+| - 
+| 100 
+|  
+
+| offset 
+| The number of items to skip before starting to collect the result set.  
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<PoolCollection>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| List of pools.
+|  <<PoolCollection>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}pools/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}pools/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :pools/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}pools/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.updatePool]
+==== updatePool
+    
+`PATCH /pools/{pool_name}`
+
+Update a pool
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}pools/\{pool_name\}/PATCH/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| pool_name 
+| The Pool name.  
+| X 
+| null 
+|  
+
+|===         
+
+===== Body Parameter
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| Pool 
+|  <<Pool>> 
+| X 
+|  
+|  
+
+|===         
+
+
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| update_mask 
+| The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  <<String>> 
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<Pool>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<Pool>>
+
+
+| 400
+| Client specified an invalid argument.
+|  <<Error>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+
+| 404
+| A specified resource is not found.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}pools/\{pool_name\}/PATCH/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}pools/\{pool_name\}/PATCH/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :pools/{pool_name}/PATCH/PATCH.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}pools/\{pool_name\}/PATCH/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.TaskInstance]
+=== TaskInstance
+
+
+[.getExtraLinks]
+==== getExtraLinks
+    
+`GET /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/links`
+
+Get extra links for task instance
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/links/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| dag_id 
+| The DAG ID.  
+| X 
+| null 
+|  
+
+| dag_run_id 
+| The DAG Run ID.  
+| X 
+| null 
+|  
+
+| task_id 
+| The Task ID.  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+
+
+===== Return Type
+
+<<ExtraLinkCollection>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<ExtraLinkCollection>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+
+| 404
+| A specified resource is not found.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/links/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/links/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/links/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/links/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getLogs]
+==== getLogs
+    
+`GET /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/logs/{task_try_number}`
+
+Get logs for a task instance
+
+===== Description 
+
+Get logs for a specific task instance and its try number
+
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/logs/\{task_try_number\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| dag_id 
+| The DAG ID.  
+| X 
+| null 
+|  
+
+| dag_run_id 
+| The DAG Run ID.  
+| X 
+| null 
+|  
+
+| task_id 
+| The Task ID.  
+| X 
+| null 
+|  
+
+| task_try_number 
+| The Task Try Number.  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| full_content 
+| A full content will be returned. By default, only the first fragment will be returned.   
+| - 
+| null 
+|  
+
+| token 
+| A token that allows you to continue fetching logs. If passed, it will specify the location from which the download should be continued.   
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<inline_response_200>>
+
+
+===== Content Type
+
+* application/json
+* text/plain
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Content of logs.
+|  <<inline_response_200>>
+
+
+| 400
+| Client specified an invalid argument.
+|  <<Error>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+
+| 404
+| A specified resource is not found.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/logs/\{task_try_number\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/logs/\{task_try_number\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/logs/{task_try_number}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/logs/\{task_try_number\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getTaskInstance]
+==== getTaskInstance
+    
+`GET /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}`
+
+Get a task instance
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| dag_id 
+| The DAG ID.  
+| X 
+| null 
+|  
+
+| dag_run_id 
+| The DAG Run ID.  
+| X 
+| null 
+|  
+
+| task_id 
+| The Task ID.  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+
+
+===== Return Type
+
+<<TaskInstance>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<TaskInstance>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+
+| 404
+| A specified resource is not found.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getTaskInstances]
+==== getTaskInstances
+    
+`GET /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances`
+
+Get a list of task instance of DAG.
+
+===== Description 
+
+This endpoint allows specifying `~` as the dag_id, dag_run_id to retrieve DAG Runs for all DAGs and DAG Runs. 
+
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| dag_id 
+| The DAG ID.  
+| X 
+| null 
+|  
+
+| dag_run_id 
+| The DAG Run ID.  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| execution_date_gte 
+| Returns objects greater or equal to the specified date. This can be combined with execution_date_lte parameter to receive only the selected period.   
+| - 
+| null 
+|  
+
+| execution_date_lte 
+| Returns objects less than or equal to the specified date. This can be combined with execution_date_gte parameter to receive only the selected period.   
+| - 
+| null 
+|  
+
+| start_date_gte 
+| Returns objects greater or equal the specified date. This can be combined with startd_ate_lte parameter to receive only the selected period.   
+| - 
+| null 
+|  
+
+| start_date_lte 
+| Returns objects less or equal the specified date. This can be combined with start_date_gte parameter to receive only the selected period.   
+| - 
+| null 
+|  
+
+| end_date_gte 
+| Returns objects greater or equal the specified date. This can be combined with start_date_lte parameter to receive only the selected period.   
+| - 
+| null 
+|  
+
+| end_date_lte 
+| Returns objects less than or equal to the specified date. This can be combined with start_date_gte parameter to receive only the selected period.   
+| - 
+| null 
+|  
+
+| duration_gte 
+| Returns objects greater than or equal to the specified values. This can be combined with duration_lte parameter to receive only the selected period.   
+| - 
+| null 
+|  
+
+| duration_lte 
+| Returns objects less than or equal to the specified values. This can be combined with duration_gte parameter to receive only the selected range.   
+| - 
+| null 
+|  
+
+| state 
+| The value can be repeated to retrieve multiple matching values (OR condition). <<String>> 
+| - 
+| null 
+|  
+
+| pool 
+| The value can be repeated to retrieve multiple matching values (OR condition). <<String>> 
+| - 
+| null 
+|  
+
+| Queue 
+| The value can be repeated to retrieve multiple matching values (OR condition). <<String>> 
+| - 
+| null 
+|  
+
+| limit 
+| The numbers of items to return.  
+| - 
+| 100 
+|  
+
+| offset 
+| The number of items to skip before starting to collect the result set.  
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<TaskInstanceCollection>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| List of task instances.
+|  <<TaskInstanceCollection>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getTaskInstancesBatch]
+==== getTaskInstancesBatch
+    
+`POST /dags/~/dagRuns/~/taskInstances/list`
+
+Get list of task instances from all DAGs and DAG Runs.
+
+===== Description 
+
+This endpoint is a POST to allow filtering across a large number of DAG IDs, where as a GET it would run in to maximum HTTP request URL lengthlimits 
+
+
+// markup not found, no include::{specDir}dags/~/dagRuns/~/taskInstances/list/POST/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+===== Body Parameter
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| ListTaskInstanceForm 
+|  <<ListTaskInstanceForm>> 
+| X 
+|  
+|  
+
+|===         
+
+
+
+
+
+===== Return Type
+
+<<TaskInstanceCollection>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| List of task instances.
+|  <<TaskInstanceCollection>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+
+| 404
+| A specified resource is not found.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}dags/~/dagRuns/~/taskInstances/list/POST/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}dags/~/dagRuns/~/taskInstances/list/POST/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :dags/~/dagRuns/~/taskInstances/list/POST/POST.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}dags/~/dagRuns/~/taskInstances/list/POST/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.Variable]
+=== Variable
+
+
+[.createVariable]
+==== createVariable
+    
+`POST /variables`
+
+Create a variable
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}variables/POST/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+===== Body Parameter
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| Variable 
+|  <<Variable>> 
+| X 
+|  
+|  
+
+|===         
+
+
+
+
+
+===== Return Type
+
+<<Variable>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<Variable>>
+
+
+| 400
+| Client specified an invalid argument.
+|  <<Error>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}variables/POST/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}variables/POST/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :variables/POST/POST.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}variables/POST/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.deleteVariable]
+==== deleteVariable
+    
+`DELETE /variables/{variable_key}`
+
+Delete variable
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}variables/\{variable_key\}/DELETE/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| variable_key 
+| The Variable Key.  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+
+
+===== Return Type
+
+
+
+-
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 204
+| No content.
+|  <<>>
+
+
+| 400
+| Client specified an invalid argument.
+|  <<Error>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}variables/\{variable_key\}/DELETE/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}variables/\{variable_key\}/DELETE/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :variables/{variable_key}/DELETE/DELETE.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}variables/\{variable_key\}/DELETE/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getVariable]
+==== getVariable
+    
+`GET /variables/{variable_key}`
+
+Get a variable by key
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}variables/\{variable_key\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| variable_key 
+| The Variable Key.  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+
+
+===== Return Type
+
+<<Variable>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<Variable>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+
+| 404
+| A specified resource is not found.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}variables/\{variable_key\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}variables/\{variable_key\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :variables/{variable_key}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}variables/\{variable_key\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getVariables]
+==== getVariables
+    
+`GET /variables`
+
+Get all variables
+
+===== Description 
+
+The collection does not contain data. To get data, you must get a single entity.
+
+
+// markup not found, no include::{specDir}variables/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| limit 
+| The numbers of items to return.  
+| - 
+| 100 
+|  
+
+| offset 
+| The number of items to skip before starting to collect the result set.  
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<VariableCollection>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| List of variables.
+|  <<VariableCollection>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}variables/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}variables/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :variables/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}variables/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.updateVariable]
+==== updateVariable
+    
+`PATCH /variables/{variable_key}`
+
+Update a variable by key
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}variables/\{variable_key\}/PATCH/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| variable_key 
+| The Variable Key.  
+| X 
+| null 
+|  
+
+|===         
+
+===== Body Parameter
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| Variable 
+|  <<Variable>> 
+| X 
+|  
+|  
+
+|===         
+
+
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| update_mask 
+| The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  <<String>> 
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<Variable>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<Variable>>
+
+
+| 400
+| Client specified an invalid argument.
+|  <<Error>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+
+| 404
+| A specified resource is not found.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}variables/\{variable_key\}/PATCH/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}variables/\{variable_key\}/PATCH/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :variables/{variable_key}/PATCH/PATCH.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}variables/\{variable_key\}/PATCH/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.XCom]
+=== XCom
+
+
+[.deleteXComValue]
+==== deleteXComValue
+    
+`DELETE /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}`
+
+Delete an XCom entry
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/xcomEntries/\{key\}/DELETE/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| dag_id 
+| The DAG ID.  
+| X 
+| null 
+|  
+
+| dag_run_id 
+| The DAG Run ID.  
+| X 
+| null 
+|  
+
+| task_id 
+| The Task ID.  
+| X 
+| null 
+|  
+
+| key 
+| The XCom Key.  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+
+
+===== Return Type
+
+
+
+-
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 204
+| No content.
+|  <<>>
+
+
+| 400
+| Client specified an invalid argument.
+|  <<Error>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/xcomEntries/\{key\}/DELETE/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/xcomEntries/\{key\}/DELETE/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}/DELETE/DELETE.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/xcomEntries/\{key\}/DELETE/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getXComEntry]
+==== getXComEntry
+    
+`GET /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries`
+
+Get all XCom entries
+
+===== Description 
+
+This endpoint allows specifying `~` as the dag_id, dag_run_id, task_id to retrieve XCOM entries for for all DAGs, DAG Runs and task instances.
+
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/xcomEntries/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| dag_id 
+| The DAG ID.  
+| X 
+| null 
+|  
+
+| dag_run_id 
+| The DAG Run ID.  
+| X 
+| null 
+|  
+
+| task_id 
+| The Task ID.  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| limit 
+| The numbers of items to return.  
+| - 
+| 100 
+|  
+
+| offset 
+| The number of items to skip before starting to collect the result set.  
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<XComCollection>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| List of XCom entries.
+|  <<XComCollection>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/xcomEntries/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/xcomEntries/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/xcomEntries/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getXComValue]
+==== getXComValue
+    
+`GET /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}`
+
+Get an XCom entry
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/xcomEntries/\{key\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| dag_id 
+| The DAG ID.  
+| X 
+| null 
+|  
+
+| dag_run_id 
+| The DAG Run ID.  
+| X 
+| null 
+|  
+
+| task_id 
+| The Task ID.  
+| X 
+| null 
+|  
+
+| key 
+| The XCom Key.  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+
+
+===== Return Type
+
+<<XCom>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<XCom>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+
+| 404
+| A specified resource is not found.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/xcomEntries/\{key\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/xcomEntries/\{key\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/xcomEntries/\{key\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.updateXComEntry]
+==== updateXComEntry
+    
+`POST /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries`
+
+Create an XCom entry
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/xcomEntries/POST/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| dag_id 
+| The DAG ID.  
+| X 
+| null 
+|  
+
+| dag_run_id 
+| The DAG Run ID.  
+| X 
+| null 
+|  
+
+| task_id 
+| The Task ID.  
+| X 
+| null 
+|  
+
+|===         
+
+===== Body Parameter
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| XCom 
+|  <<XCom>> 
+| X 
+|  
+|  
+
+|===         
+
+
+
+
+
+===== Return Type
+
+<<XCom>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<XCom>>
+
+
+| 400
+| Client specified an invalid argument.
+|  <<Error>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/xcomEntries/POST/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/xcomEntries/POST/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/POST/POST.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/xcomEntries/POST/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.updateXComValue]
+==== updateXComValue
+    
+`PATCH /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}`
+
+Update an XCom entry
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/xcomEntries/\{key\}/PATCH/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| dag_id 
+| The DAG ID.  
+| X 
+| null 
+|  
+
+| dag_run_id 
+| The DAG Run ID.  
+| X 
+| null 
+|  
+
+| task_id 
+| The Task ID.  
+| X 
+| null 
+|  
+
+| key 
+| The XCom Key.  
+| X 
+| null 
+|  
+
+|===         
+
+===== Body Parameter
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| XCom 
+|  <<XCom>> 
+| X 
+|  
+|  
+
+|===         
+
+
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| update_mask 
+| The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  <<String>> 
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<XCom>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successful response.
+|  <<XCom>>
+
+
+| 400
+| Client specified an invalid argument.
+|  <<Error>>
+
+
+| 401
+| Request not authenticated due to missing, invalid, authentication info.
+|  <<Error>>
+
+
+| 403
+| Client does not have sufficient permission.
+|  <<Error>>
+
+
+| 404
+| A specified resource is not found.
+|  <<Error>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/xcomEntries/\{key\}/PATCH/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/xcomEntries/\{key\}/PATCH/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}/PATCH/PATCH.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}dags/\{dag_id\}/dagRuns/\{dag_run_id\}/taskInstances/\{task_id\}/xcomEntries/\{key\}/PATCH/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[#models]
+== Models
+
+
+[#ClassReference]
+=== _ClassReference_ 
+
+
+
+[.fields-ClassReference]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| module_path 
+|  
+| String  
+| 
+|  
+
+| class_name 
+|  
+| String  
+| 
+|  
+
+|===
+
+
+[#ClearTaskInstance]
+=== _ClearTaskInstance_ 
+
+
+
+[.fields-ClearTaskInstance]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| dry_run 
+|  
+| Boolean  
+| If set, don&#39;t actually run this operation. The response will contain a list of task instances planned to be cleaned, but not modified in any way. 
+|  
+
+| start_date 
+|  
+| String  
+| The minimum execution date to clear.
+| datetime 
+
+| end_date 
+|  
+| String  
+| The maximum execution date to clear.
+| datetime 
+
+| only_failed 
+|  
+| String  
+| Only clear failed tasks.
+| datetime 
+
+| only_running 
+|  
+| String  
+| Only clear running tasks.
+| datetime 
+
+| include_subdags 
+|  
+| Boolean  
+| Clear tasks in subdags and clear external tasks indicated by ExternalTaskMarker.
+|  
+
+| include_parentdag 
+|  
+| Boolean  
+| Clear tasks in the parent dag of the subdag.
+|  
+
+| reset_dag_runs 
+|  
+| Boolean  
+| Set state of DAG Runs to RUNNING.
+|  
+
+|===
+
+
+[#CollectionInfo]
+=== _CollectionInfo_ 
+
+
+
+[.fields-CollectionInfo]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| total_entries 
+|  
+| Integer  
+| 
+|  
+
+|===
+
+
+[#Config]
+=== _Config_ 
+
+
+
+[.fields-Config]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| sections 
+|  
+| List  of <<ConfigSection>> 
+| 
+|  
+
+|===
+
+
+[#ConfigOption]
+=== _ConfigOption_ 
+
+
+
+[.fields-ConfigOption]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| key 
+|  
+| String  
+| 
+|  
+
+| value 
+|  
+| String  
+| 
+|  
+
+|===
+
+
+[#ConfigSection]
+=== _ConfigSection_ 
+
+
+
+[.fields-ConfigSection]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| name 
+|  
+| String  
+| 
+|  
+
+| options 
+|  
+| List  of <<ConfigOption>> 
+| 
+|  
+
+|===
+
+
+[#Connection]
+=== _Connection_ 
+
+
+
+[.fields-Connection]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| connection_id 
+|  
+| String  
+| 
+|  
+
+| conn_type 
+|  
+| String  
+| 
+|  
+
+| host 
+|  
+| String  
+| 
+|  
+
+| login 
+|  
+| String  
+| 
+|  
+
+| schema 
+|  
+| String  
+| 
+|  
+
+| port 
+|  
+| Integer  
+| 
+|  
+
+| password 
+|  
+| String  
+| 
+| password 
+
+| extra 
+|  
+| String  
+| 
+|  
+
+|===
+
+
+[#ConnectionAllOf]
+=== _ConnectionAllOf_ 
+
+
+
+[.fields-ConnectionAllOf]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| password 
+|  
+| String  
+| 
+| password 
+
+| extra 
+|  
+| String  
+| 
+|  
+
+|===
+
+
+[#ConnectionCollection]
+=== _ConnectionCollection_ 
+
+
+
+[.fields-ConnectionCollection]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| connections 
+|  
+| List  of <<ConnectionCollectionItem>> 
+| 
+|  
+
+|===
+
+
+[#ConnectionCollectionItem]
+=== _ConnectionCollectionItem_ 
+
+
+
+[.fields-ConnectionCollectionItem]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| connection_id 
+|  
+| String  
+| 
+|  
+
+| conn_type 
+|  
+| String  
+| 
+|  
+
+| host 
+|  
+| String  
+| 
+|  
+
+| login 
+|  
+| String  
+| 
+|  
+
+| schema 
+|  
+| String  
+| 
+|  
+
+| port 
+|  
+| Integer  
+| 
+|  
+
+|===
+
+
+[#CronExpression]
+=== _CronExpression_ 
+
+
+
+[.fields-CronExpression]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| __type 
+| X 
+| String  
+| 
+|  
+
+| value 
+|  
+| String  
+| 
+|  
+
+|===
+
+
+[#DAG]
+=== _DAG_ 
+
+
+
+[.fields-DAG]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| dag_id 
+|  
+| String  
+| 
+|  
+
+| root_dag_id 
+|  
+| String  
+| 
+|  
+
+| is_paused 
+|  
+| Boolean  
+| 
+|  
+
+| is_subdag 
+|  
+| Boolean  
+| 
+|  
+
+| fileloc 
+|  
+| String  
+| 
+|  
+
+| file_token 
+|  
+| String  
+| The key containing the encrypted path to the file. Encryption and decryption take place only on the server. This prevents the client from reading an non-DAG file. This also ensures API extensibility, because the format of encrypted data may change. 
+|  
+
+| owners 
+|  
+| List  of <<string>> 
+| 
+|  
+
+| description 
+|  
+| String  
+| 
+|  
+
+| schedule_interval 
+|  
+| oneOf&lt;ScheduleInterval&gt;  
+| 
+|  
+
+| tags 
+|  
+| List  of <<Tag>> 
+| 
+|  
+
+|===
+
+
+[#DAGCollection]
+=== _DAGCollection_ 
+
+
+
+[.fields-DAGCollection]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| dags 
+|  
+| List  of <<DAG>> 
+| 
+|  
+
+|===
+
+
+[#DAGDetail]
+=== _DAGDetail_ 
+
+
+
+[.fields-DAGDetail]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| dag_id 
+|  
+| String  
+| 
+|  
+
+| root_dag_id 
+|  
+| String  
+| 
+|  
+
+| is_paused 
+|  
+| Boolean  
+| 
+|  
+
+| is_subdag 
+|  
+| Boolean  
+| 
+|  
+
+| fileloc 
+|  
+| String  
+| 
+|  
+
+| file_token 
+|  
+| String  
+| The key containing the encrypted path to the file. Encryption and decryption take place only on the server. This prevents the client from reading an non-DAG file. This also ensures API extensibility, because the format of encrypted data may change. 
+|  
+
+| owners 
+|  
+| List  of <<string>> 
+| 
+|  
+
+| description 
+|  
+| String  
+| 
+|  
+
+| schedule_interval 
+|  
+| oneOf&lt;ScheduleInterval&gt;  
+| 
+|  
+
+| tags 
+|  
+| List  of <<Tag>> 
+| 
+|  
+
+| timezone 
+|  
+| String  
+| 
+|  
+
+| catchup 
+|  
+| Boolean  
+| 
+|  
+
+| orientation 
+|  
+| String  
+| 
+|  
+
+| concurrency 
+|  
+| BigDecimal  
+| 
+|  
+
+| start_date 
+|  
+| Date  
+| 
+| date-time 
+
+| dag_run_timeout 
+|  
+| TimeDelta  
+| 
+|  
+
+| doc_md 
+|  
+| String  
+| 
+|  
+
+| default_view 
+|  
+| String  
+| 
+|  
+
+|===
+
+
+[#DAGDetailAllOf]
+=== _DAGDetailAllOf_ 
+
+
+
+[.fields-DAGDetailAllOf]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| timezone 
+|  
+| String  
+| 
+|  
+
+| catchup 
+|  
+| Boolean  
+| 
+|  
+
+| orientation 
+|  
+| String  
+| 
+|  
+
+| concurrency 
+|  
+| BigDecimal  
+| 
+|  
+
+| start_date 
+|  
+| Date  
+| 
+| date-time 
+
+| dag_run_timeout 
+|  
+| TimeDelta  
+| 
+|  
+
+| doc_md 
+|  
+| String  
+| 
+|  
+
+| default_view 
+|  
+| String  
+| 
+|  
+
+|===
+
+
+[#DAGRun]
+=== _DAGRun_ 
+
+
+
+[.fields-DAGRun]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| dag_run_id 
+|  
+| String  
+| Run ID. The value of this field can be set only when creating the object. If you try to modify the field of an existing object, the request fails with an BAD_REQUEST error. If not provided, a value will be generated based on execution_date. If the specified dag_run_id is in use, the creation request fails with an ALREADY_EXISTS error. This together with DAG_ID are a unique key. 
+|  
+
+| dag_id 
+| X 
+| String  
+| 
+|  
+
+| execution_date 
+|  
+| Date  
+| The execution date. This is the time when the DAG run should be started according to the DAG definition. The value of this field can be set only when creating the object. If you try to modify the field of an existing object, the request fails with an BAD_REQUEST error. This together with DAG_ID are a unique key. 
+| date-time 
+
+| start_date 
+|  
+| Date  
+| The start time. The time when DAG Run was actually created.. 
+| date-time 
+
+| end_date 
+|  
+| Date  
+| 
+| date-time 
+
+| state 
+|  
+| DagState  
+| 
+|  
+
+| external_trigger 
+|  
+| Boolean  
+| 
+|  
+
+| conf 
+|  
+| String  
+| JSON object describing additional configuration parameters. The value of this field can be set only when creating the object. If you try to modify the field of an existing object, the request fails with an BAD_REQUEST error. 
+|  
+
+|===
+
+
+[#DAGRunCollection]
+=== _DAGRunCollection_ 
+
+
+
+[.fields-DAGRunCollection]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| dag_runs 
+|  
+| List  of <<DAGRun>> 
+| 
+|  
+
+|===
+
+
+[#DagState]
+=== _DagState_ 
+
+
+
+[.fields-DagState]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+|===
+
+
+[#Error]
+=== _Error_ 
+
+[RFC7807](https://tools.ietf.org/html/rfc7807) compliant response
+
+
+[.fields-Error]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| type 
+| X 
+| String  
+| A URI reference [RFC3986] that identifies the problem type. This specification encourages that, when dereferenced, it provide human-readable documentation for the problem type. 
+|  
+
+| title 
+| X 
+| String  
+| A short, human-readable summary of the problem  type.
+|  
+
+| status 
+| X 
+| BigDecimal  
+| The HTTP status code generated by the API server for this occurrence of the problem.
+|  
+
+| details 
+|  
+| String  
+| A human-readable explanation specific to this occurrence of the problem.
+|  
+
+| instance 
+|  
+| String  
+| A URI reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced. 
+|  
+
+|===
+
+
+[#EventLog]
+=== _EventLog_ 
+
+
+
+[.fields-EventLog]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| event_log_id 
+|  
+| Integer  
+| 
+|  
+
+| when 
+|  
+| String  
+| 
+|  
+
+| dag_id 
+|  
+| String  
+| 
+|  
+
+| task_id 
+|  
+| String  
+| 
+|  
+
+| event 
+|  
+| String  
+| 
+|  
+
+| execution_date 
+|  
+| String  
+| 
+|  
+
+| owner 
+|  
+| String  
+| 
+|  
+
+| extra 
+|  
+| String  
+| 
+|  
+
+|===
+
+
+[#EventLogCollection]
+=== _EventLogCollection_ 
+
+
+
+[.fields-EventLogCollection]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| event_logs 
+|  
+| List  of <<EventLog>> 
+| 
+|  
+
+|===
+
+
+[#ExtraLink]
+=== _ExtraLink_ 
+
+
+
+[.fields-ExtraLink]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| class_ref 
+|  
+| ClassReference  
+| 
+|  
+
+| name 
+|  
+| String  
+| 
+|  
+
+| href 
+|  
+| String  
+| 
+|  
+
+|===
+
+
+[#ExtraLinkCollection]
+=== _ExtraLinkCollection_ 
+
+
+
+[.fields-ExtraLinkCollection]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| extra_links 
+|  
+| List  of <<ExtraLink>> 
+| 
+|  
+
+|===
+
+
+[#ImportError]
+=== _ImportError_ 
+
+
+
+[.fields-ImportError]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| import_error_id 
+|  
+| Integer  
+| 
+|  
+
+| timestamp 
+|  
+| String  
+| 
+| datetime 
+
+| filename 
+|  
+| String  
+| 
+|  
+
+| stack_trace 
+|  
+| String  
+| 
+|  
+
+|===
+
+
+[#ImportErrorCollection]
+=== _ImportErrorCollection_ 
+
+
+
+[.fields-ImportErrorCollection]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| import_errors 
+|  
+| List  of <<ImportError>> 
+| 
+|  
+
+|===
+
+
+[#InlineResponse200]
+=== _InlineResponse200_ 
+
+
+
+[.fields-InlineResponse200]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| continuation_token 
+|  
+| String  
+| 
+|  
+
+| content 
+|  
+| String  
+| 
+|  
+
+|===
+
+
+[#InlineResponse2001]
+=== _InlineResponse2001_ 
+
+
+
+[.fields-InlineResponse2001]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| content 
+|  
+| String  
+| 
+|  
+
+|===
+
+
+[#ListDagRunsForm]
+=== _ListDagRunsForm_ 
+
+
+
+[.fields-ListDagRunsForm]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| page_offset 
+|  
+| Integer  
+| The number of items to skip before starting to collect the result set.
+|  
+
+| page_limit 
+|  
+| Integer  
+| The numbers of items to return.
+|  
+
+| dag_ids 
+|  
+| List  of <<string>> 
+| Return objects with specific DAG IDs. The value can be repeated to retrieve multiple matching values (OR condition).
+|  
+
+| execution_date_gte 
+|  
+| Date  
+| Returns objects greater or equal to the specified date. This can be combined with execution_date_lte key to receive only the selected period. 
+| date-time 
+
+| execution_date_lte 
+|  
+| Date  
+| Returns objects less than or equal to the specified date. This can be combined with execution_date_gte key to receive only the selected period. 
+| date-time 
+
+| start_date_gte 
+|  
+| Date  
+| Returns objects greater or equal the specified date. This can be combined with start_date_lte key to receive only the selected period. 
+| date-time 
+
+| start_date_lte 
+|  
+| Date  
+| Returns objects less or equal the specified date. This can be combined with start_date_gte parameter to receive only the selected period 
+| date-time 
+
+| end_date_gte 
+|  
+| Date  
+| Returns objects greater or equal the specified date. This can be combined with end_date_lte parameter to receive only the selected period. 
+| date-time 
+
+| end_date_lte 
+|  
+| Date  
+| Returns objects less than or equal to the specified date. This can be combined with end_date_gte parameter to receive only the selected period. 
+| date-time 
+
+|===
+
+
+[#ListTaskInstanceForm]
+=== _ListTaskInstanceForm_ 
+
+
+
+[.fields-ListTaskInstanceForm]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| dag_ids 
+|  
+| List  of <<string>> 
+| Return objects with specific DAG IDs. The value can be repeated to retrieve multiple matching values (OR condition).
+|  
+
+| execution_date_gte 
+|  
+| Date  
+| Returns objects greater or equal to the specified date. This can be combined with execution_date_lte parameter to receive only the selected period. 
+| date-time 
+
+| execution_date_lte 
+|  
+| Date  
+| Returns objects less than or equal to the specified date. This can be combined with execution_date_gte parameter to receive only the selected period. 
+| date-time 
+
+| start_date_gte 
+|  
+| Date  
+| Returns objects greater or equal the specified date. This can be combined with startd_ate_lte parameter to receive only the selected period. 
+| date-time 
+
+| start_date_lte 
+|  
+| Date  
+| Returns objects less or equal the specified date. This can be combined with start_date_gte parameter to receive only the selected period. 
+| date-time 
+
+| end_date_gte 
+|  
+| Date  
+| Returns objects greater or equal the specified date. This can be combined with start_date_lte parameter to receive only the selected period. 
+| date-time 
+
+| end_date_lte 
+|  
+| Date  
+| Returns objects less than or equal to the specified date. This can be combined with start_date_gte parameter to receive only the selected period. 
+| date-time 
+
+| duration_gte 
+|  
+| BigDecimal  
+| Returns objects greater than or equal to the specified values. This can be combined with duration_lte parameter to receive only the selected period. 
+|  
+
+| duration_lte 
+|  
+| BigDecimal  
+| Returns objects less than or equal to the specified values. This can be combined with duration_gte parameter to receive only the selected range. 
+|  
+
+| State 
+|  
+| List  of <<string>> 
+| The value can be repeated to retrieve multiple matching values (OR condition).
+|  
+
+| Pool 
+|  
+| List  of <<string>> 
+| The value can be repeated to retrieve multiple matching values (OR condition).
+|  
+
+| Queue 
+|  
+| List  of <<string>> 
+| The value can be repeated to retrieve multiple matching values (OR condition).
+|  
+
+|===
+
+
+[#Pool]
+=== _Pool_ 
+
+
+
+[.fields-Pool]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| name 
+|  
+| String  
+| 
+|  
+
+| slots 
+|  
+| Integer  
+| 
+|  
+
+| occupied_slots 
+|  
+| Integer  
+| 
+|  
+
+| used_slots 
+|  
+| Integer  
+| 
+|  
+
+| queued_slots 
+|  
+| Integer  
+| 
+|  
+
+| open_slots 
+|  
+| Integer  
+| 
+|  
+
+|===
+
+
+[#PoolCollection]
+=== _PoolCollection_ 
+
+
+
+[.fields-PoolCollection]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| pools 
+|  
+| List  of <<Pool>> 
+| 
+|  
+
+|===
+
+
+[#RelativeDelta]
+=== _RelativeDelta_ 
+
+
+
+[.fields-RelativeDelta]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| __type 
+| X 
+| String  
+| 
+|  
+
+| years 
+|  
+| Integer  
+| 
+|  
+
+| months 
+|  
+| Integer  
+| 
+|  
+
+| days 
+|  
+| Integer  
+| 
+|  
+
+| leapdays 
+|  
+| Integer  
+| 
+|  
+
+| hours 
+|  
+| Integer  
+| 
+|  
+
+| minutes 
+|  
+| Integer  
+| 
+|  
+
+| seconds 
+|  
+| Integer  
+| 
+|  
+
+| microseconds 
+|  
+| Integer  
+| 
+|  
+
+| year 
+|  
+| Integer  
+| 
+|  
+
+| month 
+|  
+| Integer  
+| 
+|  
+
+| day 
+|  
+| Integer  
+| 
+|  
+
+| hour 
+|  
+| Integer  
+| 
+|  
+
+| minute 
+|  
+| Integer  
+| 
+|  
+
+| second 
+|  
+| Integer  
+| 
+|  
+
+| microsecond 
+|  
+| Integer  
+| 
+|  
+
+|===
+
+
+[#SLAMiss]
+=== _SLAMiss_ 
+
+
+
+[.fields-SLAMiss]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| task_id 
+|  
+| String  
+| 
+|  
+
+| dag_id 
+|  
+| String  
+| 
+|  
+
+| execution_date 
+|  
+| String  
+| 
+| datetime 
+
+| email_sent 
+|  
+| Boolean  
+| 
+|  
+
+| timestamp 
+|  
+| String  
+| 
+| datetime 
+
+| description 
+|  
+| String  
+| 
+|  
+
+| notification_sent 
+|  
+| Boolean  
+| 
+|  
+
+|===
+
+
+[#SLAMissCollection]
+=== _SLAMissCollection_ 
+
+
+
+[.fields-SLAMissCollection]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| sla_misses 
+|  
+| List  of <<SLAMiss>> 
+| 
+|  
+
+|===
+
+
+[#ScheduleInterval]
+=== _ScheduleInterval_ 
+
+
+
+[.fields-ScheduleInterval]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| __type 
+| X 
+| String  
+| 
+|  
+
+| days 
+|  
+| Integer  
+| 
+|  
+
+| seconds 
+|  
+| Integer  
+| 
+|  
+
+| microsecond 
+|  
+| Integer  
+| 
+|  
+
+| years 
+|  
+| Integer  
+| 
+|  
+
+| months 
+|  
+| Integer  
+| 
+|  
+
+| leapdays 
+|  
+| Integer  
+| 
+|  
+
+| hours 
+|  
+| Integer  
+| 
+|  
+
+| minutes 
+|  
+| Integer  
+| 
+|  
+
+| microseconds 
+|  
+| Integer  
+| 
+|  
+
+| year 
+|  
+| Integer  
+| 
+|  
+
+| month 
+|  
+| Integer  
+| 
+|  
+
+| day 
+|  
+| Integer  
+| 
+|  
+
+| hour 
+|  
+| Integer  
+| 
+|  
+
+| minute 
+|  
+| Integer  
+| 
+|  
+
+| second 
+|  
+| Integer  
+| 
+|  
+
+| value 
+|  
+| String  
+| 
+|  
+
+|===
+
+
+[#Tag]
+=== _Tag_ 
+
+
+
+[.fields-Tag]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| name 
+|  
+| String  
+| 
+|  
+
+|===
+
+
+[#Task]
+=== _Task_ 
+
+
+
+[.fields-Task]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| class_ref 
+|  
+| ClassReference  
+| 
+|  
+
+| task_id 
+|  
+| String  
+| 
+|  
+
+| owner 
+|  
+| String  
+| 
+|  
+
+| start_date 
+|  
+| Date  
+| 
+| date-time 
+
+| end_date 
+|  
+| Date  
+| 
+| date-time 
+
+| trigger_rule 
+|  
+| TriggerRule  
+| 
+|  
+
+| extra_links 
+|  
+| List  of <<Task_extra_links>> 
+| 
+|  
+
+| depends_on_past 
+|  
+| Boolean  
+| 
+|  
+
+| wait_for_downstream 
+|  
+| Boolean  
+| 
+|  
+
+| retries 
+|  
+| BigDecimal  
+| 
+|  
+
+| queue 
+|  
+| String  
+| 
+|  
+
+| pool 
+|  
+| String  
+| 
+|  
+
+| pool_slots 
+|  
+| BigDecimal  
+| 
+|  
+
+| execution_timeout 
+|  
+| TimeDelta  
+| 
+|  
+
+| retry_delay 
+|  
+| TimeDelta  
+| 
+|  
+
+| retry_exponential_backoff 
+|  
+| Boolean  
+| 
+|  
+
+| priority_weight 
+|  
+| BigDecimal  
+| 
+|  
+
+| weight_rule 
+|  
+| WeightRule  
+| 
+|  
+
+| ui_color 
+|  
+| String  
+| 
+|  
+
+| ui_fgcolor 
+|  
+| String  
+| 
+|  
+
+| template_fields 
+|  
+| List  of <<string>> 
+| 
+|  
+
+| sub_dag 
+|  
+| DAG  
+| 
+|  
+
+| downstream_task_ids 
+|  
+| List  of <<string>> 
+| 
+|  
+
+|===
+
+
+[#TaskCollection]
+=== _TaskCollection_ 
+
+
+
+[.fields-TaskCollection]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| tasks 
+|  
+| List  of <<Task>> 
+| 
+|  
+
+|===
+
+
+[#TaskExtraLinks]
+=== _TaskExtraLinks_ 
+
+
+
+[.fields-TaskExtraLinks]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| class_ref 
+|  
+| ClassReference  
+| 
+|  
+
+|===
+
+
+[#TaskFail]
+=== _TaskFail_ 
+
+
+
+[.fields-TaskFail]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| task_id 
+|  
+| String  
+| 
+|  
+
+| dag_id 
+|  
+| String  
+| 
+|  
+
+| execution_date 
+|  
+| String  
+| 
+| datetime 
+
+| start_date 
+|  
+| String  
+| 
+| datetime 
+
+| end_date 
+|  
+| String  
+| 
+| datetime 
+
+| duration 
+|  
+| Integer  
+| 
+|  
+
+|===
+
+
+[#TaskInstance]
+=== _TaskInstance_ 
+
+
+
+[.fields-TaskInstance]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| task_id 
+|  
+| String  
+| 
+|  
+
+| dag_id 
+|  
+| String  
+| 
+|  
+
+| execution_date 
+|  
+| String  
+| 
+| datetime 
+
+| start_date 
+|  
+| String  
+| 
+| datetime 
+
+| end_date 
+|  
+| String  
+| 
+| datetime 
+
+| duration 
+|  
+| BigDecimal  
+| 
+|  
+
+| state 
+|  
+| TaskState  
+| 
+|  
+
+| try_number 
+|  
+| Integer  
+| 
+|  
+
+| max_tries 
+|  
+| Integer  
+| 
+|  
+
+| hostname 
+|  
+| String  
+| 
+|  
+
+| unixname 
+|  
+| String  
+| 
+|  
+
+| pool 
+|  
+| String  
+| 
+|  
+
+| pool_slots 
+|  
+| Integer  
+| 
+|  
+
+| queue 
+|  
+| String  
+| 
+|  
+
+| priority_weight 
+|  
+| Integer  
+| 
+|  
+
+| operator 
+|  
+| String  
+| 
+|  
+
+| queued_when 
+|  
+| String  
+| 
+|  
+
+| pid 
+|  
+| Integer  
+| 
+|  
+
+| executor_config 
+|  
+| String  
+| 
+|  
+
+| sla_miss 
+|  
+| SLAMiss  
+| 
+|  
+
+|===
+
+
+[#TaskInstanceCollection]
+=== _TaskInstanceCollection_ 
+
+
+
+[.fields-TaskInstanceCollection]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| task_instances 
+|  
+| List  of <<TaskInstance>> 
+| 
+|  
+
+|===
+
+
+[#TaskInstanceReference]
+=== _TaskInstanceReference_ 
+
+
+
+[.fields-TaskInstanceReference]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| task_id 
+|  
+| String  
+| 
+|  
+
+| dag_id 
+|  
+| String  
+| 
+|  
+
+| execution_date 
+|  
+| String  
+| 
+| datetime 
+
+| dag_run_id 
+|  
+| String  
+| 
+|  
+
+|===
+
+
+[#TaskInstanceReferenceCollection]
+=== _TaskInstanceReferenceCollection_ 
+
+
+
+[.fields-TaskInstanceReferenceCollection]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| task_instances 
+|  
+| List  of <<TaskInstanceReference>> 
+| 
+|  
+
+|===
+
+
+[#TaskState]
+=== _TaskState_ 
+
+
+
+[.fields-TaskState]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+|===
+
+
+[#TimeDelta]
+=== _TimeDelta_ 
+
+
+
+[.fields-TimeDelta]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| __type 
+| X 
+| String  
+| 
+|  
+
+| days 
+|  
+| Integer  
+| 
+|  
+
+| seconds 
+|  
+| Integer  
+| 
+|  
+
+| microsecond 
+|  
+| Integer  
+| 
+|  
+
+|===
+
+
+[#TriggerRule]
+=== _TriggerRule_ 
+
+
+
+[.fields-TriggerRule]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+|===
+
+
+[#Variable]
+=== _Variable_ 
+
+
+
+[.fields-Variable]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| key 
+|  
+| String  
+| 
+|  
+
+| value 
+|  
+| String  
+| 
+|  
+
+|===
+
+
+[#VariableAllOf]
+=== _VariableAllOf_ 
+
+
+
+[.fields-VariableAllOf]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| value 
+|  
+| String  
+| 
+|  
+
+|===
+
+
+[#VariableCollection]
+=== _VariableCollection_ 
+
+
+
+[.fields-VariableCollection]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| variables 
+|  
+| List  of <<VariableCollectionItem>> 
+| 
+|  
+
+|===
+
+
+[#VariableCollectionItem]
+=== _VariableCollectionItem_ 
+
+
+
+[.fields-VariableCollectionItem]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| key 
+|  
+| String  
+| 
+|  
+
+|===
+
+
+[#WeightRule]
+=== _WeightRule_ 
+
+
+
+[.fields-WeightRule]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+|===
+
+
+[#XCom]
+=== _XCom_ 
+
+
+
+[.fields-XCom]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| key 
+|  
+| String  
+| 
+|  
+
+| timestamp 
+|  
+| String  
+| 
+| datetime 
+
+| execution_date 
+|  
+| String  
+| 
+| datetime 
+
+| task_id 
+|  
+| String  
+| 
+|  
+
+| dag_id 
+|  
+| String  
+| 
+|  
+
+| value 
+|  
+| String  
+| 
+|  
+
+|===
+
+
+[#XComCollection]
+=== _XComCollection_ 
+
+
+
+[.fields-XComCollection]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| xcom_entries 
+|  
+| List  of <<XComCollectionItem>> 
+| 
+|  
+
+|===
+
+
+[#XComCollectionItem]
+=== _XComCollectionItem_ 
+
+
+
+[.fields-XComCollectionItem]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| key 
+|  
+| String  
+| 
+|  
+
+| timestamp 
+|  
+| String  
+| 
+| datetime 
+
+| execution_date 
+|  
+| String  
+| 
+| datetime 
+
+| task_id 
+|  
+| String  
+| 
+|  
+
+| dag_id 
+|  
+| String  
+| 
+|  
+
+|===
+
+

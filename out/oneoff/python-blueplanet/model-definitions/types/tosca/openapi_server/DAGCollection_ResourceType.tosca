@@ -1,0 +1,37 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server DAGCollection"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a DAGCollection"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  DAG = openapi_server.resourceTypes.DAG
+}
+resourceTypes {
+
+  DAGCollection {
+    title = DAGCollection
+    description = DAGCollection
+    derivedFrom = Root
+    properties {
+        dags {
+          type = array
+          items.type = DAG
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  DAGCollection {
+    title = DAGCollection
+    description = DAGCollection
+    implements = openapi_server.resourceTypes.DAGCollection
+
+  }
+}

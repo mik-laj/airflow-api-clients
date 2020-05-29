@@ -1,0 +1,39 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "class_ref" },
+      {"model": "task_id" },
+      {"model": "owner" },
+      {"model": "start_date" },
+      {"model": "end_date" },
+      {"model": "trigger_rule" },
+      {"model": "extra_links" },
+      {"model": "depends_on_past" },
+      {"model": "wait_for_downstream" },
+      {"model": "retries" },
+      {"model": "queue" },
+      {"model": "pool" },
+      {"model": "pool_slots" },
+      {"model": "execution_timeout" },
+      {"model": "retry_delay" },
+      {"model": "retry_exponential_backoff" },
+      {"model": "priority_weight" },
+      {"model": "weight_rule" },
+      {"model": "ui_color" },
+      {"model": "ui_fgcolor" },
+      {"model": "template_fields" },
+      {"model": "sub_dag" },
+      {"model": "downstream_task_ids" },
+    ]
+  }]
+}

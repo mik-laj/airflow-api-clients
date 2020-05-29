@@ -1,0 +1,60 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ConnectionCollectionItem"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ConnectionCollectionItem"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  ConnectionCollectionItem {
+    title = ConnectionCollectionItem
+    description = ConnectionCollectionItem
+    derivedFrom = Root
+    properties {
+        connection_id {
+          type =  string
+          description = ""
+          optional = false
+        }
+        conn_type {
+          type =  string
+          description = ""
+          optional = false
+        }
+        host {
+          type =  string
+          description = ""
+          optional = false
+        }
+        login {
+          type =  string
+          description = ""
+          optional = false
+        }
+        schema {
+          type =  string
+          description = ""
+          optional = false
+        }
+        port {
+          type =  integer
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ConnectionCollectionItem {
+    title = ConnectionCollectionItem
+    description = ConnectionCollectionItem
+    implements = openapi_server.resourceTypes.ConnectionCollectionItem
+
+  }
+}

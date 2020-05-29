@@ -1,0 +1,60 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server TaskFail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a TaskFail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  TaskFail {
+    title = TaskFail
+    description = TaskFail
+    derivedFrom = Root
+    properties {
+        task_id {
+          type =  string
+          description = ""
+          optional = false
+        }
+        dag_id {
+          type =  string
+          description = ""
+          optional = false
+        }
+        execution_date {
+          type =  string
+          description = ""
+          optional = false
+        }
+        start_date {
+          type =  string
+          description = ""
+          optional = false
+        }
+        end_date {
+          type =  string
+          description = ""
+          optional = false
+        }
+        duration {
+          type =  integer
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  TaskFail {
+    title = TaskFail
+    description = TaskFail
+    implements = openapi_server.resourceTypes.TaskFail
+
+  }
+}

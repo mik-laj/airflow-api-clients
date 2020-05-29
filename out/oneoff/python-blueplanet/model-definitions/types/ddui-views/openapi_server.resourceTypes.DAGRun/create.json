@@ -1,0 +1,24 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "dag_run_id" },
+      {"model": "dag_id" },
+      {"model": "execution_date" },
+      {"model": "start_date" },
+      {"model": "end_date" },
+      {"model": "state" },
+      {"model": "external_trigger" },
+      {"model": "conf" },
+    ]
+  }]
+}

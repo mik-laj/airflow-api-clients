@@ -1,0 +1,22 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "connection_id" },
+      {"model": "conn_type" },
+      {"model": "host" },
+      {"model": "login" },
+      {"model": "schema" },
+      {"model": "port" },
+    ]
+  }]
+}

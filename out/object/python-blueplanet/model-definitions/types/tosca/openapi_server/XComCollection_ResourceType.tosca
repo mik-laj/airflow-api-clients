@@ -1,0 +1,37 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server XComCollection"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a XComCollection"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  XComCollectionItem = openapi_server.resourceTypes.XComCollectionItem
+}
+resourceTypes {
+
+  XComCollection {
+    title = XComCollection
+    description = XComCollection
+    derivedFrom = Root
+    properties {
+        xcom_entries {
+          type = array
+          items.type = XComCollectionItem
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  XComCollection {
+    title = XComCollection
+    description = XComCollection
+    implements = openapi_server.resourceTypes.XComCollection
+
+  }
+}

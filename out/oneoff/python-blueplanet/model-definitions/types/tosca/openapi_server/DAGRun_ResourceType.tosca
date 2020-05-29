@@ -1,0 +1,72 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server DAGRun"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a DAGRun"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  DagState = openapi_server.resourceTypes.DagState
+  OneOfobjectstring = openapi_server.resourceTypes.OneOfobjectstring
+}
+resourceTypes {
+
+  DAGRun {
+    title = DAGRun
+    description = DAGRun
+    derivedFrom = Root
+    properties {
+        dag_run_id {
+          type =  string
+          description = "Run ID. The value of this field can be set only when creating the object. If you try to modify the field of an existing object, the request fails with an BAD_REQUEST error. If not provided, a value will be generated based on execution_date. If the specified dag_run_id is in use, the creation request fails with an ALREADY_EXISTS error. This together with DAG_ID are a unique key. "
+          optional = false
+        }
+        dag_id {
+          type =  string
+          description = ""
+          optional = true
+        }
+        execution_date {
+          type =  string
+          description = "The execution date. This is the time when the DAG run should be started according to the DAG definition. The value of this field can be set only when creating the object. If you try to modify the field of an existing object, the request fails with an BAD_REQUEST error. This together with DAG_ID are a unique key. "
+          optional = false
+        }
+        start_date {
+          type =  string
+          description = "The start time. The time when DAG Run was actually created.. "
+          optional = false
+        }
+        end_date {
+          type =  string
+          description = ""
+          optional = false
+        }
+        state {
+          type = DagState
+          description = ""
+          optional = false
+        }
+        external_trigger {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+        conf {
+          type = OneOfobjectstring
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  DAGRun {
+    title = DAGRun
+    description = DAGRun
+    implements = openapi_server.resourceTypes.DAGRun
+
+  }
+}

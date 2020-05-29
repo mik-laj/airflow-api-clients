@@ -1,0 +1,84 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server DAG"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a DAG"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  OneOfScheduleInterval = openapi_server.resourceTypes.OneOfScheduleInterval
+  Tag = openapi_server.resourceTypes.Tag
+}
+resourceTypes {
+
+  DAG {
+    title = DAG
+    description = DAG
+    derivedFrom = Root
+    properties {
+        dag_id {
+          type =  string
+          description = ""
+          optional = false
+        }
+        root_dag_id {
+          type =  string
+          description = ""
+          optional = false
+        }
+        is_paused {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+        is_subdag {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+        fileloc {
+          type =  string
+          description = ""
+          optional = false
+        }
+        file_token {
+          type =  string
+          description = "The key containing the encrypted path to the file. Encryption and decryption take place only on the server. This prevents the client from reading an non-DAG file. This also ensures API extensibility, because the format of encrypted data may change. "
+          optional = false
+        }
+        owners {
+          type = array
+          items.type =  string
+          description = ""
+          optional = false
+        }
+        description {
+          type =  string
+          description = ""
+          optional = false
+        }
+        schedule_interval {
+          type = OneOfScheduleInterval
+          description = ""
+          optional = false
+        }
+        tags {
+          type = array
+          items.type = Tag
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  DAG {
+    title = DAG
+    description = DAG
+    implements = openapi_server.resourceTypes.DAG
+
+  }
+}

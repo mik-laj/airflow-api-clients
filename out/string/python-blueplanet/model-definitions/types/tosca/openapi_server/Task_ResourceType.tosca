@@ -1,0 +1,155 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server Task"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a Task"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ClassReference = openapi_server.resourceTypes.ClassReference
+  DAG = openapi_server.resourceTypes.DAG
+  TaskExtraLinks = openapi_server.resourceTypes.TaskExtraLinks
+  TimeDelta = openapi_server.resourceTypes.TimeDelta
+  TriggerRule = openapi_server.resourceTypes.TriggerRule
+  WeightRule = openapi_server.resourceTypes.WeightRule
+  import re = openapi_server.resourceTypes.import re
+}
+resourceTypes {
+
+  Task {
+    title = Task
+    description = Task
+    derivedFrom = Root
+    properties {
+        class_ref {
+          type = ClassReference
+          description = ""
+          optional = false
+        }
+        task_id {
+          type =  string
+          description = ""
+          optional = false
+        }
+        owner {
+          type =  string
+          description = ""
+          optional = false
+        }
+        start_date {
+          type =  string
+          description = ""
+          optional = false
+        }
+        end_date {
+          type =  string
+          description = ""
+          optional = false
+        }
+        trigger_rule {
+          type = TriggerRule
+          description = ""
+          optional = false
+        }
+        extra_links {
+          type = array
+          items.type = TaskExtraLinks
+          description = ""
+          optional = false
+        }
+        depends_on_past {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+        wait_for_downstream {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+        retries {
+          type =  
+          description = ""
+          optional = false
+        }
+        queue {
+          type =  string
+          description = ""
+          optional = false
+        }
+        pool {
+          type =  string
+          description = ""
+          optional = false
+        }
+        pool_slots {
+          type =  
+          description = ""
+          optional = false
+        }
+        execution_timeout {
+          type = TimeDelta
+          description = ""
+          optional = false
+        }
+        retry_delay {
+          type = TimeDelta
+          description = ""
+          optional = false
+        }
+        retry_exponential_backoff {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+        priority_weight {
+          type =  
+          description = ""
+          optional = false
+        }
+        weight_rule {
+          type = WeightRule
+          description = ""
+          optional = false
+        }
+        ui_color {
+          type =  string
+          description = ""
+          optional = false
+        }
+        ui_fgcolor {
+          type =  string
+          description = ""
+          optional = false
+        }
+        template_fields {
+          type = array
+          items.type =  string
+          description = ""
+          optional = false
+        }
+        sub_dag {
+          type = DAG
+          description = ""
+          optional = false
+        }
+        downstream_task_ids {
+          type = array
+          items.type =  string
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  Task {
+    title = Task
+    description = Task
+    implements = openapi_server.resourceTypes.Task
+
+  }
+}

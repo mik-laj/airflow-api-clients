@@ -1,0 +1,42 @@
+
+<h2>ClearTaskInstance</h2>
+<ul class="parameter">
+  <li class="param-required-false">dryUnderscorerun : Boolean
+    <br/>If set, don&#39;t actually run this operation. The response will contain a list of task instances planned to be cleaned, but not modified in any way. 
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">startUnderscoredate : String
+    <br/>The minimum execution date to clear.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">endUnderscoredate : String
+    <br/>The maximum execution date to clear.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">onlyUnderscorefailed : String
+    <br/>Only clear failed tasks.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">onlyUnderscorerunning : String
+    <br/>Only clear running tasks.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">includeUnderscoresubdags : Boolean
+    <br/>Clear tasks in subdags and clear external tasks indicated by ExternalTaskMarker.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">includeUnderscoreparentdag : Boolean
+    <br/>Clear tasks in the parent dag of the subdag.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">resetUnderscoredagUnderscoreruns : Boolean
+    <br/>Set state of DAG Runs to RUNNING.
+  </li>
+</ul>

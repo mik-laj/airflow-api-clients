@@ -1,0 +1,37 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server EventLogCollection"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a EventLogCollection"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  EventLog = openapi_server.resourceTypes.EventLog
+}
+resourceTypes {
+
+  EventLogCollection {
+    title = EventLogCollection
+    description = EventLogCollection
+    derivedFrom = Root
+    properties {
+        event_logs {
+          type = array
+          items.type = EventLog
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  EventLogCollection {
+    title = EventLogCollection
+    description = EventLogCollection
+    implements = openapi_server.resourceTypes.EventLogCollection
+
+  }
+}

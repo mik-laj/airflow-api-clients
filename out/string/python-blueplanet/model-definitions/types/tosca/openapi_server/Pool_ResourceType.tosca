@@ -1,0 +1,60 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server Pool"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a Pool"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  Pool {
+    title = Pool
+    description = Pool
+    derivedFrom = Root
+    properties {
+        name {
+          type =  string
+          description = ""
+          optional = false
+        }
+        slots {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        occupied_slots {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        used_slots {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        queued_slots {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        open_slots {
+          type =  integer
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  Pool {
+    title = Pool
+    description = Pool
+    implements = openapi_server.resourceTypes.Pool
+
+  }
+}

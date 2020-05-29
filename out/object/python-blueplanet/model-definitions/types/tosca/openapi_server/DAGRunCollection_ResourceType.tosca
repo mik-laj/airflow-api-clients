@@ -1,0 +1,37 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server DAGRunCollection"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a DAGRunCollection"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  DAGRun = openapi_server.resourceTypes.DAGRun
+}
+resourceTypes {
+
+  DAGRunCollection {
+    title = DAGRunCollection
+    description = DAGRunCollection
+    derivedFrom = Root
+    properties {
+        dag_runs {
+          type = array
+          items.type = DAGRun
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  DAGRunCollection {
+    title = DAGRunCollection
+    description = DAGRunCollection
+    implements = openapi_server.resourceTypes.DAGRunCollection
+
+  }
+}

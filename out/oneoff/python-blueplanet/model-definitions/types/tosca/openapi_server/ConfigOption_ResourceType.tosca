@@ -1,0 +1,40 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ConfigOption"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ConfigOption"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  ConfigOption {
+    title = ConfigOption
+    description = ConfigOption
+    derivedFrom = Root
+    properties {
+        key {
+          type =  string
+          description = ""
+          optional = false
+        }
+        value {
+          type =  string
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ConfigOption {
+    title = ConfigOption
+    description = ConfigOption
+    implements = openapi_server.resourceTypes.ConfigOption
+
+  }
+}
