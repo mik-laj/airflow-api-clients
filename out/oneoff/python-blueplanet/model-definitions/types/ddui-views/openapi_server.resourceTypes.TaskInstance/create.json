@@ -1,0 +1,36 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "task_id" },
+      {"model": "dag_id" },
+      {"model": "execution_date" },
+      {"model": "start_date" },
+      {"model": "end_date" },
+      {"model": "duration" },
+      {"model": "state" },
+      {"model": "try_number" },
+      {"model": "max_tries" },
+      {"model": "hostname" },
+      {"model": "unixname" },
+      {"model": "pool" },
+      {"model": "pool_slots" },
+      {"model": "queue" },
+      {"model": "priority_weight" },
+      {"model": "operator" },
+      {"model": "queued_when" },
+      {"model": "pid" },
+      {"model": "executor_config" },
+      {"model": "sla_miss" },
+    ]
+  }]
+}

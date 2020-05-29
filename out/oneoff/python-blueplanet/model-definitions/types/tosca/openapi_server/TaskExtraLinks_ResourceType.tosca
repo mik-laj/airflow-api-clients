@@ -1,0 +1,36 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server TaskExtraLinks"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a TaskExtraLinks"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ClassReference = openapi_server.resourceTypes.ClassReference
+}
+resourceTypes {
+
+  TaskExtraLinks {
+    title = TaskExtraLinks
+    description = TaskExtraLinks
+    derivedFrom = Root
+    properties {
+        class_ref {
+          type = ClassReference
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  TaskExtraLinks {
+    title = TaskExtraLinks
+    description = TaskExtraLinks
+    implements = openapi_server.resourceTypes.TaskExtraLinks
+
+  }
+}

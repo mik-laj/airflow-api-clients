@@ -1,0 +1,94 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ListTaskInstanceForm"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ListTaskInstanceForm"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  ListTaskInstanceForm {
+    title = ListTaskInstanceForm
+    description = ListTaskInstanceForm
+    derivedFrom = Root
+    properties {
+        dag_ids {
+          type = array
+          items.type =  string
+          description = "Return objects with specific DAG IDs. The value can be repeated to retrieve multiple matching values (OR condition)."
+          optional = false
+        }
+        execution_date_gte {
+          type =  string
+          description = "Returns objects greater or equal to the specified date. This can be combined with execution_date_lte parameter to receive only the selected period. "
+          optional = false
+        }
+        execution_date_lte {
+          type =  string
+          description = "Returns objects less than or equal to the specified date. This can be combined with execution_date_gte parameter to receive only the selected period. "
+          optional = false
+        }
+        start_date_gte {
+          type =  string
+          description = "Returns objects greater or equal the specified date. This can be combined with startd_ate_lte parameter to receive only the selected period. "
+          optional = false
+        }
+        start_date_lte {
+          type =  string
+          description = "Returns objects less or equal the specified date. This can be combined with start_date_gte parameter to receive only the selected period. "
+          optional = false
+        }
+        end_date_gte {
+          type =  string
+          description = "Returns objects greater or equal the specified date. This can be combined with start_date_lte parameter to receive only the selected period. "
+          optional = false
+        }
+        end_date_lte {
+          type =  string
+          description = "Returns objects less than or equal to the specified date. This can be combined with start_date_gte parameter to receive only the selected period. "
+          optional = false
+        }
+        duration_gte {
+          type =  
+          description = "Returns objects greater than or equal to the specified values. This can be combined with duration_lte parameter to receive only the selected period. "
+          optional = false
+        }
+        duration_lte {
+          type =  
+          description = "Returns objects less than or equal to the specified values. This can be combined with duration_gte parameter to receive only the selected range. "
+          optional = false
+        }
+        state {
+          type = array
+          items.type =  string
+          description = "The value can be repeated to retrieve multiple matching values (OR condition)."
+          optional = false
+        }
+        pool {
+          type = array
+          items.type =  string
+          description = "The value can be repeated to retrieve multiple matching values (OR condition)."
+          optional = false
+        }
+        queue {
+          type = array
+          items.type =  string
+          description = "The value can be repeated to retrieve multiple matching values (OR condition)."
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ListTaskInstanceForm {
+    title = ListTaskInstanceForm
+    description = ListTaskInstanceForm
+    implements = openapi_server.resourceTypes.ListTaskInstanceForm
+
+  }
+}

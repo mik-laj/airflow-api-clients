@@ -1,0 +1,40 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ClassReference"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ClassReference"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  ClassReference {
+    title = ClassReference
+    description = ClassReference
+    derivedFrom = Root
+    properties {
+        module_path {
+          type =  string
+          description = ""
+          optional = false
+        }
+        class_name {
+          type =  string
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ClassReference {
+    title = ClassReference
+    description = ClassReference
+    implements = openapi_server.resourceTypes.ClassReference
+
+  }
+}

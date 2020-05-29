@@ -1,0 +1,71 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server DAGDetailAllOf"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a DAGDetailAllOf"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  TimeDelta = openapi_server.resourceTypes.TimeDelta
+}
+resourceTypes {
+
+  DAGDetailAllOf {
+    title = DAGDetailAllOf
+    description = DAGDetailAllOf
+    derivedFrom = Root
+    properties {
+        timezone {
+          type =  string
+          description = ""
+          optional = false
+        }
+        catchup {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+        orientation {
+          type =  string
+          description = ""
+          optional = false
+        }
+        concurrency {
+          type =  
+          description = ""
+          optional = false
+        }
+        start_date {
+          type =  string
+          description = ""
+          optional = false
+        }
+        dag_run_timeout {
+          type = TimeDelta
+          description = ""
+          optional = false
+        }
+        doc_md {
+          type =  string
+          description = ""
+          optional = false
+        }
+        default_view {
+          type =  string
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  DAGDetailAllOf {
+    title = DAGDetailAllOf
+    description = DAGDetailAllOf
+    implements = openapi_server.resourceTypes.DAGDetailAllOf
+
+  }
+}

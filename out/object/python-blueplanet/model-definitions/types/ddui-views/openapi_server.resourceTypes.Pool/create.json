@@ -1,0 +1,22 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "name" },
+      {"model": "slots" },
+      {"model": "occupied_slots" },
+      {"model": "used_slots" },
+      {"model": "queued_slots" },
+      {"model": "open_slots" },
+    ]
+  }]
+}

@@ -1,0 +1,35 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server VariableAllOf"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a VariableAllOf"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  VariableAllOf {
+    title = VariableAllOf
+    description = VariableAllOf
+    derivedFrom = Root
+    properties {
+        value {
+          type =  string
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  VariableAllOf {
+    title = VariableAllOf
+    description = VariableAllOf
+    implements = openapi_server.resourceTypes.VariableAllOf
+
+  }
+}

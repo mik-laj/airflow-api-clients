@@ -1,0 +1,10 @@
+# task_instance_collection.TaskInstanceCollection
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**task_instances** | [**[task_instance.TaskInstance]**](TaskInstance.md) |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

@@ -1,0 +1,11 @@
+.openapi-generator-ignore
+ConfigApi.conf
+ConnectionApi.conf
+DAGApi.conf
+DAGRunApi.conf
+EventLogApi.conf
+ImportErrorApi.conf
+PoolApi.conf
+TaskInstanceApi.conf
+VariableApi.conf
+XComApi.conf

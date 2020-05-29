@@ -1,0 +1,132 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server TaskInstance"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a TaskInstance"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  SLAMiss = openapi_server.resourceTypes.SLAMiss
+  TaskState = openapi_server.resourceTypes.TaskState
+}
+resourceTypes {
+
+  TaskInstance {
+    title = TaskInstance
+    description = TaskInstance
+    derivedFrom = Root
+    properties {
+        task_id {
+          type =  string
+          description = ""
+          optional = false
+        }
+        dag_id {
+          type =  string
+          description = ""
+          optional = false
+        }
+        execution_date {
+          type =  string
+          description = ""
+          optional = false
+        }
+        start_date {
+          type =  string
+          description = ""
+          optional = false
+        }
+        end_date {
+          type =  string
+          description = ""
+          optional = false
+        }
+        duration {
+          type =  
+          description = ""
+          optional = false
+        }
+        state {
+          type = TaskState
+          description = ""
+          optional = false
+        }
+        try_number {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        max_tries {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        hostname {
+          type =  string
+          description = ""
+          optional = false
+        }
+        unixname {
+          type =  string
+          description = ""
+          optional = false
+        }
+        pool {
+          type =  string
+          description = ""
+          optional = false
+        }
+        pool_slots {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        queue {
+          type =  string
+          description = ""
+          optional = false
+        }
+        priority_weight {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        operator {
+          type =  string
+          description = ""
+          optional = false
+        }
+        queued_when {
+          type =  string
+          description = ""
+          optional = false
+        }
+        pid {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        executor_config {
+          type =  string
+          description = ""
+          optional = false
+        }
+        sla_miss {
+          type = SLAMiss
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  TaskInstance {
+    title = TaskInstance
+    description = TaskInstance
+    implements = openapi_server.resourceTypes.TaskInstance
+
+  }
+}

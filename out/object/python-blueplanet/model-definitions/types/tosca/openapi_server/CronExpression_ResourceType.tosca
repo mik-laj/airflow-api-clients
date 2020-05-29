@@ -1,0 +1,40 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server CronExpression"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a CronExpression"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  CronExpression {
+    title = CronExpression
+    description = CronExpression
+    derivedFrom = Root
+    properties {
+        type {
+          type =  string
+          description = ""
+          optional = true
+        }
+        value {
+          type =  string
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  CronExpression {
+    title = CronExpression
+    description = CronExpression
+    implements = openapi_server.resourceTypes.CronExpression
+
+  }
+}

@@ -1,0 +1,6 @@
+generateBashCompletion: true
+generateZshCompletion: true
+hostEnvironmentVariable: AIRFLOW__HOST
+apiKeyAuthEnvironmentVariable: AIRFLOW__BASIC_AUTH
+basicAuthEnvironmentVariable: AIRFLOW__APIKEY
+scriptName: airflow-cli

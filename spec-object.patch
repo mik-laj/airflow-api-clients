@@ -1,0 +1,16 @@
+--- spec-orig.yaml	2020-05-29 13:35:52.000000000 +0200
++++ spec.yaml	2020-05-29 13:36:02.000000000 +0200
+@@ -1258,12 +1258,8 @@
+           default: true
+           readOnly: True
+         conf:
+-          type: string
+-          description: >
+-            JSON object describing additional configuration parameters.
++          type: object
+ 
+-            The value of this field can be set only when creating the object. If you try to modify the
+-            field of an existing object, the request fails with an BAD_REQUEST error.
+       required:
+         - dag_id
+ 

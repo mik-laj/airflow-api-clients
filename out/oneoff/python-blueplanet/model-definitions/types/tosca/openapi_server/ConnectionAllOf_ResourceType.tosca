@@ -1,0 +1,40 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ConnectionAllOf"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ConnectionAllOf"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  ConnectionAllOf {
+    title = ConnectionAllOf
+    description = ConnectionAllOf
+    derivedFrom = Root
+    properties {
+        password {
+          type =  string
+          description = ""
+          optional = false
+        }
+        extra {
+          type =  string
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ConnectionAllOf {
+    title = ConnectionAllOf
+    description = ConnectionAllOf
+    implements = openapi_server.resourceTypes.ConnectionAllOf
+
+  }
+}

@@ -1,0 +1,37 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server SLAMissCollection"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a SLAMissCollection"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  SLAMiss = openapi_server.resourceTypes.SLAMiss
+}
+resourceTypes {
+
+  SLAMissCollection {
+    title = SLAMissCollection
+    description = SLAMissCollection
+    derivedFrom = Root
+    properties {
+        sla_misses {
+          type = array
+          items.type = SLAMiss
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  SLAMissCollection {
+    title = SLAMissCollection
+    description = SLAMissCollection
+    implements = openapi_server.resourceTypes.SLAMissCollection
+
+  }
+}

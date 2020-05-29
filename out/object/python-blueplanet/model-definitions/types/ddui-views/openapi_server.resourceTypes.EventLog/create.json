@@ -1,0 +1,24 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "event_log_id" },
+      {"model": "when" },
+      {"model": "dag_id" },
+      {"model": "task_id" },
+      {"model": "event" },
+      {"model": "execution_date" },
+      {"model": "owner" },
+      {"model": "extra" },
+    ]
+  }]
+}

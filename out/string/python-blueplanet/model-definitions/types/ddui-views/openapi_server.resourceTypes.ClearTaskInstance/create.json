@@ -1,0 +1,24 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "dry_run" },
+      {"model": "start_date" },
+      {"model": "end_date" },
+      {"model": "only_failed" },
+      {"model": "only_running" },
+      {"model": "include_subdags" },
+      {"model": "include_parentdag" },
+      {"model": "reset_dag_runs" },
+    ]
+  }]
+}

@@ -1,0 +1,35 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server InlineResponse2001"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a InlineResponse2001"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  InlineResponse2001 {
+    title = InlineResponse2001
+    description = InlineResponse2001
+    derivedFrom = Root
+    properties {
+        content {
+          type =  string
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  InlineResponse2001 {
+    title = InlineResponse2001
+    description = InlineResponse2001
+    implements = openapi_server.resourceTypes.InlineResponse2001
+
+  }
+}

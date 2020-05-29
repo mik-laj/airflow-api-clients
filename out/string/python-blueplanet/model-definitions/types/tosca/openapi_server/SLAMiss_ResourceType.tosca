@@ -1,0 +1,65 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server SLAMiss"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a SLAMiss"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  SLAMiss {
+    title = SLAMiss
+    description = SLAMiss
+    derivedFrom = Root
+    properties {
+        task_id {
+          type =  string
+          description = ""
+          optional = false
+        }
+        dag_id {
+          type =  string
+          description = ""
+          optional = false
+        }
+        execution_date {
+          type =  string
+          description = ""
+          optional = false
+        }
+        email_sent {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+        timestamp {
+          type =  string
+          description = ""
+          optional = false
+        }
+        description {
+          type =  string
+          description = ""
+          optional = false
+        }
+        notification_sent {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  SLAMiss {
+    title = SLAMiss
+    description = SLAMiss
+    implements = openapi_server.resourceTypes.SLAMiss
+
+  }
+}

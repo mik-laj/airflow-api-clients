@@ -1,0 +1,13 @@
+jersey1
+jersey2
+feign
+okhttp-gson
+retrofit2
+resttemplate
+webclient
+resteasy
+vertx
+google-api-client
+rest-assured
+native
+microprofile

@@ -1,0 +1,3912 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Airflow API (Stable)</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Airflow API (Stable)</h1>
+    <div class="app-desc">Apache Airflow management API.</div>
+    <div class="app-desc">More information: <a href="https://airflow.apache.org">https://airflow.apache.org</a></div>
+    <div class="app-desc">Contact Info: <a href="dev@airflow.apache.org">dev@airflow.apache.org</a></div>
+    <div class="app-desc">Version: 1.0.0</div>
+    <div class="app-desc">BasePath:/api/v1</div>
+    <div class="license-info">Apache 2.0</div>
+    <div class="license-url">http://www.apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Config">Config</a></h4>
+  <ul>
+  <li><a href="#getConfig"><code><span class="http-method">get</span> /config</code></a></li>
+  </ul>
+  <h4><a href="#Connection">Connection</a></h4>
+  <ul>
+  <li><a href="#createConnection"><code><span class="http-method">post</span> /connections</code></a></li>
+  <li><a href="#deleteConnection"><code><span class="http-method">delete</span> /connections/{connection_id}</code></a></li>
+  <li><a href="#getConnection"><code><span class="http-method">get</span> /connections/{connection_id}</code></a></li>
+  <li><a href="#getConnections"><code><span class="http-method">get</span> /connections</code></a></li>
+  <li><a href="#updateConnection"><code><span class="http-method">patch</span> /connections/{connection_id}</code></a></li>
+  </ul>
+  <h4><a href="#DAG">DAG</a></h4>
+  <ul>
+  <li><a href="#clearTaskInstance"><code><span class="http-method">post</span> /dags/{dag_id}/clearTaskInstances</code></a></li>
+  <li><a href="#getDag"><code><span class="http-method">get</span> /dags/{dag_id}</code></a></li>
+  <li><a href="#getDagDetail"><code><span class="http-method">get</span> /dags/{dag_id}/details</code></a></li>
+  <li><a href="#getDagSource"><code><span class="http-method">get</span> /dagSources/{file_token}</code></a></li>
+  <li><a href="#getDags"><code><span class="http-method">get</span> /dags</code></a></li>
+  <li><a href="#getTask"><code><span class="http-method">get</span> /dags/{dag_id}/tasks/{task_id}</code></a></li>
+  <li><a href="#getTasks"><code><span class="http-method">get</span> /dags/{dag_id}/tasks</code></a></li>
+  <li><a href="#updateDag"><code><span class="http-method">patch</span> /dags/{dag_id}</code></a></li>
+  </ul>
+  <h4><a href="#DAGRun">DAGRun</a></h4>
+  <ul>
+  <li><a href="#createDagRun"><code><span class="http-method">post</span> /dags/{dag_id}/dagRuns/{dag_run_id}</code></a></li>
+  <li><a href="#deleteDagRun"><code><span class="http-method">delete</span> /dags/{dag_id}/dagRuns/{dag_run_id}</code></a></li>
+  <li><a href="#getDagRun"><code><span class="http-method">get</span> /dags/{dag_id}/dagRuns/{dag_run_id}</code></a></li>
+  <li><a href="#getDagRuns"><code><span class="http-method">get</span> /dags/{dag_id}/dagRuns</code></a></li>
+  <li><a href="#getDagRunsBatch"><code><span class="http-method">post</span> /dags/~/dagRuns/list</code></a></li>
+  <li><a href="#updateDagRun"><code><span class="http-method">patch</span> /dags/{dag_id}/dagRuns/{dag_run_id}</code></a></li>
+  </ul>
+  <h4><a href="#EventLog">EventLog</a></h4>
+  <ul>
+  <li><a href="#getEventLog"><code><span class="http-method">get</span> /eventLogs</code></a></li>
+  <li><a href="#getEventLogEntry"><code><span class="http-method">get</span> /eventLogs/{event_log_id}</code></a></li>
+  </ul>
+  <h4><a href="#ImportError">ImportError</a></h4>
+  <ul>
+  <li><a href="#deleteImportError"><code><span class="http-method">delete</span> /importErrors/{import_error_id}</code></a></li>
+  <li><a href="#getImportError"><code><span class="http-method">get</span> /importErrors/{import_error_id}</code></a></li>
+  <li><a href="#getImportErrors"><code><span class="http-method">get</span> /importErrors</code></a></li>
+  </ul>
+  <h4><a href="#Pool">Pool</a></h4>
+  <ul>
+  <li><a href="#createPool"><code><span class="http-method">post</span> /pools</code></a></li>
+  <li><a href="#deletePool"><code><span class="http-method">delete</span> /pools/{pool_name}</code></a></li>
+  <li><a href="#getPool"><code><span class="http-method">get</span> /pools/{pool_name}</code></a></li>
+  <li><a href="#getPools"><code><span class="http-method">get</span> /pools</code></a></li>
+  <li><a href="#updatePool"><code><span class="http-method">patch</span> /pools/{pool_name}</code></a></li>
+  </ul>
+  <h4><a href="#TaskInstance">TaskInstance</a></h4>
+  <ul>
+  <li><a href="#getExtraLinks"><code><span class="http-method">get</span> /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/links</code></a></li>
+  <li><a href="#getLogs"><code><span class="http-method">get</span> /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/logs/{task_try_number}</code></a></li>
+  <li><a href="#getTaskInstance"><code><span class="http-method">get</span> /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}</code></a></li>
+  <li><a href="#getTaskInstances"><code><span class="http-method">get</span> /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances</code></a></li>
+  <li><a href="#getTaskInstancesBatch"><code><span class="http-method">post</span> /dags/~/dagRuns/~/taskInstances/list</code></a></li>
+  </ul>
+  <h4><a href="#Variable">Variable</a></h4>
+  <ul>
+  <li><a href="#createVariable"><code><span class="http-method">post</span> /variables</code></a></li>
+  <li><a href="#deleteVariable"><code><span class="http-method">delete</span> /variables/{variable_key}</code></a></li>
+  <li><a href="#getVariable"><code><span class="http-method">get</span> /variables/{variable_key}</code></a></li>
+  <li><a href="#getVariables"><code><span class="http-method">get</span> /variables</code></a></li>
+  <li><a href="#updateVariable"><code><span class="http-method">patch</span> /variables/{variable_key}</code></a></li>
+  </ul>
+  <h4><a href="#XCom">XCom</a></h4>
+  <ul>
+  <li><a href="#deleteXComValue"><code><span class="http-method">delete</span> /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}</code></a></li>
+  <li><a href="#getXComEntry"><code><span class="http-method">get</span> /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries</code></a></li>
+  <li><a href="#getXComValue"><code><span class="http-method">get</span> /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}</code></a></li>
+  <li><a href="#updateXComEntry"><code><span class="http-method">post</span> /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries</code></a></li>
+  <li><a href="#updateXComValue"><code><span class="http-method">patch</span> /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}</code></a></li>
+  </ul>
+
+  <h1><a name="Config">Config</a></h1>
+  <div class="method"><a name="getConfig"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /config</code></pre></div>
+    <div class="method-summary">Get current configuration (<span class="nickname">getConfig</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">limit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The numbers of items to return. default: 100 </div><div class="param">offset (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The number of items to skip before starting to collect the result set. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Config">Config</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "sections" : [ {
+    "name" : "name",
+    "options" : [ {
+      "value" : "value",
+      "key" : "key"
+    }, {
+      "value" : "value",
+      "key" : "key"
+    } ]
+  }, {
+    "name" : "name",
+    "options" : [ {
+      "value" : "value",
+      "key" : "key"
+    }, {
+      "value" : "value",
+      "key" : "key"
+    } ]
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>text/plain</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Return current configuration.
+        <a href="#Config">Config</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Connection">Connection</a></h1>
+  <div class="method"><a name="createConnection"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /connections</code></pre></div>
+    <div class="method-summary">Create connection entry (<span class="nickname">createConnection</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">Connection <a href="#Connection">Connection</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Connection">Connection</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>null</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#Connection">Connection</a>
+    <h4 class="field-label">400</h4>
+    Client specified an invalid argument.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteConnection"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /connections/{connection_id}</code></pre></div>
+    <div class="method-summary">Delete a connection entry (<span class="nickname">deleteConnection</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">connection_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Connection ID. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    No content.
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Client specified an invalid argument.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getConnection"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /connections/{connection_id}</code></pre></div>
+    <div class="method-summary">Get a connection entry (<span class="nickname">getConnection</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">connection_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Connection ID. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Connection">Connection</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>null</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#Connection">Connection</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">404</h4>
+    A specified resource is not found.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getConnections"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /connections</code></pre></div>
+    <div class="method-summary">Get all connection entries (<span class="nickname">getConnections</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">limit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The numbers of items to return. default: 100 </div><div class="param">offset (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The number of items to skip before starting to collect the result set. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ConnectionCollection">ConnectionCollection</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    List of connection entry.
+        <a href="#ConnectionCollection">ConnectionCollection</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateConnection"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /connections/{connection_id}</code></pre></div>
+    <div class="method-summary">Update a connection entry (<span class="nickname">updateConnection</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">connection_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Connection ID. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">Connection <a href="#Connection">Connection</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">update_mask (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Connection">Connection</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>null</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#Connection">Connection</a>
+    <h4 class="field-label">400</h4>
+    Client specified an invalid argument.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">404</h4>
+    A specified resource is not found.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="DAG">DAG</a></h1>
+  <div class="method"><a name="clearTaskInstance"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /dags/{dag_id}/clearTaskInstances</code></pre></div>
+    <div class="method-summary">Clears a set of task instances associated with the DAG for a specified date range. (<span class="nickname">clearTaskInstance</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dag_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG ID. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">ClearTaskInstance <a href="#ClearTaskInstance">ClearTaskInstance</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#TaskInstanceReferenceCollection">TaskInstanceReferenceCollection</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "task_instances" : [ {
+    "execution_date" : "execution_date",
+    "dag_run_id" : "dag_run_id",
+    "task_id" : "task_id",
+    "dag_id" : "dag_id"
+  }, {
+    "execution_date" : "execution_date",
+    "dag_run_id" : "dag_run_id",
+    "task_id" : "task_id",
+    "dag_id" : "dag_id"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    A list of cleared task references
+        <a href="#TaskInstanceReferenceCollection">TaskInstanceReferenceCollection</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">404</h4>
+    A specified resource is not found.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getDag"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /dags/{dag_id}</code></pre></div>
+    <div class="method-summary">Get basic information about a DAG (<span class="nickname">getDag</span>)</div>
+    <div class="method-notes">Presents only information available in database (DAGModel).
+If you need detailed information, consider using GET /dags/{dag_id}/detail.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dag_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG ID. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DAG">DAG</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "root_dag_id" : "root_dag_id",
+  "is_paused" : true,
+  "description" : "description",
+  "schedule_interval" : "",
+  "file_token" : "file_token",
+  "owners" : [ "owners", "owners" ],
+  "dag_id" : "dag_id",
+  "is_subdag" : true,
+  "fileloc" : "fileloc",
+  "tags" : [ {
+    "name" : "name"
+  }, {
+    "name" : "name"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#DAG">DAG</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">404</h4>
+    A specified resource is not found.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getDagDetail"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /dags/{dag_id}/details</code></pre></div>
+    <div class="method-summary">Get a simplified representation of DAG. (<span class="nickname">getDagDetail</span>)</div>
+    <div class="method-notes">The response contains many DAG attributes, so the response can be large. If possible, consider using GET /dags/{dag_id}.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dag_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG ID. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DAGDetail">DAGDetail</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>null</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#DAGDetail">DAGDetail</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">404</h4>
+    A specified resource is not found.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getDagSource"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /dagSources/{file_token}</code></pre></div>
+    <div class="method-summary">Get source code using file token (<span class="nickname">getDagSource</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">file_token (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The key containing the encrypted path to the file. Encryption and decryption take place only on the server. This prevents the client from reading an non-DAG file. This also ensures API extensibility, because the format of encrypted data may change. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_1">inline_response_200_1</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "content" : "content"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#inline_response_200_1">inline_response_200_1</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">404</h4>
+    A specified resource is not found.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getDags"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /dags</code></pre></div>
+    <div class="method-summary">Get all DAGs (<span class="nickname">getDags</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">limit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The numbers of items to return. default: 100 </div><div class="param">offset (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The number of items to skip before starting to collect the result set. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DAGCollection">DAGCollection</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    List of DAGs.
+        <a href="#DAGCollection">DAGCollection</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getTask"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /dags/{dag_id}/tasks/{task_id}</code></pre></div>
+    <div class="method-summary">Get simplified representation of a task. (<span class="nickname">getTask</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dag_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG ID. default: null </div><div class="param">task_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Task ID. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Task">Task</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "owner" : "owner",
+  "end_date" : "2000-01-23T04:56:07.000+00:00",
+  "ui_fgcolor" : "ui_fgcolor",
+  "extra_links" : [ {
+    "class_ref" : {
+      "class_name" : "class_name",
+      "module_path" : "module_path"
+    }
+  }, {
+    "class_ref" : {
+      "class_name" : "class_name",
+      "module_path" : "module_path"
+    }
+  } ],
+  "depends_on_past" : true,
+  "ui_color" : "ui_color",
+  "pool_slots" : 6.027456183070403,
+  "pool" : "pool",
+  "task_id" : "task_id",
+  "retry_exponential_backoff" : true,
+  "downstream_task_ids" : [ "downstream_task_ids", "downstream_task_ids" ],
+  "sub_dag" : {
+    "root_dag_id" : "root_dag_id",
+    "is_paused" : true,
+    "description" : "description",
+    "schedule_interval" : "",
+    "file_token" : "file_token",
+    "owners" : [ "owners", "owners" ],
+    "dag_id" : "dag_id",
+    "is_subdag" : true,
+    "fileloc" : "fileloc",
+    "tags" : [ {
+      "name" : "name"
+    }, {
+      "name" : "name"
+    } ]
+  },
+  "retries" : 0.8008281904610115,
+  "template_fields" : [ "template_fields", "template_fields" ],
+  "retry_delay" : {
+    "seconds" : 5,
+    "microsecond" : 5,
+    "__type" : "__type",
+    "days" : 1
+  },
+  "wait_for_downstream" : true,
+  "priority_weight" : 2.3021358869347655,
+  "class_ref" : {
+    "class_name" : "class_name",
+    "module_path" : "module_path"
+  },
+  "execution_timeout" : {
+    "seconds" : 5,
+    "microsecond" : 5,
+    "__type" : "__type",
+    "days" : 1
+  },
+  "queue" : "queue",
+  "start_date" : "2000-01-23T04:56:07.000+00:00"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#Task">Task</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">404</h4>
+    A specified resource is not found.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getTasks"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /dags/{dag_id}/tasks</code></pre></div>
+    <div class="method-summary">Get tasks for DAG (<span class="nickname">getTasks</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dag_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG ID. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#TaskCollection">TaskCollection</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "tasks" : [ {
+    "owner" : "owner",
+    "end_date" : "2000-01-23T04:56:07.000+00:00",
+    "ui_fgcolor" : "ui_fgcolor",
+    "extra_links" : [ {
+      "class_ref" : {
+        "class_name" : "class_name",
+        "module_path" : "module_path"
+      }
+    }, {
+      "class_ref" : {
+        "class_name" : "class_name",
+        "module_path" : "module_path"
+      }
+    } ],
+    "depends_on_past" : true,
+    "ui_color" : "ui_color",
+    "pool_slots" : 6.027456183070403,
+    "pool" : "pool",
+    "task_id" : "task_id",
+    "retry_exponential_backoff" : true,
+    "downstream_task_ids" : [ "downstream_task_ids", "downstream_task_ids" ],
+    "sub_dag" : {
+      "root_dag_id" : "root_dag_id",
+      "is_paused" : true,
+      "description" : "description",
+      "schedule_interval" : "",
+      "file_token" : "file_token",
+      "owners" : [ "owners", "owners" ],
+      "dag_id" : "dag_id",
+      "is_subdag" : true,
+      "fileloc" : "fileloc",
+      "tags" : [ {
+        "name" : "name"
+      }, {
+        "name" : "name"
+      } ]
+    },
+    "retries" : 0.8008281904610115,
+    "template_fields" : [ "template_fields", "template_fields" ],
+    "retry_delay" : {
+      "seconds" : 5,
+      "microsecond" : 5,
+      "__type" : "__type",
+      "days" : 1
+    },
+    "wait_for_downstream" : true,
+    "priority_weight" : 2.3021358869347655,
+    "class_ref" : {
+      "class_name" : "class_name",
+      "module_path" : "module_path"
+    },
+    "execution_timeout" : {
+      "seconds" : 5,
+      "microsecond" : 5,
+      "__type" : "__type",
+      "days" : 1
+    },
+    "queue" : "queue",
+    "start_date" : "2000-01-23T04:56:07.000+00:00"
+  }, {
+    "owner" : "owner",
+    "end_date" : "2000-01-23T04:56:07.000+00:00",
+    "ui_fgcolor" : "ui_fgcolor",
+    "extra_links" : [ {
+      "class_ref" : {
+        "class_name" : "class_name",
+        "module_path" : "module_path"
+      }
+    }, {
+      "class_ref" : {
+        "class_name" : "class_name",
+        "module_path" : "module_path"
+      }
+    } ],
+    "depends_on_past" : true,
+    "ui_color" : "ui_color",
+    "pool_slots" : 6.027456183070403,
+    "pool" : "pool",
+    "task_id" : "task_id",
+    "retry_exponential_backoff" : true,
+    "downstream_task_ids" : [ "downstream_task_ids", "downstream_task_ids" ],
+    "sub_dag" : {
+      "root_dag_id" : "root_dag_id",
+      "is_paused" : true,
+      "description" : "description",
+      "schedule_interval" : "",
+      "file_token" : "file_token",
+      "owners" : [ "owners", "owners" ],
+      "dag_id" : "dag_id",
+      "is_subdag" : true,
+      "fileloc" : "fileloc",
+      "tags" : [ {
+        "name" : "name"
+      }, {
+        "name" : "name"
+      } ]
+    },
+    "retries" : 0.8008281904610115,
+    "template_fields" : [ "template_fields", "template_fields" ],
+    "retry_delay" : {
+      "seconds" : 5,
+      "microsecond" : 5,
+      "__type" : "__type",
+      "days" : 1
+    },
+    "wait_for_downstream" : true,
+    "priority_weight" : 2.3021358869347655,
+    "class_ref" : {
+      "class_name" : "class_name",
+      "module_path" : "module_path"
+    },
+    "execution_timeout" : {
+      "seconds" : 5,
+      "microsecond" : 5,
+      "__type" : "__type",
+      "days" : 1
+    },
+    "queue" : "queue",
+    "start_date" : "2000-01-23T04:56:07.000+00:00"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#TaskCollection">TaskCollection</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">404</h4>
+    A specified resource is not found.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateDag"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /dags/{dag_id}</code></pre></div>
+    <div class="method-summary">Update a DAG (<span class="nickname">updateDag</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dag_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG ID. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">DAG <a href="#DAG">DAG</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DAG">DAG</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "root_dag_id" : "root_dag_id",
+  "is_paused" : true,
+  "description" : "description",
+  "schedule_interval" : "",
+  "file_token" : "file_token",
+  "owners" : [ "owners", "owners" ],
+  "dag_id" : "dag_id",
+  "is_subdag" : true,
+  "fileloc" : "fileloc",
+  "tags" : [ {
+    "name" : "name"
+  }, {
+    "name" : "name"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#DAG">DAG</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">404</h4>
+    A specified resource is not found.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="DAGRun">DAGRun</a></h1>
+  <div class="method"><a name="createDagRun"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /dags/{dag_id}/dagRuns/{dag_run_id}</code></pre></div>
+    <div class="method-summary">Trigger a DAG Run (<span class="nickname">createDagRun</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dag_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG ID. default: null </div><div class="param">dag_run_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG Run ID. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">DAGRun <a href="#DAGRun">DAGRun</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DAGRun">DAGRun</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "end_date" : "2000-01-23T04:56:07.000+00:00",
+  "execution_date" : "2000-01-23T04:56:07.000+00:00",
+  "dag_run_id" : "dag_run_id",
+  "external_trigger" : true,
+  "conf" : "{}",
+  "dag_id" : "dag_id",
+  "start_date" : "2000-01-23T04:56:07.000+00:00"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#DAGRun">DAGRun</a>
+    <h4 class="field-label">400</h4>
+    Client specified an invalid argument.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">409</h4>
+    The resource that a client tried to create already exists.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteDagRun"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /dags/{dag_id}/dagRuns/{dag_run_id}</code></pre></div>
+    <div class="method-summary">Delete a DAG Run (<span class="nickname">deleteDagRun</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dag_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG ID. default: null </div><div class="param">dag_run_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG Run ID. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    No content.
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Client specified an invalid argument.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getDagRun"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /dags/{dag_id}/dagRuns/{dag_run_id}</code></pre></div>
+    <div class="method-summary">Get a DAG Run (<span class="nickname">getDagRun</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dag_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG ID. default: null </div><div class="param">dag_run_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG Run ID. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DAGRun">DAGRun</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "end_date" : "2000-01-23T04:56:07.000+00:00",
+  "execution_date" : "2000-01-23T04:56:07.000+00:00",
+  "dag_run_id" : "dag_run_id",
+  "external_trigger" : true,
+  "conf" : "{}",
+  "dag_id" : "dag_id",
+  "start_date" : "2000-01-23T04:56:07.000+00:00"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#DAGRun">DAGRun</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">404</h4>
+    A specified resource is not found.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getDagRuns"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /dags/{dag_id}/dagRuns</code></pre></div>
+    <div class="method-summary">Get all DAG Runs (<span class="nickname">getDagRuns</span>)</div>
+    <div class="method-notes">This endpoint allows specifying <code>~</code> as the dag_id to retrieve DAG Runs for all DAGs.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dag_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG ID. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">limit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The numbers of items to return. default: 100 </div><div class="param">offset (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The number of items to skip before starting to collect the result set. default: null </div><div class="param">execution_date_gte (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns objects greater or equal to the specified date.
+This can be combined with execution_date_lte parameter to receive only the selected period. default: null format: date-time</div><div class="param">execution_date_lte (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns objects less than or equal to the specified date.
+This can be combined with execution_date_gte parameter to receive only the selected period. default: null format: date-time</div><div class="param">start_date_gte (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns objects greater or equal the specified date.
+This can be combined with startd_ate_lte parameter to receive only the selected period. default: null format: date-time</div><div class="param">start_date_lte (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns objects less or equal the specified date.
+This can be combined with start_date_gte parameter to receive only the selected period. default: null format: date-time</div><div class="param">end_date_gte (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns objects greater or equal the specified date.
+This can be combined with start_date_lte parameter to receive only the selected period. default: null format: date-time</div><div class="param">end_date_lte (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns objects less than or equal to the specified date.
+This can be combined with start_date_gte parameter to receive only the selected period. default: null format: date-time</div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DAGRunCollection">DAGRunCollection</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    List of DAG Runs.
+        <a href="#DAGRunCollection">DAGRunCollection</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getDagRunsBatch"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /dags/~/dagRuns/list</code></pre></div>
+    <div class="method-summary">Get all DAG Runs from aall DAGs. (<span class="nickname">getDagRunsBatch</span>)</div>
+    <div class="method-notes">This endpoint is a POST to allow filtering across a large number of DAG IDs, where as a GET it would run in to maximum HTTP request URL lengthlimits</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">ListDagRunsForm <a href="#ListDagRunsForm">ListDagRunsForm</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DAGRunCollection">DAGRunCollection</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    List of DAG Runs.
+        <a href="#DAGRunCollection">DAGRunCollection</a>
+    <h4 class="field-label">400</h4>
+    Client specified an invalid argument.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateDagRun"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /dags/{dag_id}/dagRuns/{dag_run_id}</code></pre></div>
+    <div class="method-summary">Update a DAG Run (<span class="nickname">updateDagRun</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dag_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG ID. default: null </div><div class="param">dag_run_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG Run ID. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">DAGRun <a href="#DAGRun">DAGRun</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">update_mask (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DAGRun">DAGRun</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "end_date" : "2000-01-23T04:56:07.000+00:00",
+  "execution_date" : "2000-01-23T04:56:07.000+00:00",
+  "dag_run_id" : "dag_run_id",
+  "external_trigger" : true,
+  "conf" : "{}",
+  "dag_id" : "dag_id",
+  "start_date" : "2000-01-23T04:56:07.000+00:00"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#DAGRun">DAGRun</a>
+    <h4 class="field-label">400</h4>
+    Client specified an invalid argument.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">404</h4>
+    A specified resource is not found.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="EventLog">EventLog</a></h1>
+  <div class="method"><a name="getEventLog"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /eventLogs</code></pre></div>
+    <div class="method-summary">Get all log entries from event log (<span class="nickname">getEventLog</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">limit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The numbers of items to return. default: 100 </div><div class="param">offset (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The number of items to skip before starting to collect the result set. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#EventLogCollection">EventLogCollection</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    List of log entries.
+        <a href="#EventLogCollection">EventLogCollection</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getEventLogEntry"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /eventLogs/{event_log_id}</code></pre></div>
+    <div class="method-summary">Get a log entry (<span class="nickname">getEventLogEntry</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">event_log_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Event Log ID. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#EventLog">EventLog</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "owner" : "owner",
+  "execution_date" : "execution_date",
+  "extra" : "extra",
+  "event_log_id" : 0,
+  "task_id" : "task_id",
+  "dag_id" : "dag_id",
+  "event" : "event",
+  "when" : "when"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#EventLog">EventLog</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">404</h4>
+    A specified resource is not found.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ImportError">ImportError</a></h1>
+  <div class="method"><a name="deleteImportError"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /importErrors/{import_error_id}</code></pre></div>
+    <div class="method-summary">Delete an import error (<span class="nickname">deleteImportError</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">import_error_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Import Error ID. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    No content.
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Client specified an invalid argument.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getImportError"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /importErrors/{import_error_id}</code></pre></div>
+    <div class="method-summary">Get an import error (<span class="nickname">getImportError</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">import_error_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Import Error ID. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ImportError">ImportError</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "filename" : "filename",
+  "stack_trace" : "stack_trace",
+  "import_error_id" : 0,
+  "timestamp" : "timestamp"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#ImportError">ImportError</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">404</h4>
+    A specified resource is not found.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getImportErrors"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /importErrors</code></pre></div>
+    <div class="method-summary">Get all import errors (<span class="nickname">getImportErrors</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">limit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The numbers of items to return. default: 100 </div><div class="param">offset (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The number of items to skip before starting to collect the result set. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ImportErrorCollection">ImportErrorCollection</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    List of import errors.
+        <a href="#ImportErrorCollection">ImportErrorCollection</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Pool">Pool</a></h1>
+  <div class="method"><a name="createPool"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /pools</code></pre></div>
+    <div class="method-summary">Create a pool (<span class="nickname">createPool</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">Pool <a href="#Pool">Pool</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Pool">Pool</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "queued_slots" : 5,
+  "open_slots" : 5,
+  "slots" : 0,
+  "name" : "name",
+  "used_slots" : 1,
+  "occupied_slots" : 6
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#Pool">Pool</a>
+    <h4 class="field-label">400</h4>
+    Client specified an invalid argument.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deletePool"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /pools/{pool_name}</code></pre></div>
+    <div class="method-summary">Delete a pool (<span class="nickname">deletePool</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">pool_name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Pool name. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    No content.
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Client specified an invalid argument.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getPool"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /pools/{pool_name}</code></pre></div>
+    <div class="method-summary">Get a pool (<span class="nickname">getPool</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">pool_name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Pool name. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Pool">Pool</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "queued_slots" : 5,
+  "open_slots" : 5,
+  "slots" : 0,
+  "name" : "name",
+  "used_slots" : 1,
+  "occupied_slots" : 6
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#Pool">Pool</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">404</h4>
+    A specified resource is not found.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getPools"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /pools</code></pre></div>
+    <div class="method-summary">Get all pools (<span class="nickname">getPools</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">limit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The numbers of items to return. default: 100 </div><div class="param">offset (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The number of items to skip before starting to collect the result set. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#PoolCollection">PoolCollection</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    List of pools.
+        <a href="#PoolCollection">PoolCollection</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updatePool"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /pools/{pool_name}</code></pre></div>
+    <div class="method-summary">Update a pool (<span class="nickname">updatePool</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">pool_name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Pool name. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">Pool <a href="#Pool">Pool</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">update_mask (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Pool">Pool</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "queued_slots" : 5,
+  "open_slots" : 5,
+  "slots" : 0,
+  "name" : "name",
+  "used_slots" : 1,
+  "occupied_slots" : 6
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#Pool">Pool</a>
+    <h4 class="field-label">400</h4>
+    Client specified an invalid argument.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">404</h4>
+    A specified resource is not found.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="TaskInstance">TaskInstance</a></h1>
+  <div class="method"><a name="getExtraLinks"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/links</code></pre></div>
+    <div class="method-summary">Get extra links for task instance (<span class="nickname">getExtraLinks</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dag_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG ID. default: null </div><div class="param">dag_run_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG Run ID. default: null </div><div class="param">task_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Task ID. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ExtraLinkCollection">ExtraLinkCollection</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "extra_links" : [ {
+    "name" : "name",
+    "href" : "href",
+    "class_ref" : {
+      "class_name" : "class_name",
+      "module_path" : "module_path"
+    }
+  }, {
+    "name" : "name",
+    "href" : "href",
+    "class_ref" : {
+      "class_name" : "class_name",
+      "module_path" : "module_path"
+    }
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#ExtraLinkCollection">ExtraLinkCollection</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">404</h4>
+    A specified resource is not found.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getLogs"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/logs/{task_try_number}</code></pre></div>
+    <div class="method-summary">Get logs for a task instance (<span class="nickname">getLogs</span>)</div>
+    <div class="method-notes">Get logs for a specific task instance and its try number</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dag_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG ID. default: null </div><div class="param">dag_run_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG Run ID. default: null </div><div class="param">task_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Task ID. default: null </div><div class="param">task_try_number (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Task Try Number. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">full_content (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; A full content will be returned. By default, only the first fragment will be returned. default: null </div><div class="param">token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; A token that allows you to continue fetching logs. If passed, it will specify the location from which the download should be continued. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200">inline_response_200</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "continuation_token" : "continuation_token",
+  "content" : "content"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>text/plain</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Content of logs.
+        <a href="#inline_response_200">inline_response_200</a>
+    <h4 class="field-label">400</h4>
+    Client specified an invalid argument.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">404</h4>
+    A specified resource is not found.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getTaskInstance"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}</code></pre></div>
+    <div class="method-summary">Get a task instance (<span class="nickname">getTaskInstance</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dag_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG ID. default: null </div><div class="param">dag_run_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG Run ID. default: null </div><div class="param">task_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Task ID. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#TaskInstance">TaskInstance</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "end_date" : "end_date",
+  "unixname" : "unixname",
+  "execution_date" : "execution_date",
+  "pool_slots" : 5,
+  "pool" : "pool",
+  "task_id" : "task_id",
+  "pid" : 2,
+  "max_tries" : 1,
+  "operator" : "operator",
+  "sla_miss" : {
+    "notification_sent" : true,
+    "email_sent" : true,
+    "execution_date" : "execution_date",
+    "description" : "description",
+    "task_id" : "task_id",
+    "dag_id" : "dag_id",
+    "timestamp" : "timestamp"
+  },
+  "duration" : 0.8008281904610115,
+  "hostname" : "hostname",
+  "executor_config" : "executor_config",
+  "try_number" : 6,
+  "dag_id" : "dag_id",
+  "priority_weight" : 5,
+  "queue" : "queue",
+  "start_date" : "start_date",
+  "queued_when" : "queued_when"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#TaskInstance">TaskInstance</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">404</h4>
+    A specified resource is not found.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getTaskInstances"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances</code></pre></div>
+    <div class="method-summary">Get a list of task instance of DAG. (<span class="nickname">getTaskInstances</span>)</div>
+    <div class="method-notes">This endpoint allows specifying <code>~</code> as the dag_id, dag_run_id to retrieve DAG Runs for all DAGs and DAG Runs.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dag_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG ID. default: null </div><div class="param">dag_run_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG Run ID. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">execution_date_gte (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns objects greater or equal to the specified date.
+This can be combined with execution_date_lte parameter to receive only the selected period. default: null format: date-time</div><div class="param">execution_date_lte (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns objects less than or equal to the specified date.
+This can be combined with execution_date_gte parameter to receive only the selected period. default: null format: date-time</div><div class="param">start_date_gte (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns objects greater or equal the specified date.
+This can be combined with startd_ate_lte parameter to receive only the selected period. default: null format: date-time</div><div class="param">start_date_lte (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns objects less or equal the specified date.
+This can be combined with start_date_gte parameter to receive only the selected period. default: null format: date-time</div><div class="param">end_date_gte (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns objects greater or equal the specified date.
+This can be combined with start_date_lte parameter to receive only the selected period. default: null format: date-time</div><div class="param">end_date_lte (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns objects less than or equal to the specified date.
+This can be combined with start_date_gte parameter to receive only the selected period. default: null format: date-time</div><div class="param">duration_gte (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns objects greater than or equal to the specified values.
+This can be combined with duration_lte parameter to receive only the selected period. default: null </div><div class="param">duration_lte (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns objects less than or equal to the specified values.
+This can be combined with duration_gte parameter to receive only the selected range. default: null </div><div class="param">state (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The value can be repeated to retrieve multiple matching values (OR condition). default: null </div><div class="param">pool (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The value can be repeated to retrieve multiple matching values (OR condition). default: null </div><div class="param">Queue (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The value can be repeated to retrieve multiple matching values (OR condition). default: null </div><div class="param">limit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The numbers of items to return. default: 100 </div><div class="param">offset (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The number of items to skip before starting to collect the result set. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#TaskInstanceCollection">TaskInstanceCollection</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    List of task instances.
+        <a href="#TaskInstanceCollection">TaskInstanceCollection</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getTaskInstancesBatch"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /dags/~/dagRuns/~/taskInstances/list</code></pre></div>
+    <div class="method-summary">Get list of task instances from all DAGs and DAG Runs. (<span class="nickname">getTaskInstancesBatch</span>)</div>
+    <div class="method-notes">This endpoint is a POST to allow filtering across a large number of DAG IDs, where as a GET it would run in to maximum HTTP request URL lengthlimits</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">ListTaskInstanceForm <a href="#ListTaskInstanceForm">ListTaskInstanceForm</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#TaskInstanceCollection">TaskInstanceCollection</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    List of task instances.
+        <a href="#TaskInstanceCollection">TaskInstanceCollection</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">404</h4>
+    A specified resource is not found.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Variable">Variable</a></h1>
+  <div class="method"><a name="createVariable"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /variables</code></pre></div>
+    <div class="method-summary">Create a variable (<span class="nickname">createVariable</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">Variable <a href="#Variable">Variable</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Variable">Variable</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>null</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#Variable">Variable</a>
+    <h4 class="field-label">400</h4>
+    Client specified an invalid argument.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteVariable"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /variables/{variable_key}</code></pre></div>
+    <div class="method-summary">Delete variable (<span class="nickname">deleteVariable</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">variable_key (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Variable Key. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    No content.
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Client specified an invalid argument.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getVariable"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /variables/{variable_key}</code></pre></div>
+    <div class="method-summary">Get a variable by key (<span class="nickname">getVariable</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">variable_key (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Variable Key. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Variable">Variable</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>null</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#Variable">Variable</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">404</h4>
+    A specified resource is not found.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getVariables"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /variables</code></pre></div>
+    <div class="method-summary">Get all variables (<span class="nickname">getVariables</span>)</div>
+    <div class="method-notes">The collection does not contain data. To get data, you must get a single entity.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">limit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The numbers of items to return. default: 100 </div><div class="param">offset (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The number of items to skip before starting to collect the result set. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#VariableCollection">VariableCollection</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    List of variables.
+        <a href="#VariableCollection">VariableCollection</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateVariable"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /variables/{variable_key}</code></pre></div>
+    <div class="method-summary">Update a variable by key (<span class="nickname">updateVariable</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">variable_key (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Variable Key. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">Variable <a href="#Variable">Variable</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">update_mask (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Variable">Variable</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>null</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#Variable">Variable</a>
+    <h4 class="field-label">400</h4>
+    Client specified an invalid argument.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">404</h4>
+    A specified resource is not found.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="XCom">XCom</a></h1>
+  <div class="method"><a name="deleteXComValue"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}</code></pre></div>
+    <div class="method-summary">Delete an XCom entry (<span class="nickname">deleteXComValue</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dag_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG ID. default: null </div><div class="param">dag_run_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG Run ID. default: null </div><div class="param">task_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Task ID. default: null </div><div class="param">key (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The XCom Key. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    No content.
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Client specified an invalid argument.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getXComEntry"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries</code></pre></div>
+    <div class="method-summary">Get all XCom entries (<span class="nickname">getXComEntry</span>)</div>
+    <div class="method-notes">This endpoint allows specifying <code>~</code> as the dag_id, dag_run_id, task_id to retrieve XCOM entries for for all DAGs, DAG Runs and task instances.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dag_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG ID. default: null </div><div class="param">dag_run_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG Run ID. default: null </div><div class="param">task_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Task ID. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">limit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The numbers of items to return. default: 100 </div><div class="param">offset (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The number of items to skip before starting to collect the result set. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#XComCollection">XComCollection</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    List of XCom entries.
+        <a href="#XComCollection">XComCollection</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getXComValue"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}</code></pre></div>
+    <div class="method-summary">Get an XCom entry (<span class="nickname">getXComValue</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dag_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG ID. default: null </div><div class="param">dag_run_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG Run ID. default: null </div><div class="param">task_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Task ID. default: null </div><div class="param">key (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The XCom Key. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#XCom">XCom</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>null</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#XCom">XCom</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">404</h4>
+    A specified resource is not found.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateXComEntry"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries</code></pre></div>
+    <div class="method-summary">Create an XCom entry (<span class="nickname">updateXComEntry</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dag_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG ID. default: null </div><div class="param">dag_run_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG Run ID. default: null </div><div class="param">task_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Task ID. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">XCom <a href="#XCom">XCom</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#XCom">XCom</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>null</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#XCom">XCom</a>
+    <h4 class="field-label">400</h4>
+    Client specified an invalid argument.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateXComValue"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}</code></pre></div>
+    <div class="method-summary">Update an XCom entry (<span class="nickname">updateXComValue</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dag_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG ID. default: null </div><div class="param">dag_run_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The DAG Run ID. default: null </div><div class="param">task_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Task ID. default: null </div><div class="param">key (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The XCom Key. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">XCom <a href="#XCom">XCom</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">update_mask (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#XCom">XCom</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>null</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response.
+        <a href="#XCom">XCom</a>
+    <h4 class="field-label">400</h4>
+    Client specified an invalid argument.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">401</h4>
+    Request not authenticated due to missing, invalid, authentication info.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">403</h4>
+    Client does not have sufficient permission.
+        <a href="#Error">Error</a>
+    <h4 class="field-label">404</h4>
+    A specified resource is not found.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#ClassReference"><code>ClassReference</code> - </a></li>
+    <li><a href="#ClearTaskInstance"><code>ClearTaskInstance</code> - </a></li>
+    <li><a href="#CollectionInfo"><code>CollectionInfo</code> - </a></li>
+    <li><a href="#Config"><code>Config</code> - </a></li>
+    <li><a href="#ConfigOption"><code>ConfigOption</code> - </a></li>
+    <li><a href="#ConfigSection"><code>ConfigSection</code> - </a></li>
+    <li><a href="#Connection"><code>Connection</code> - </a></li>
+    <li><a href="#ConnectionCollection"><code>ConnectionCollection</code> - </a></li>
+    <li><a href="#ConnectionCollectionItem"><code>ConnectionCollectionItem</code> - </a></li>
+    <li><a href="#Connection_allOf"><code>Connection_allOf</code> - </a></li>
+    <li><a href="#CronExpression"><code>CronExpression</code> - </a></li>
+    <li><a href="#DAG"><code>DAG</code> - </a></li>
+    <li><a href="#DAGCollection"><code>DAGCollection</code> - </a></li>
+    <li><a href="#DAGDetail"><code>DAGDetail</code> - </a></li>
+    <li><a href="#DAGDetail_allOf"><code>DAGDetail_allOf</code> - </a></li>
+    <li><a href="#DAGRun"><code>DAGRun</code> - </a></li>
+    <li><a href="#DAGRunCollection"><code>DAGRunCollection</code> - </a></li>
+    <li><a href="#DagState"><code>DagState</code> - </a></li>
+    <li><a href="#Error"><code>Error</code> - </a></li>
+    <li><a href="#EventLog"><code>EventLog</code> - </a></li>
+    <li><a href="#EventLogCollection"><code>EventLogCollection</code> - </a></li>
+    <li><a href="#ExtraLink"><code>ExtraLink</code> - </a></li>
+    <li><a href="#ExtraLinkCollection"><code>ExtraLinkCollection</code> - </a></li>
+    <li><a href="#ImportError"><code>ImportError</code> - </a></li>
+    <li><a href="#ImportErrorCollection"><code>ImportErrorCollection</code> - </a></li>
+    <li><a href="#ListDagRunsForm"><code>ListDagRunsForm</code> - </a></li>
+    <li><a href="#ListTaskInstanceForm"><code>ListTaskInstanceForm</code> - </a></li>
+    <li><a href="#Pool"><code>Pool</code> - </a></li>
+    <li><a href="#PoolCollection"><code>PoolCollection</code> - </a></li>
+    <li><a href="#RelativeDelta"><code>RelativeDelta</code> - </a></li>
+    <li><a href="#SLAMiss"><code>SLAMiss</code> - </a></li>
+    <li><a href="#SLAMissCollection"><code>SLAMissCollection</code> - </a></li>
+    <li><a href="#ScheduleInterval"><code>ScheduleInterval</code> - </a></li>
+    <li><a href="#Tag"><code>Tag</code> - </a></li>
+    <li><a href="#Task"><code>Task</code> - </a></li>
+    <li><a href="#TaskCollection"><code>TaskCollection</code> - </a></li>
+    <li><a href="#TaskFail"><code>TaskFail</code> - </a></li>
+    <li><a href="#TaskInstance"><code>TaskInstance</code> - </a></li>
+    <li><a href="#TaskInstanceCollection"><code>TaskInstanceCollection</code> - </a></li>
+    <li><a href="#TaskInstanceReference"><code>TaskInstanceReference</code> - </a></li>
+    <li><a href="#TaskInstanceReferenceCollection"><code>TaskInstanceReferenceCollection</code> - </a></li>
+    <li><a href="#TaskState"><code>TaskState</code> - </a></li>
+    <li><a href="#Task_extra_links"><code>Task_extra_links</code> - </a></li>
+    <li><a href="#TimeDelta"><code>TimeDelta</code> - </a></li>
+    <li><a href="#TriggerRule"><code>TriggerRule</code> - </a></li>
+    <li><a href="#Variable"><code>Variable</code> - </a></li>
+    <li><a href="#VariableCollection"><code>VariableCollection</code> - </a></li>
+    <li><a href="#VariableCollectionItem"><code>VariableCollectionItem</code> - </a></li>
+    <li><a href="#Variable_allOf"><code>Variable_allOf</code> - </a></li>
+    <li><a href="#WeightRule"><code>WeightRule</code> - </a></li>
+    <li><a href="#XCom"><code>XCom</code> - </a></li>
+    <li><a href="#XComCollection"><code>XComCollection</code> - </a></li>
+    <li><a href="#XComCollectionItem"><code>XComCollectionItem</code> - </a></li>
+    <li><a href="#inline_response_200"><code>inline_response_200</code> - </a></li>
+    <li><a href="#inline_response_200_1"><code>inline_response_200_1</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="ClassReference"><code>ClassReference</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">module_path (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">class_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ClearTaskInstance"><code>ClearTaskInstance</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">dry_run (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> If set, don't actually run this operation. The response will contain a list of task instances planned to be cleaned, but not modified in any way. </div>
+<div class="param">start_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The minimum execution date to clear. format: datetime</div>
+<div class="param">end_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The maximum execution date to clear. format: datetime</div>
+<div class="param">only_failed (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Only clear failed tasks. format: datetime</div>
+<div class="param">only_running (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Only clear running tasks. format: datetime</div>
+<div class="param">include_subdags (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Clear tasks in subdags and clear external tasks indicated by ExternalTaskMarker. </div>
+<div class="param">include_parentdag (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Clear tasks in the parent dag of the subdag. </div>
+<div class="param">reset_dag_runs (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Set state of DAG Runs to RUNNING. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CollectionInfo"><code>CollectionInfo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">total_entries (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Config"><code>Config</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">sections (optional)</div><div class="param-desc"><span class="param-type"><a href="#ConfigSection">array[ConfigSection]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ConfigOption"><code>ConfigOption</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ConfigSection"><code>ConfigSection</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">options (optional)</div><div class="param-desc"><span class="param-type"><a href="#ConfigOption">array[ConfigOption]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Connection"><code>Connection</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">connection_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">conn_type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">host (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">login (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">schema (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">port (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">password (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  format: password</div>
+<div class="param">extra (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ConnectionCollection"><code>ConnectionCollection</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">connections (optional)</div><div class="param-desc"><span class="param-type"><a href="#ConnectionCollectionItem">array[ConnectionCollectionItem]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ConnectionCollectionItem"><code>ConnectionCollectionItem</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">connection_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">conn_type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">host (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">login (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">schema (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">port (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Connection_allOf"><code>Connection_allOf</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">password (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  format: password</div>
+<div class="param">extra (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CronExpression"><code>CronExpression</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">__type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DAG"><code>DAG</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">dag_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">root_dag_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">is_paused (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">is_subdag (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">fileloc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">file_token (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The key containing the encrypted path to the file. Encryption and decryption take place only on the server. This prevents the client from reading an non-DAG file. This also ensures API extensibility, because the format of encrypted data may change. </div>
+<div class="param">owners (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">schedule_interval (optional)</div><div class="param-desc"><span class="param-type"><a href="#oneOf<ScheduleInterval>">oneOf<ScheduleInterval></a></span>  </div>
+<div class="param">tags (optional)</div><div class="param-desc"><span class="param-type"><a href="#Tag">array[Tag]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DAGCollection"><code>DAGCollection</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">dags (optional)</div><div class="param-desc"><span class="param-type"><a href="#DAG">array[DAG]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DAGDetail"><code>DAGDetail</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">dag_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">root_dag_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">is_paused (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">is_subdag (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">fileloc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">file_token (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The key containing the encrypted path to the file. Encryption and decryption take place only on the server. This prevents the client from reading an non-DAG file. This also ensures API extensibility, because the format of encrypted data may change. </div>
+<div class="param">owners (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">schedule_interval (optional)</div><div class="param-desc"><span class="param-type"><a href="#oneOf<ScheduleInterval>">oneOf<ScheduleInterval></a></span>  </div>
+<div class="param">tags (optional)</div><div class="param-desc"><span class="param-type"><a href="#Tag">array[Tag]</a></span>  </div>
+<div class="param">timezone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">catchup (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">orientation (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">concurrency (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">start_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">dag_run_timeout (optional)</div><div class="param-desc"><span class="param-type"><a href="#TimeDelta">TimeDelta</a></span>  </div>
+<div class="param">doc_md (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">default_view (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DAGDetail_allOf"><code>DAGDetail_allOf</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">timezone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">catchup (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">orientation (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">concurrency (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">start_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">dag_run_timeout (optional)</div><div class="param-desc"><span class="param-type"><a href="#TimeDelta">TimeDelta</a></span>  </div>
+<div class="param">doc_md (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">default_view (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DAGRun"><code>DAGRun</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">dag_run_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Run ID.
+The value of this field can be set only when creating the object. If you try to modify the field of an existing object, the request fails with an BAD_REQUEST error.
+If not provided, a value will be generated based on execution_date.
+If the specified dag_run_id is in use, the creation request fails with an ALREADY_EXISTS error.
+This together with DAG_ID are a unique key. </div>
+<div class="param">dag_id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">execution_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The execution date. This is the time when the DAG run should be started according to the DAG definition.
+The value of this field can be set only when creating the object. If you try to modify the field of an existing object, the request fails with an BAD_REQUEST error.
+This together with DAG_ID are a unique key. format: date-time</div>
+<div class="param">start_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The start time. The time when DAG Run was actually created.. format: date-time</div>
+<div class="param">end_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#DagState">DagState</a></span>  </div>
+<div class="param">external_trigger (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">conf (optional)</div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DAGRunCollection"><code>DAGRunCollection</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">dag_runs (optional)</div><div class="param-desc"><span class="param-type"><a href="#DAGRun">array[DAGRun]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DagState"><code>DagState</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Error"><code>Error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'><a href="https://tools.ietf.org/html/rfc7807">RFC7807</a> compliant response</div>
+    <div class="field-items">
+      <div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A URI reference [RFC3986] that identifies the problem type. This specification encourages that, when dereferenced, it provide human-readable documentation for the problem type. </div>
+<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A short, human-readable summary of the problem  type. </div>
+<div class="param">status </div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> The HTTP status code generated by the API server for this occurrence of the problem. </div>
+<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A human-readable explanation specific to this occurrence of the problem. </div>
+<div class="param">instance (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A URI reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EventLog"><code>EventLog</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">event_log_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">when (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dag_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">task_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">event (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">execution_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">owner (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">extra (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EventLogCollection"><code>EventLogCollection</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">event_logs (optional)</div><div class="param-desc"><span class="param-type"><a href="#EventLog">array[EventLog]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ExtraLink"><code>ExtraLink</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">class_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#ClassReference">ClassReference</a></span>  </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">href (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ExtraLinkCollection"><code>ExtraLinkCollection</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">extra_links (optional)</div><div class="param-desc"><span class="param-type"><a href="#ExtraLink">array[ExtraLink]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ImportError"><code>ImportError</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">import_error_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">timestamp (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  format: datetime</div>
+<div class="param">filename (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">stack_trace (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ImportErrorCollection"><code>ImportErrorCollection</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">import_errors (optional)</div><div class="param-desc"><span class="param-type"><a href="#ImportError">array[ImportError]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListDagRunsForm"><code>ListDagRunsForm</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">page_offset (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The number of items to skip before starting to collect the result set. </div>
+<div class="param">page_limit (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The numbers of items to return. </div>
+<div class="param">dag_ids (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Return objects with specific DAG IDs.
+The value can be repeated to retrieve multiple matching values (OR condition). </div>
+<div class="param">execution_date_gte (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Returns objects greater or equal to the specified date.
+This can be combined with execution_date_lte key to receive only the selected period. format: date-time</div>
+<div class="param">execution_date_lte (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Returns objects less than or equal to the specified date.
+This can be combined with execution_date_gte key to receive only the selected period. format: date-time</div>
+<div class="param">start_date_gte (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Returns objects greater or equal the specified date.
+This can be combined with start_date_lte key to receive only the selected period. format: date-time</div>
+<div class="param">start_date_lte (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Returns objects less or equal the specified date.
+This can be combined with start_date_gte parameter to receive only the selected period format: date-time</div>
+<div class="param">end_date_gte (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Returns objects greater or equal the specified date.
+This can be combined with end_date_lte parameter to receive only the selected period. format: date-time</div>
+<div class="param">end_date_lte (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Returns objects less than or equal to the specified date.
+This can be combined with end_date_gte parameter to receive only the selected period. format: date-time</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListTaskInstanceForm"><code>ListTaskInstanceForm</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">dag_ids (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Return objects with specific DAG IDs.
+The value can be repeated to retrieve multiple matching values (OR condition). </div>
+<div class="param">execution_date_gte (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Returns objects greater or equal to the specified date.
+This can be combined with execution_date_lte parameter to receive only the selected period. format: date-time</div>
+<div class="param">execution_date_lte (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Returns objects less than or equal to the specified date.
+This can be combined with execution_date_gte parameter to receive only the selected period. format: date-time</div>
+<div class="param">start_date_gte (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Returns objects greater or equal the specified date.
+This can be combined with startd_ate_lte parameter to receive only the selected period. format: date-time</div>
+<div class="param">start_date_lte (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Returns objects less or equal the specified date.
+This can be combined with start_date_gte parameter to receive only the selected period. format: date-time</div>
+<div class="param">end_date_gte (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Returns objects greater or equal the specified date.
+This can be combined with start_date_lte parameter to receive only the selected period. format: date-time</div>
+<div class="param">end_date_lte (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Returns objects less than or equal to the specified date.
+This can be combined with start_date_gte parameter to receive only the selected period. format: date-time</div>
+<div class="param">duration_gte (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Returns objects greater than or equal to the specified values.
+This can be combined with duration_lte parameter to receive only the selected period. </div>
+<div class="param">duration_lte (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Returns objects less than or equal to the specified values.
+This can be combined with duration_gte parameter to receive only the selected range. </div>
+<div class="param">State (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> The value can be repeated to retrieve multiple matching values (OR condition). </div>
+<div class="param">Pool (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> The value can be repeated to retrieve multiple matching values (OR condition). </div>
+<div class="param">Queue (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> The value can be repeated to retrieve multiple matching values (OR condition). </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Pool"><code>Pool</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">slots (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">occupied_slots (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">used_slots (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">queued_slots (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">open_slots (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PoolCollection"><code>PoolCollection</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">pools (optional)</div><div class="param-desc"><span class="param-type"><a href="#Pool">array[Pool]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="RelativeDelta"><code>RelativeDelta</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">__type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">years (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">months (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">days (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">leapdays (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">hours (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">minutes (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">seconds (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">microseconds (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">year (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">month (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">day (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">hour (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">minute (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">second (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">microsecond (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SLAMiss"><code>SLAMiss</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">task_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dag_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">execution_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  format: datetime</div>
+<div class="param">email_sent (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">timestamp (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  format: datetime</div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">notification_sent (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SLAMissCollection"><code>SLAMissCollection</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">sla_misses (optional)</div><div class="param-desc"><span class="param-type"><a href="#SLAMiss">array[SLAMiss]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ScheduleInterval"><code>ScheduleInterval</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">__type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">days (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">seconds (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">microsecond (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">years (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">months (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">leapdays (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">hours (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">minutes (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">microseconds (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">year (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">month (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">day (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">hour (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">minute (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">second (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Tag"><code>Tag</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Task"><code>Task</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">class_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#ClassReference">ClassReference</a></span>  </div>
+<div class="param">task_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">owner (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">start_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">end_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">trigger_rule (optional)</div><div class="param-desc"><span class="param-type"><a href="#TriggerRule">TriggerRule</a></span>  </div>
+<div class="param">extra_links (optional)</div><div class="param-desc"><span class="param-type"><a href="#Task_extra_links">array[Task_extra_links]</a></span>  </div>
+<div class="param">depends_on_past (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">wait_for_downstream (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">retries (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">queue (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">pool (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">pool_slots (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">execution_timeout (optional)</div><div class="param-desc"><span class="param-type"><a href="#TimeDelta">TimeDelta</a></span>  </div>
+<div class="param">retry_delay (optional)</div><div class="param-desc"><span class="param-type"><a href="#TimeDelta">TimeDelta</a></span>  </div>
+<div class="param">retry_exponential_backoff (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">priority_weight (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">weight_rule (optional)</div><div class="param-desc"><span class="param-type"><a href="#WeightRule">WeightRule</a></span>  </div>
+<div class="param">ui_color (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ui_fgcolor (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">template_fields (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+<div class="param">sub_dag (optional)</div><div class="param-desc"><span class="param-type"><a href="#DAG">DAG</a></span>  </div>
+<div class="param">downstream_task_ids (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TaskCollection"><code>TaskCollection</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">tasks (optional)</div><div class="param-desc"><span class="param-type"><a href="#Task">array[Task]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TaskFail"><code>TaskFail</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">task_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dag_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">execution_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  format: datetime</div>
+<div class="param">start_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  format: datetime</div>
+<div class="param">end_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  format: datetime</div>
+<div class="param">duration (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TaskInstance"><code>TaskInstance</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">task_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dag_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">execution_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  format: datetime</div>
+<div class="param">start_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  format: datetime</div>
+<div class="param">end_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  format: datetime</div>
+<div class="param">duration (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#TaskState">TaskState</a></span>  </div>
+<div class="param">try_number (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">max_tries (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">hostname (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">unixname (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">pool (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">pool_slots (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">queue (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">priority_weight (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">operator (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">queued_when (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">pid (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">executor_config (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">sla_miss (optional)</div><div class="param-desc"><span class="param-type"><a href="#SLAMiss">SLAMiss</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TaskInstanceCollection"><code>TaskInstanceCollection</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">task_instances (optional)</div><div class="param-desc"><span class="param-type"><a href="#TaskInstance">array[TaskInstance]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TaskInstanceReference"><code>TaskInstanceReference</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">task_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dag_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">execution_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  format: datetime</div>
+<div class="param">dag_run_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TaskInstanceReferenceCollection"><code>TaskInstanceReferenceCollection</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">task_instances (optional)</div><div class="param-desc"><span class="param-type"><a href="#TaskInstanceReference">array[TaskInstanceReference]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TaskState"><code>TaskState</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Task_extra_links"><code>Task_extra_links</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">class_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#ClassReference">ClassReference</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TimeDelta"><code>TimeDelta</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">__type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">days (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">seconds (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">microsecond (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TriggerRule"><code>TriggerRule</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Variable"><code>Variable</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="VariableCollection"><code>VariableCollection</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">variables (optional)</div><div class="param-desc"><span class="param-type"><a href="#VariableCollectionItem">array[VariableCollectionItem]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="VariableCollectionItem"><code>VariableCollectionItem</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Variable_allOf"><code>Variable_allOf</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WeightRule"><code>WeightRule</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="XCom"><code>XCom</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">timestamp (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  format: datetime</div>
+<div class="param">execution_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  format: datetime</div>
+<div class="param">task_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dag_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="XComCollection"><code>XComCollection</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">xcom_entries (optional)</div><div class="param-desc"><span class="param-type"><a href="#XComCollectionItem">array[XComCollectionItem]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="XComCollectionItem"><code>XComCollectionItem</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">timestamp (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  format: datetime</div>
+<div class="param">execution_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  format: datetime</div>
+<div class="param">task_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dag_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200"><code>inline_response_200</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">continuation_token (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">content (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_1"><code>inline_response_200_1</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">content (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>

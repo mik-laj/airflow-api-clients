@@ -1,0 +1,70 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server EventLog"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a EventLog"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  EventLog {
+    title = EventLog
+    description = EventLog
+    derivedFrom = Root
+    properties {
+        event_log_id {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        when {
+          type =  string
+          description = ""
+          optional = false
+        }
+        dag_id {
+          type =  string
+          description = ""
+          optional = false
+        }
+        task_id {
+          type =  string
+          description = ""
+          optional = false
+        }
+        event {
+          type =  string
+          description = ""
+          optional = false
+        }
+        execution_date {
+          type =  string
+          description = ""
+          optional = false
+        }
+        owner {
+          type =  string
+          description = ""
+          optional = false
+        }
+        extra {
+          type =  string
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  EventLog {
+    title = EventLog
+    description = EventLog
+    implements = openapi_server.resourceTypes.EventLog
+
+  }
+}
