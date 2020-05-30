@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * RelativeDelta
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:05:13.583Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:47:03.587Z[GMT]")
 public class RelativeDelta {
   public static final String SERIALIZED_NAME_TYPE = "__type";
   @SerializedName(SERIALIZED_NAME_TYPE)

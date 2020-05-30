@@ -25,7 +25,7 @@ import org.springframework.http.MediaType;
 import reactor.core.publisher.Mono;
 import reactor.core.publisher.Flux;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:06:08.009Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:47:11.028Z[GMT]")
 public class XComApi {
     private ApiClient apiClient;
 
@@ -56,10 +56,10 @@ public class XComApi {
      * @param dagId The DAG ID.
      * @param dagRunId The DAG Run ID.
      * @param taskId The Task ID.
-     * @param key The XCom Key.
+     * @param xcomKey The XCom Key.
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<Void> deleteXComValue(String dagId, String dagRunId, String taskId, String key) throws WebClientResponseException {
+    public Mono<Void> deleteXComValue(String dagId, String dagRunId, String taskId, String xcomKey) throws WebClientResponseException {
         Object postBody = null;
         // verify the required parameter 'dagId' is set
         if (dagId == null) {
@@ -73,9 +73,9 @@ public class XComApi {
         if (taskId == null) {
             throw new WebClientResponseException("Missing the required parameter 'taskId' when calling deleteXComValue", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
         }
-        // verify the required parameter 'key' is set
-        if (key == null) {
-            throw new WebClientResponseException("Missing the required parameter 'key' when calling deleteXComValue", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
+        // verify the required parameter 'xcomKey' is set
+        if (xcomKey == null) {
+            throw new WebClientResponseException("Missing the required parameter 'xcomKey' when calling deleteXComValue", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
         }
         // create path and map variables
         final Map<String, Object> pathParams = new HashMap<String, Object>();
@@ -83,7 +83,7 @@ public class XComApi {
         pathParams.put("dag_id", dagId);
         pathParams.put("dag_run_id", dagRunId);
         pathParams.put("task_id", taskId);
-        pathParams.put("key", key);
+        pathParams.put("xcom_key", xcomKey);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
         final HttpHeaders headerParams = new HttpHeaders();
@@ -167,11 +167,11 @@ public class XComApi {
      * @param dagId The DAG ID.
      * @param dagRunId The DAG Run ID.
      * @param taskId The Task ID.
-     * @param key The XCom Key.
+     * @param xcomKey The XCom Key.
      * @return XCom
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<XCom> getXComValue(String dagId, String dagRunId, String taskId, String key) throws WebClientResponseException {
+    public Mono<XCom> getXComValue(String dagId, String dagRunId, String taskId, String xcomKey) throws WebClientResponseException {
         Object postBody = null;
         // verify the required parameter 'dagId' is set
         if (dagId == null) {
@@ -185,9 +185,9 @@ public class XComApi {
         if (taskId == null) {
             throw new WebClientResponseException("Missing the required parameter 'taskId' when calling getXComValue", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
         }
-        // verify the required parameter 'key' is set
-        if (key == null) {
-            throw new WebClientResponseException("Missing the required parameter 'key' when calling getXComValue", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
+        // verify the required parameter 'xcomKey' is set
+        if (xcomKey == null) {
+            throw new WebClientResponseException("Missing the required parameter 'xcomKey' when calling getXComValue", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
         }
         // create path and map variables
         final Map<String, Object> pathParams = new HashMap<String, Object>();
@@ -195,7 +195,7 @@ public class XComApi {
         pathParams.put("dag_id", dagId);
         pathParams.put("dag_run_id", dagRunId);
         pathParams.put("task_id", taskId);
-        pathParams.put("key", key);
+        pathParams.put("xcom_key", xcomKey);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
         final HttpHeaders headerParams = new HttpHeaders();
@@ -283,13 +283,13 @@ public class XComApi {
      * @param dagId The DAG ID.
      * @param dagRunId The DAG Run ID.
      * @param taskId The Task ID.
-     * @param key The XCom Key.
+     * @param xcomKey The XCom Key.
      * @param xcom The xcom parameter
      * @param updateMask The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields. 
      * @return XCom
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<XCom> updateXComValue(String dagId, String dagRunId, String taskId, String key, XCom xcom, List<String> updateMask) throws WebClientResponseException {
+    public Mono<XCom> updateXComValue(String dagId, String dagRunId, String taskId, String xcomKey, XCom xcom, List<String> updateMask) throws WebClientResponseException {
         Object postBody = xcom;
         // verify the required parameter 'dagId' is set
         if (dagId == null) {
@@ -303,9 +303,9 @@ public class XComApi {
         if (taskId == null) {
             throw new WebClientResponseException("Missing the required parameter 'taskId' when calling updateXComValue", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
         }
-        // verify the required parameter 'key' is set
-        if (key == null) {
-            throw new WebClientResponseException("Missing the required parameter 'key' when calling updateXComValue", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
+        // verify the required parameter 'xcomKey' is set
+        if (xcomKey == null) {
+            throw new WebClientResponseException("Missing the required parameter 'xcomKey' when calling updateXComValue", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
         }
         // verify the required parameter 'xcom' is set
         if (xcom == null) {
@@ -317,7 +317,7 @@ public class XComApi {
         pathParams.put("dag_id", dagId);
         pathParams.put("dag_run_id", dagRunId);
         pathParams.put("task_id", taskId);
-        pathParams.put("key", key);
+        pathParams.put("xcom_key", xcomKey);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
         final HttpHeaders headerParams = new HttpHeaders();

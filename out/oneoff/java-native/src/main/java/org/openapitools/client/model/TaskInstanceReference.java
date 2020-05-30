@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   TaskInstanceReference.JSON_PROPERTY_EXECUTION_DATE,
   TaskInstanceReference.JSON_PROPERTY_DAG_RUN_ID
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:11:05.682Z[GMT]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:32.163Z[GMT]")
 public class TaskInstanceReference {
   public static final String JSON_PROPERTY_TASK_ID = "task_id";
   private String taskId;

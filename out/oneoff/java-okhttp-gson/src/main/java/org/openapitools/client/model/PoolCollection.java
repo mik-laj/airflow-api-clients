@@ -30,7 +30,7 @@ import org.openapitools.client.model.Pool;
 /**
  * PoolCollection
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:09:26.121Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:12.169Z[GMT]")
 public class PoolCollection {
   public static final String SERIALIZED_NAME_POOLS = "pools";
   @SerializedName(SERIALIZED_NAME_POOLS)

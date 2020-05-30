@@ -44,7 +44,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   RelativeDelta.JSON_PROPERTY_SECOND,
   RelativeDelta.JSON_PROPERTY_MICROSECOND
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:02:20.939Z[GMT]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:46:14.445Z[GMT]")
 public class RelativeDelta {
   public static final String JSON_PROPERTY_TYPE = "__type";
   private String type;

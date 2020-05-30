@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ConfigSection.JSON_PROPERTY_NAME,
   ConfigSection.JSON_PROPERTY_OPTIONS
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:02:20.939Z[GMT]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:46:14.445Z[GMT]")
 public class ConfigSection {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;

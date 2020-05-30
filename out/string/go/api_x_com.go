@@ -33,9 +33,9 @@ DeleteXComValue Delete an XCom entry
  * @param dagId The DAG ID.
  * @param dagRunId The DAG Run ID.
  * @param taskId The Task ID.
- * @param key The XCom Key.
+ * @param xcomKey The XCom Key.
 */
-func (a *XComApiService) DeleteXComValue(ctx _context.Context, dagId string, dagRunId string, taskId string, key string) (*_nethttp.Response, error) {
+func (a *XComApiService) DeleteXComValue(ctx _context.Context, dagId string, dagRunId string, taskId string, xcomKey string) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -52,7 +52,7 @@ func (a *XComApiService) DeleteXComValue(ctx _context.Context, dagId string, dag
 
 	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", _neturl.QueryEscape(parameterToString(taskId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"key"+"}", _neturl.QueryEscape(parameterToString(key, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"xcom_key"+"}", _neturl.QueryEscape(parameterToString(xcomKey, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -255,10 +255,10 @@ GetXComValue Get an XCom entry
  * @param dagId The DAG ID.
  * @param dagRunId The DAG Run ID.
  * @param taskId The Task ID.
- * @param key The XCom Key.
+ * @param xcomKey The XCom Key.
 @return XCom
 */
-func (a *XComApiService) GetXComValue(ctx _context.Context, dagId string, dagRunId string, taskId string, key string) (XCom, *_nethttp.Response, error) {
+func (a *XComApiService) GetXComValue(ctx _context.Context, dagId string, dagRunId string, taskId string, xcomKey string) (XCom, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -276,7 +276,7 @@ func (a *XComApiService) GetXComValue(ctx _context.Context, dagId string, dagRun
 
 	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", _neturl.QueryEscape(parameterToString(taskId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"key"+"}", _neturl.QueryEscape(parameterToString(key, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"xcom_key"+"}", _neturl.QueryEscape(parameterToString(xcomKey, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -490,13 +490,13 @@ UpdateXComValue Update an XCom entry
  * @param dagId The DAG ID.
  * @param dagRunId The DAG Run ID.
  * @param taskId The Task ID.
- * @param key The XCom Key.
+ * @param xcomKey The XCom Key.
  * @param xCom
  * @param optional nil or *UpdateXComValueOpts - Optional Parameters:
  * @param "UpdateMask" (optional.Interface of []string) -  The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields. 
 @return XCom
 */
-func (a *XComApiService) UpdateXComValue(ctx _context.Context, dagId string, dagRunId string, taskId string, key string, xCom XCom, localVarOptionals *UpdateXComValueOpts) (XCom, *_nethttp.Response, error) {
+func (a *XComApiService) UpdateXComValue(ctx _context.Context, dagId string, dagRunId string, taskId string, xcomKey string, xCom XCom, localVarOptionals *UpdateXComValueOpts) (XCom, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -514,7 +514,7 @@ func (a *XComApiService) UpdateXComValue(ctx _context.Context, dagId string, dag
 
 	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", _neturl.QueryEscape(parameterToString(taskId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"key"+"}", _neturl.QueryEscape(parameterToString(key, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"xcom_key"+"}", _neturl.QueryEscape(parameterToString(xcomKey, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

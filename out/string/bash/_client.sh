@@ -681,7 +681,7 @@ This can be combined with duration_gte parameter to receive only the selected ra
           "dag_id=:[PATH] The DAG ID."
 "dag_run_id=:[PATH] The DAG Run ID."
 "task_id=:[PATH] The Task ID."
-"key=:[PATH] The XCom Key."
+"xcom_key=:[PATH] The XCom Key."
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -702,7 +702,7 @@ This can be combined with duration_gte parameter to receive only the selected ra
           "dag_id=:[PATH] The DAG ID."
 "dag_run_id=:[PATH] The DAG Run ID."
 "task_id=:[PATH] The Task ID."
-"key=:[PATH] The XCom Key."
+"xcom_key=:[PATH] The XCom Key."
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -721,7 +721,7 @@ This can be combined with duration_gte parameter to receive only the selected ra
           "dag_id=:[PATH] The DAG ID."
 "dag_run_id=:[PATH] The DAG Run ID."
 "task_id=:[PATH] The Task ID."
-"key=:[PATH] The XCom Key."
+"xcom_key=:[PATH] The XCom Key."
           "update_mask=:[QUERY] The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields."
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0

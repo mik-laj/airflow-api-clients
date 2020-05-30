@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   ConnectionCollection.JSON_PROPERTY_CONNECTIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:10:42.716Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:27.230Z[GMT]")
 public class ConnectionCollection {
   public static final String JSON_PROPERTY_CONNECTIONS = "connections";
   private List<ConnectionCollectionItem> connections = null;

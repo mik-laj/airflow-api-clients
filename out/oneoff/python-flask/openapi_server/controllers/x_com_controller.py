@@ -7,7 +7,7 @@ from openapi_server.models.x_com_collection import XComCollection  # noqa: E501
 from openapi_server import util
 
 
-def delete_x_com_value(dag_id, dag_run_id, task_id, key):  # noqa: E501
+def delete_x_com_value(dag_id, dag_run_id, task_id, xcom_key):  # noqa: E501
     """Delete an XCom entry
 
      # noqa: E501
@@ -18,8 +18,8 @@ def delete_x_com_value(dag_id, dag_run_id, task_id, key):  # noqa: E501
     :type dag_run_id: str
     :param task_id: The Task ID.
     :type task_id: str
-    :param key: The XCom Key.
-    :type key: str
+    :param xcom_key: The XCom Key.
+    :type xcom_key: str
 
     :rtype: None
     """
@@ -47,7 +47,7 @@ def get_x_com_entry(dag_id, dag_run_id, task_id, limit=None, offset=None):  # no
     return 'do some magic!'
 
 
-def get_x_com_value(dag_id, dag_run_id, task_id, key):  # noqa: E501
+def get_x_com_value(dag_id, dag_run_id, task_id, xcom_key):  # noqa: E501
     """Get an XCom entry
 
      # noqa: E501
@@ -58,8 +58,8 @@ def get_x_com_value(dag_id, dag_run_id, task_id, key):  # noqa: E501
     :type dag_run_id: str
     :param task_id: The Task ID.
     :type task_id: str
-    :param key: The XCom Key.
-    :type key: str
+    :param xcom_key: The XCom Key.
+    :type xcom_key: str
 
     :rtype: XCom
     """
@@ -87,7 +87,7 @@ def update_x_com_entry(dag_id, dag_run_id, task_id, x_com):  # noqa: E501
     return 'do some magic!'
 
 
-def update_x_com_value(dag_id, dag_run_id, task_id, key, x_com, update_mask=None):  # noqa: E501
+def update_x_com_value(dag_id, dag_run_id, task_id, xcom_key, x_com, update_mask=None):  # noqa: E501
     """Update an XCom entry
 
      # noqa: E501
@@ -98,8 +98,8 @@ def update_x_com_value(dag_id, dag_run_id, task_id, key, x_com, update_mask=None
     :type dag_run_id: str
     :param task_id: The Task ID.
     :type task_id: str
-    :param key: The XCom Key.
-    :type key: str
+    :param xcom_key: The XCom Key.
+    :type xcom_key: str
     :param x_com: 
     :type x_com: dict | bytes
     :param update_mask: The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields. 

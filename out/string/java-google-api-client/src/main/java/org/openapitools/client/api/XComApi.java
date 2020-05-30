@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.List;
 import java.util.ArrayList;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:01:56.893Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:46:09.738Z[GMT]")
 public class XComApi {
     private ApiClient apiClient;
 
@@ -52,11 +52,11 @@ public class XComApi {
     * @param dagId The DAG ID.
     * @param dagRunId The DAG Run ID.
     * @param taskId The Task ID.
-    * @param key The XCom Key.
+    * @param xcomKey The XCom Key.
     * @throws IOException if an error occurs while attempting to invoke the API
     **/
-    public void deleteXComValue(String dagId, String dagRunId, String taskId, String key) throws IOException {
-        deleteXComValueForHttpResponse(dagId, dagRunId, taskId, key);
+    public void deleteXComValue(String dagId, String dagRunId, String taskId, String xcomKey) throws IOException {
+        deleteXComValueForHttpResponse(dagId, dagRunId, taskId, xcomKey);
     }
 
   /**
@@ -68,15 +68,15 @@ public class XComApi {
     * @param dagId The DAG ID.
     * @param dagRunId The DAG Run ID.
     * @param taskId The Task ID.
-    * @param key The XCom Key.
+    * @param xcomKey The XCom Key.
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     **/
-    public void deleteXComValue(String dagId, String dagRunId, String taskId, String key, Map<String, Object> params) throws IOException {
-        deleteXComValueForHttpResponse(dagId, dagRunId, taskId, key, params);
+    public void deleteXComValue(String dagId, String dagRunId, String taskId, String xcomKey, Map<String, Object> params) throws IOException {
+        deleteXComValueForHttpResponse(dagId, dagRunId, taskId, xcomKey, params);
     }
 
-    public HttpResponse deleteXComValueForHttpResponse(String dagId, String dagRunId, String taskId, String key) throws IOException {
+    public HttpResponse deleteXComValueForHttpResponse(String dagId, String dagRunId, String taskId, String xcomKey) throws IOException {
         // verify the required parameter 'dagId' is set
         if (dagId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'dagId' when calling deleteXComValue");
@@ -86,16 +86,16 @@ public class XComApi {
         }// verify the required parameter 'taskId' is set
         if (taskId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'taskId' when calling deleteXComValue");
-        }// verify the required parameter 'key' is set
-        if (key == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'key' when calling deleteXComValue");
+        }// verify the required parameter 'xcomKey' is set
+        if (xcomKey == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'xcomKey' when calling deleteXComValue");
         }
         // create a map of path variables
         final Map<String, Object> uriVariables = new HashMap<String, Object>();
         uriVariables.put("dag_id", dagId);
         uriVariables.put("dag_run_id", dagRunId);
         uriVariables.put("task_id", taskId);
-        uriVariables.put("key", key);
+        uriVariables.put("xcom_key", xcomKey);
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}");
 
         String localVarUrl = uriBuilder.buildFromMap(uriVariables).toString();
@@ -105,7 +105,7 @@ public class XComApi {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.DELETE, genericUrl, content).execute();
     }
 
-    public HttpResponse deleteXComValueForHttpResponse(String dagId, String dagRunId, String taskId, String key, Map<String, Object> params) throws IOException {
+    public HttpResponse deleteXComValueForHttpResponse(String dagId, String dagRunId, String taskId, String xcomKey, Map<String, Object> params) throws IOException {
         // verify the required parameter 'dagId' is set
         if (dagId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'dagId' when calling deleteXComValue");
@@ -115,16 +115,16 @@ public class XComApi {
         }// verify the required parameter 'taskId' is set
         if (taskId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'taskId' when calling deleteXComValue");
-        }// verify the required parameter 'key' is set
-        if (key == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'key' when calling deleteXComValue");
+        }// verify the required parameter 'xcomKey' is set
+        if (xcomKey == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'xcomKey' when calling deleteXComValue");
         }
         // create a map of path variables
         final Map<String, Object> uriVariables = new HashMap<String, Object>();
         uriVariables.put("dag_id", dagId);
         uriVariables.put("dag_run_id", dagRunId);
         uriVariables.put("task_id", taskId);
-        uriVariables.put("key", key);
+        uriVariables.put("xcom_key", xcomKey);
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -291,12 +291,12 @@ public class XComApi {
     * @param dagId The DAG ID.
     * @param dagRunId The DAG Run ID.
     * @param taskId The Task ID.
-    * @param key The XCom Key.
+    * @param xcomKey The XCom Key.
     * @return XCom
     * @throws IOException if an error occurs while attempting to invoke the API
     **/
-    public XCom getXComValue(String dagId, String dagRunId, String taskId, String key) throws IOException {
-        HttpResponse response = getXComValueForHttpResponse(dagId, dagRunId, taskId, key);
+    public XCom getXComValue(String dagId, String dagRunId, String taskId, String xcomKey) throws IOException {
+        HttpResponse response = getXComValueForHttpResponse(dagId, dagRunId, taskId, xcomKey);
         TypeReference<XCom> typeRef = new TypeReference<XCom>() {};
         return apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -310,18 +310,18 @@ public class XComApi {
     * @param dagId The DAG ID.
     * @param dagRunId The DAG Run ID.
     * @param taskId The Task ID.
-    * @param key The XCom Key.
+    * @param xcomKey The XCom Key.
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @return XCom
     * @throws IOException if an error occurs while attempting to invoke the API
     **/
-    public XCom getXComValue(String dagId, String dagRunId, String taskId, String key, Map<String, Object> params) throws IOException {
-        HttpResponse response = getXComValueForHttpResponse(dagId, dagRunId, taskId, key, params);
+    public XCom getXComValue(String dagId, String dagRunId, String taskId, String xcomKey, Map<String, Object> params) throws IOException {
+        HttpResponse response = getXComValueForHttpResponse(dagId, dagRunId, taskId, xcomKey, params);
         TypeReference<XCom> typeRef = new TypeReference<XCom>() {};
         return apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    public HttpResponse getXComValueForHttpResponse(String dagId, String dagRunId, String taskId, String key) throws IOException {
+    public HttpResponse getXComValueForHttpResponse(String dagId, String dagRunId, String taskId, String xcomKey) throws IOException {
         // verify the required parameter 'dagId' is set
         if (dagId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'dagId' when calling getXComValue");
@@ -331,16 +331,16 @@ public class XComApi {
         }// verify the required parameter 'taskId' is set
         if (taskId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'taskId' when calling getXComValue");
-        }// verify the required parameter 'key' is set
-        if (key == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'key' when calling getXComValue");
+        }// verify the required parameter 'xcomKey' is set
+        if (xcomKey == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'xcomKey' when calling getXComValue");
         }
         // create a map of path variables
         final Map<String, Object> uriVariables = new HashMap<String, Object>();
         uriVariables.put("dag_id", dagId);
         uriVariables.put("dag_run_id", dagRunId);
         uriVariables.put("task_id", taskId);
-        uriVariables.put("key", key);
+        uriVariables.put("xcom_key", xcomKey);
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}");
 
         String localVarUrl = uriBuilder.buildFromMap(uriVariables).toString();
@@ -350,7 +350,7 @@ public class XComApi {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
     }
 
-    public HttpResponse getXComValueForHttpResponse(String dagId, String dagRunId, String taskId, String key, Map<String, Object> params) throws IOException {
+    public HttpResponse getXComValueForHttpResponse(String dagId, String dagRunId, String taskId, String xcomKey, Map<String, Object> params) throws IOException {
         // verify the required parameter 'dagId' is set
         if (dagId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'dagId' when calling getXComValue");
@@ -360,16 +360,16 @@ public class XComApi {
         }// verify the required parameter 'taskId' is set
         if (taskId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'taskId' when calling getXComValue");
-        }// verify the required parameter 'key' is set
-        if (key == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'key' when calling getXComValue");
+        }// verify the required parameter 'xcomKey' is set
+        if (xcomKey == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'xcomKey' when calling getXComValue");
         }
         // create a map of path variables
         final Map<String, Object> uriVariables = new HashMap<String, Object>();
         uriVariables.put("dag_id", dagId);
         uriVariables.put("dag_run_id", dagRunId);
         uriVariables.put("task_id", taskId);
-        uriVariables.put("key", key);
+        uriVariables.put("xcom_key", xcomKey);
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -552,14 +552,14 @@ public class XComApi {
     * @param dagId The DAG ID.
     * @param dagRunId The DAG Run ID.
     * @param taskId The Task ID.
-    * @param key The XCom Key.
+    * @param xcomKey The XCom Key.
     * @param xcom The xcom parameter
     * @param updateMask The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields. 
     * @return XCom
     * @throws IOException if an error occurs while attempting to invoke the API
     **/
-    public XCom updateXComValue(String dagId, String dagRunId, String taskId, String key, XCom xcom, List<String> updateMask) throws IOException {
-        HttpResponse response = updateXComValueForHttpResponse(dagId, dagRunId, taskId, key, xcom, updateMask);
+    public XCom updateXComValue(String dagId, String dagRunId, String taskId, String xcomKey, XCom xcom, List<String> updateMask) throws IOException {
+        HttpResponse response = updateXComValueForHttpResponse(dagId, dagRunId, taskId, xcomKey, xcom, updateMask);
         TypeReference<XCom> typeRef = new TypeReference<XCom>() {};
         return apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -574,19 +574,19 @@ public class XComApi {
     * @param dagId The DAG ID.
     * @param dagRunId The DAG Run ID.
     * @param taskId The Task ID.
-    * @param key The XCom Key.
+    * @param xcomKey The XCom Key.
     * @param xcom The xcom parameter
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @return XCom
     * @throws IOException if an error occurs while attempting to invoke the API
     **/
-    public XCom updateXComValue(String dagId, String dagRunId, String taskId, String key, XCom xcom, Map<String, Object> params) throws IOException {
-        HttpResponse response = updateXComValueForHttpResponse(dagId, dagRunId, taskId, key, xcom, params);
+    public XCom updateXComValue(String dagId, String dagRunId, String taskId, String xcomKey, XCom xcom, Map<String, Object> params) throws IOException {
+        HttpResponse response = updateXComValueForHttpResponse(dagId, dagRunId, taskId, xcomKey, xcom, params);
         TypeReference<XCom> typeRef = new TypeReference<XCom>() {};
         return apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    public HttpResponse updateXComValueForHttpResponse(String dagId, String dagRunId, String taskId, String key, XCom xcom, List<String> updateMask) throws IOException {
+    public HttpResponse updateXComValueForHttpResponse(String dagId, String dagRunId, String taskId, String xcomKey, XCom xcom, List<String> updateMask) throws IOException {
         // verify the required parameter 'dagId' is set
         if (dagId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'dagId' when calling updateXComValue");
@@ -596,9 +596,9 @@ public class XComApi {
         }// verify the required parameter 'taskId' is set
         if (taskId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'taskId' when calling updateXComValue");
-        }// verify the required parameter 'key' is set
-        if (key == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'key' when calling updateXComValue");
+        }// verify the required parameter 'xcomKey' is set
+        if (xcomKey == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'xcomKey' when calling updateXComValue");
         }// verify the required parameter 'xcom' is set
         if (xcom == null) {
             throw new IllegalArgumentException("Missing the required parameter 'xcom' when calling updateXComValue");
@@ -608,7 +608,7 @@ public class XComApi {
         uriVariables.put("dag_id", dagId);
         uriVariables.put("dag_run_id", dagRunId);
         uriVariables.put("task_id", taskId);
-        uriVariables.put("key", key);
+        uriVariables.put("xcom_key", xcomKey);
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}");
         if (updateMask != null) {
             String key = "update_mask";
@@ -629,7 +629,7 @@ public class XComApi {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.PATCH, genericUrl, content).execute();
     }
 
-      public HttpResponse updateXComValueForHttpResponse(String dagId, String dagRunId, String taskId, String key, java.io.InputStream xcom, List<String> updateMask, String mediaType) throws IOException {
+      public HttpResponse updateXComValueForHttpResponse(String dagId, String dagRunId, String taskId, String xcomKey, java.io.InputStream xcom, List<String> updateMask, String mediaType) throws IOException {
           // verify the required parameter 'dagId' is set
               if (dagId == null) {
               throw new IllegalArgumentException("Missing the required parameter 'dagId' when calling updateXComValue");
@@ -639,9 +639,9 @@ public class XComApi {
               }// verify the required parameter 'taskId' is set
               if (taskId == null) {
               throw new IllegalArgumentException("Missing the required parameter 'taskId' when calling updateXComValue");
-              }// verify the required parameter 'key' is set
-              if (key == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'key' when calling updateXComValue");
+              }// verify the required parameter 'xcomKey' is set
+              if (xcomKey == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'xcomKey' when calling updateXComValue");
               }// verify the required parameter 'xcom' is set
               if (xcom == null) {
               throw new IllegalArgumentException("Missing the required parameter 'xcom' when calling updateXComValue");
@@ -651,7 +651,7 @@ public class XComApi {
                       uriVariables.put("dag_id", dagId);
                       uriVariables.put("dag_run_id", dagRunId);
                       uriVariables.put("task_id", taskId);
-                      uriVariables.put("key", key);
+                      uriVariables.put("xcom_key", xcomKey);
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}");
               if (updateMask != null) {
                   String key = "update_mask";
@@ -674,7 +674,7 @@ public class XComApi {
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.PATCH, genericUrl, content).execute();
       }
 
-    public HttpResponse updateXComValueForHttpResponse(String dagId, String dagRunId, String taskId, String key, XCom xcom, Map<String, Object> params) throws IOException {
+    public HttpResponse updateXComValueForHttpResponse(String dagId, String dagRunId, String taskId, String xcomKey, XCom xcom, Map<String, Object> params) throws IOException {
         // verify the required parameter 'dagId' is set
         if (dagId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'dagId' when calling updateXComValue");
@@ -684,9 +684,9 @@ public class XComApi {
         }// verify the required parameter 'taskId' is set
         if (taskId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'taskId' when calling updateXComValue");
-        }// verify the required parameter 'key' is set
-        if (key == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'key' when calling updateXComValue");
+        }// verify the required parameter 'xcomKey' is set
+        if (xcomKey == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'xcomKey' when calling updateXComValue");
         }// verify the required parameter 'xcom' is set
         if (xcom == null) {
             throw new IllegalArgumentException("Missing the required parameter 'xcom' when calling updateXComValue");
@@ -696,7 +696,7 @@ public class XComApi {
         uriVariables.put("dag_id", dagId);
         uriVariables.put("dag_run_id", dagRunId);
         uriVariables.put("task_id", taskId);
-        uriVariables.put("key", key);
+        uriVariables.put("xcom_key", xcomKey);
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}");
 
         // Copy the params argument if present, to allow passing in immutable maps

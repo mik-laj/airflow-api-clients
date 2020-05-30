@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * DAGRun
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:05:24.396Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:47:06.066Z[GMT]")
 public class DAGRun {
   public static final String SERIALIZED_NAME_DAG_RUN_ID = "dag_run_id";
   @SerializedName(SERIALIZED_NAME_DAG_RUN_ID)

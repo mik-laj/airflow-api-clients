@@ -30,7 +30,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:04:43.156Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:46:55.933Z[GMT]")
 public class XComApi {
   private ApiClient apiClient;
 
@@ -56,10 +56,10 @@ public class XComApi {
    * @param dagId The DAG ID. (required)
    * @param dagRunId The DAG Run ID. (required)
    * @param taskId The Task ID. (required)
-   * @param key The XCom Key. (required)
+   * @param xcomKey The XCom Key. (required)
    * @throws ApiException if fails to make API call
    */
-  public void deleteXComValue(String dagId, String dagRunId, String taskId, String key) throws ApiException {
+  public void deleteXComValue(String dagId, String dagRunId, String taskId, String xcomKey) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'dagId' is set
@@ -77,9 +77,9 @@ public class XComApi {
       throw new ApiException(400, "Missing the required parameter 'taskId' when calling deleteXComValue");
     }
     
-    // verify the required parameter 'key' is set
-    if (key == null) {
-      throw new ApiException(400, "Missing the required parameter 'key' when calling deleteXComValue");
+    // verify the required parameter 'xcomKey' is set
+    if (xcomKey == null) {
+      throw new ApiException(400, "Missing the required parameter 'xcomKey' when calling deleteXComValue");
     }
     
     // create path and map variables
@@ -87,7 +87,7 @@ public class XComApi {
       .replaceAll("\\{" + "dag_id" + "\\}", apiClient.escapeString(dagId.toString()))
       .replaceAll("\\{" + "dag_run_id" + "\\}", apiClient.escapeString(dagRunId.toString()))
       .replaceAll("\\{" + "task_id" + "\\}", apiClient.escapeString(taskId.toString()))
-      .replaceAll("\\{" + "key" + "\\}", apiClient.escapeString(key.toString()));
+      .replaceAll("\\{" + "xcom_key" + "\\}", apiClient.escapeString(xcomKey.toString()));
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -184,11 +184,11 @@ public class XComApi {
    * @param dagId The DAG ID. (required)
    * @param dagRunId The DAG Run ID. (required)
    * @param taskId The Task ID. (required)
-   * @param key The XCom Key. (required)
+   * @param xcomKey The XCom Key. (required)
    * @return XCom
    * @throws ApiException if fails to make API call
    */
-  public XCom getXComValue(String dagId, String dagRunId, String taskId, String key) throws ApiException {
+  public XCom getXComValue(String dagId, String dagRunId, String taskId, String xcomKey) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'dagId' is set
@@ -206,9 +206,9 @@ public class XComApi {
       throw new ApiException(400, "Missing the required parameter 'taskId' when calling getXComValue");
     }
     
-    // verify the required parameter 'key' is set
-    if (key == null) {
-      throw new ApiException(400, "Missing the required parameter 'key' when calling getXComValue");
+    // verify the required parameter 'xcomKey' is set
+    if (xcomKey == null) {
+      throw new ApiException(400, "Missing the required parameter 'xcomKey' when calling getXComValue");
     }
     
     // create path and map variables
@@ -216,7 +216,7 @@ public class XComApi {
       .replaceAll("\\{" + "dag_id" + "\\}", apiClient.escapeString(dagId.toString()))
       .replaceAll("\\{" + "dag_run_id" + "\\}", apiClient.escapeString(dagRunId.toString()))
       .replaceAll("\\{" + "task_id" + "\\}", apiClient.escapeString(taskId.toString()))
-      .replaceAll("\\{" + "key" + "\\}", apiClient.escapeString(key.toString()));
+      .replaceAll("\\{" + "xcom_key" + "\\}", apiClient.escapeString(xcomKey.toString()));
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -315,13 +315,13 @@ public class XComApi {
    * @param dagId The DAG ID. (required)
    * @param dagRunId The DAG Run ID. (required)
    * @param taskId The Task ID. (required)
-   * @param key The XCom Key. (required)
+   * @param xcomKey The XCom Key. (required)
    * @param xcom  (required)
    * @param updateMask The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  (optional
    * @return XCom
    * @throws ApiException if fails to make API call
    */
-  public XCom updateXComValue(String dagId, String dagRunId, String taskId, String key, XCom xcom, List<String> updateMask) throws ApiException {
+  public XCom updateXComValue(String dagId, String dagRunId, String taskId, String xcomKey, XCom xcom, List<String> updateMask) throws ApiException {
     Object localVarPostBody = xcom;
     
     // verify the required parameter 'dagId' is set
@@ -339,9 +339,9 @@ public class XComApi {
       throw new ApiException(400, "Missing the required parameter 'taskId' when calling updateXComValue");
     }
     
-    // verify the required parameter 'key' is set
-    if (key == null) {
-      throw new ApiException(400, "Missing the required parameter 'key' when calling updateXComValue");
+    // verify the required parameter 'xcomKey' is set
+    if (xcomKey == null) {
+      throw new ApiException(400, "Missing the required parameter 'xcomKey' when calling updateXComValue");
     }
     
     // verify the required parameter 'xcom' is set
@@ -354,7 +354,7 @@ public class XComApi {
       .replaceAll("\\{" + "dag_id" + "\\}", apiClient.escapeString(dagId.toString()))
       .replaceAll("\\{" + "dag_run_id" + "\\}", apiClient.escapeString(dagRunId.toString()))
       .replaceAll("\\{" + "task_id" + "\\}", apiClient.escapeString(taskId.toString()))
-      .replaceAll("\\{" + "key" + "\\}", apiClient.escapeString(key.toString()));
+      .replaceAll("\\{" + "xcom_key" + "\\}", apiClient.escapeString(xcomKey.toString()));
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();

@@ -39,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DAGDetailAllOf.JSON_PROPERTY_DOC_MD,
   DAGDetailAllOf.JSON_PROPERTY_DEFAULT_VIEW
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:06:20.430Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:47:13.626Z[GMT]")
 public class DAGDetailAllOf {
   public static final String JSON_PROPERTY_TIMEZONE = "timezone";
   private String timezone;

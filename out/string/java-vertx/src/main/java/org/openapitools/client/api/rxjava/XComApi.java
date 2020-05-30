@@ -10,7 +10,7 @@ import rx.Single;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:01:44.250Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:46:07.346Z[GMT]")
 public class XComApi {
 
 	private final org.openapitools.client.api.XComApi delegate;
@@ -29,11 +29,11 @@ public class XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param key The XCom Key. (required)
+     * @param xcomKey The XCom Key. (required)
      * @param resultHandler Asynchronous result handler
      */
-    public void deleteXComValue(String dagId, String dagRunId, String taskId, String key, Handler<AsyncResult<Void>> resultHandler) {
-        delegate.deleteXComValue(dagId, dagRunId, taskId, key, resultHandler);
+    public void deleteXComValue(String dagId, String dagRunId, String taskId, String xcomKey, Handler<AsyncResult<Void>> resultHandler) {
+        delegate.deleteXComValue(dagId, dagRunId, taskId, xcomKey, resultHandler);
     }
 
     /**
@@ -42,12 +42,12 @@ public class XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param key The XCom Key. (required)
+     * @param xcomKey The XCom Key. (required)
      * @return Asynchronous result handler (RxJava Single)
      */
-    public Single<Void> rxDeleteXComValue(String dagId, String dagRunId, String taskId, String key) {
+    public Single<Void> rxDeleteXComValue(String dagId, String dagRunId, String taskId, String xcomKey) {
         return Single.create(new io.vertx.rx.java.SingleOnSubscribeAdapter<>(fut -> {
-            delegate.deleteXComValue(dagId, dagRunId, taskId, key, fut);
+            delegate.deleteXComValue(dagId, dagRunId, taskId, xcomKey, fut);
         }));
     }
     /**
@@ -85,11 +85,11 @@ public class XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param key The XCom Key. (required)
+     * @param xcomKey The XCom Key. (required)
      * @param resultHandler Asynchronous result handler
      */
-    public void getXComValue(String dagId, String dagRunId, String taskId, String key, Handler<AsyncResult<XCom>> resultHandler) {
-        delegate.getXComValue(dagId, dagRunId, taskId, key, resultHandler);
+    public void getXComValue(String dagId, String dagRunId, String taskId, String xcomKey, Handler<AsyncResult<XCom>> resultHandler) {
+        delegate.getXComValue(dagId, dagRunId, taskId, xcomKey, resultHandler);
     }
 
     /**
@@ -98,12 +98,12 @@ public class XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param key The XCom Key. (required)
+     * @param xcomKey The XCom Key. (required)
      * @return Asynchronous result handler (RxJava Single)
      */
-    public Single<XCom> rxGetXComValue(String dagId, String dagRunId, String taskId, String key) {
+    public Single<XCom> rxGetXComValue(String dagId, String dagRunId, String taskId, String xcomKey) {
         return Single.create(new io.vertx.rx.java.SingleOnSubscribeAdapter<>(fut -> {
-            delegate.getXComValue(dagId, dagRunId, taskId, key, fut);
+            delegate.getXComValue(dagId, dagRunId, taskId, xcomKey, fut);
         }));
     }
     /**
@@ -139,13 +139,13 @@ public class XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param key The XCom Key. (required)
+     * @param xcomKey The XCom Key. (required)
      * @param xcom  (required)
      * @param updateMask The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  (optional, default to new ArrayList&lt;&gt;())
      * @param resultHandler Asynchronous result handler
      */
-    public void updateXComValue(String dagId, String dagRunId, String taskId, String key, XCom xcom, List<String> updateMask, Handler<AsyncResult<XCom>> resultHandler) {
-        delegate.updateXComValue(dagId, dagRunId, taskId, key, xcom, updateMask, resultHandler);
+    public void updateXComValue(String dagId, String dagRunId, String taskId, String xcomKey, XCom xcom, List<String> updateMask, Handler<AsyncResult<XCom>> resultHandler) {
+        delegate.updateXComValue(dagId, dagRunId, taskId, xcomKey, xcom, updateMask, resultHandler);
     }
 
     /**
@@ -154,14 +154,14 @@ public class XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param key The XCom Key. (required)
+     * @param xcomKey The XCom Key. (required)
      * @param xcom  (required)
      * @param updateMask The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  (optional, default to new ArrayList&lt;&gt;())
      * @return Asynchronous result handler (RxJava Single)
      */
-    public Single<XCom> rxUpdateXComValue(String dagId, String dagRunId, String taskId, String key, XCom xcom, List<String> updateMask) {
+    public Single<XCom> rxUpdateXComValue(String dagId, String dagRunId, String taskId, String xcomKey, XCom xcom, List<String> updateMask) {
         return Single.create(new io.vertx.rx.java.SingleOnSubscribeAdapter<>(fut -> {
-            delegate.updateXComValue(dagId, dagRunId, taskId, key, xcom, updateMask, fut);
+            delegate.updateXComValue(dagId, dagRunId, taskId, xcomKey, xcom, updateMask, fut);
         }));
     }
 

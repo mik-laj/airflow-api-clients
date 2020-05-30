@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="gradle-wrapper29">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/oneoff/java-webclient/gradle/wrapper/gradle-wrapper.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

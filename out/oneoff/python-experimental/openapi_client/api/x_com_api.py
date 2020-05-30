@@ -57,21 +57,21 @@ class XComApi(object):
             dag_id,
             dag_run_id,
             task_id,
-            key,
+            xcom_key,
             **kwargs
         ):
             """Delete an XCom entry  # noqa: E501
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
-            >>> thread = api.delete_x_com_value(dag_id, dag_run_id, task_id, key, async_req=True)
+            >>> thread = api.delete_x_com_value(dag_id, dag_run_id, task_id, xcom_key, async_req=True)
             >>> result = thread.get()
 
             Args:
                 dag_id (str): The DAG ID.
                 dag_run_id (str): The DAG Run ID.
                 task_id (str): The Task ID.
-                key (str): The XCom Key.
+                xcom_key (str): The XCom Key.
 
             Keyword Args:
                 _return_http_data_only (bool): response data without head status
@@ -124,8 +124,8 @@ class XComApi(object):
                 dag_run_id
             kwargs['task_id'] = \
                 task_id
-            kwargs['key'] = \
-                key
+            kwargs['xcom_key'] = \
+                xcom_key
             return self.call_with_http_info(**kwargs)
 
         self.delete_x_com_value = Endpoint(
@@ -142,13 +142,13 @@ class XComApi(object):
                     'dag_id',
                     'dag_run_id',
                     'task_id',
-                    'key',
+                    'xcom_key',
                 ],
                 'required': [
                     'dag_id',
                     'dag_run_id',
                     'task_id',
-                    'key',
+                    'xcom_key',
                 ],
                 'nullable': [
                 ],
@@ -169,20 +169,20 @@ class XComApi(object):
                         (str,),
                     'task_id':
                         (str,),
-                    'key':
+                    'xcom_key':
                         (str,),
                 },
                 'attribute_map': {
                     'dag_id': 'dag_id',
                     'dag_run_id': 'dag_run_id',
                     'task_id': 'task_id',
-                    'key': 'key',
+                    'xcom_key': 'xcom_key',
                 },
                 'location_map': {
                     'dag_id': 'path',
                     'dag_run_id': 'path',
                     'task_id': 'path',
-                    'key': 'path',
+                    'xcom_key': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -360,21 +360,21 @@ class XComApi(object):
             dag_id,
             dag_run_id,
             task_id,
-            key,
+            xcom_key,
             **kwargs
         ):
             """Get an XCom entry  # noqa: E501
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
-            >>> thread = api.get_x_com_value(dag_id, dag_run_id, task_id, key, async_req=True)
+            >>> thread = api.get_x_com_value(dag_id, dag_run_id, task_id, xcom_key, async_req=True)
             >>> result = thread.get()
 
             Args:
                 dag_id (str): The DAG ID.
                 dag_run_id (str): The DAG Run ID.
                 task_id (str): The Task ID.
-                key (str): The XCom Key.
+                xcom_key (str): The XCom Key.
 
             Keyword Args:
                 _return_http_data_only (bool): response data without head status
@@ -427,8 +427,8 @@ class XComApi(object):
                 dag_run_id
             kwargs['task_id'] = \
                 task_id
-            kwargs['key'] = \
-                key
+            kwargs['xcom_key'] = \
+                xcom_key
             return self.call_with_http_info(**kwargs)
 
         self.get_x_com_value = Endpoint(
@@ -445,13 +445,13 @@ class XComApi(object):
                     'dag_id',
                     'dag_run_id',
                     'task_id',
-                    'key',
+                    'xcom_key',
                 ],
                 'required': [
                     'dag_id',
                     'dag_run_id',
                     'task_id',
-                    'key',
+                    'xcom_key',
                 ],
                 'nullable': [
                 ],
@@ -472,20 +472,20 @@ class XComApi(object):
                         (str,),
                     'task_id':
                         (str,),
-                    'key':
+                    'xcom_key':
                         (str,),
                 },
                 'attribute_map': {
                     'dag_id': 'dag_id',
                     'dag_run_id': 'dag_run_id',
                     'task_id': 'task_id',
-                    'key': 'key',
+                    'xcom_key': 'xcom_key',
                 },
                 'location_map': {
                     'dag_id': 'path',
                     'dag_run_id': 'path',
                     'task_id': 'path',
-                    'key': 'path',
+                    'xcom_key': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -651,7 +651,7 @@ class XComApi(object):
             dag_id,
             dag_run_id,
             task_id,
-            key,
+            xcom_key,
             x_com_x_com,
             **kwargs
         ):
@@ -659,14 +659,14 @@ class XComApi(object):
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
-            >>> thread = api.update_x_com_value(dag_id, dag_run_id, task_id, key, x_com_x_com, async_req=True)
+            >>> thread = api.update_x_com_value(dag_id, dag_run_id, task_id, xcom_key, x_com_x_com, async_req=True)
             >>> result = thread.get()
 
             Args:
                 dag_id (str): The DAG ID.
                 dag_run_id (str): The DAG Run ID.
                 task_id (str): The Task ID.
-                key (str): The XCom Key.
+                xcom_key (str): The XCom Key.
                 x_com_x_com (x_com.XCom):
 
             Keyword Args:
@@ -721,8 +721,8 @@ class XComApi(object):
                 dag_run_id
             kwargs['task_id'] = \
                 task_id
-            kwargs['key'] = \
-                key
+            kwargs['xcom_key'] = \
+                xcom_key
             kwargs['x_com_x_com'] = \
                 x_com_x_com
             return self.call_with_http_info(**kwargs)
@@ -741,7 +741,7 @@ class XComApi(object):
                     'dag_id',
                     'dag_run_id',
                     'task_id',
-                    'key',
+                    'xcom_key',
                     'x_com_x_com',
                     'update_mask',
                 ],
@@ -749,7 +749,7 @@ class XComApi(object):
                     'dag_id',
                     'dag_run_id',
                     'task_id',
-                    'key',
+                    'xcom_key',
                     'x_com_x_com',
                 ],
                 'nullable': [
@@ -771,7 +771,7 @@ class XComApi(object):
                         (str,),
                     'task_id':
                         (str,),
-                    'key':
+                    'xcom_key':
                         (str,),
                     'x_com_x_com':
                         (x_com.XCom,),
@@ -782,14 +782,14 @@ class XComApi(object):
                     'dag_id': 'dag_id',
                     'dag_run_id': 'dag_run_id',
                     'task_id': 'task_id',
-                    'key': 'key',
+                    'xcom_key': 'xcom_key',
                     'update_mask': 'update_mask',
                 },
                 'location_map': {
                     'dag_id': 'path',
                     'dag_run_id': 'path',
                     'task_id': 'path',
-                    'key': 'path',
+                    'xcom_key': 'path',
                     'x_com_x_com': 'body',
                     'update_mask': 'query',
                 },

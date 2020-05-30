@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   XComCollection.JSON_PROPERTY_XCOM_ENTRIES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:10:42.716Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:27.230Z[GMT]")
 public class XComCollection {
   public static final String JSON_PROPERTY_XCOM_ENTRIES = "xcom_entries";
   private List<XComCollectionItem> xcomEntries = null;

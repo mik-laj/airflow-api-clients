@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ImportError
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:10:55.733Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:29.715Z[GMT]")
 public class ImportError {
   public static final String SERIALIZED_NAME_IMPORT_ERROR_ID = "import_error_id";
   @SerializedName(SERIALIZED_NAME_IMPORT_ERROR_ID)
