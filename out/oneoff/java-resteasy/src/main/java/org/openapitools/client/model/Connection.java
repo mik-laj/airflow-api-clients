@@ -38,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Connection.JSON_PROPERTY_PASSWORD,
   Connection.JSON_PROPERTY_EXTRA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:10:18.569Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:22.158Z[GMT]")
 public class Connection {
   public static final String JSON_PROPERTY_CONNECTION_ID = "connection_id";
   private String connectionId;

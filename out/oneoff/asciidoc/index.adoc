@@ -4390,7 +4390,7 @@ Delete an XCom entry
 | null 
 |  
 
-| key 
+| xcom_key 
 | The XCom Key.  
 | X 
 | null 
@@ -4629,7 +4629,7 @@ Get an XCom entry
 | null 
 |  
 
-| key 
+| xcom_key 
 | The XCom Key.  
 | X 
 | null 
@@ -4866,7 +4866,7 @@ Update an XCom entry
 | null 
 |  
 
-| key 
+| xcom_key 
 | The XCom Key.  
 | X 
 | null 

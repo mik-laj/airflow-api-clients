@@ -39,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DAGRun.JSON_PROPERTY_EXTERNAL_TRIGGER,
   DAGRun.JSON_PROPERTY_CONF
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:11:05.682Z[GMT]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:32.163Z[GMT]")
 public class DAGRun {
   public static final String JSON_PROPERTY_DAG_RUN_ID = "dag_run_id";
   private String dagRunId;

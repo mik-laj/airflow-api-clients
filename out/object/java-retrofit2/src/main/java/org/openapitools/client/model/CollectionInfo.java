@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CollectionInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:05:24.396Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:47:06.066Z[GMT]")
 public class CollectionInfo {
   public static final String SERIALIZED_NAME_TOTAL_ENTRIES = "total_entries";
   @SerializedName(SERIALIZED_NAME_TOTAL_ENTRIES)

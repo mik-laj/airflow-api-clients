@@ -25,12 +25,12 @@ public interface XComApi {
    * @param dagId The DAG ID. (required)
    * @param dagRunId The DAG Run ID. (required)
    * @param taskId The Task ID. (required)
-   * @param key The XCom Key. (required)
+   * @param xcomKey The XCom Key. (required)
    * @return Call&lt;Void&gt;
    */
   @DELETE("dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}")
   Call<Void> deleteXComValue(
-    @retrofit2.http.Path("dag_id") String dagId, @retrofit2.http.Path("dag_run_id") String dagRunId, @retrofit2.http.Path("task_id") String taskId, @retrofit2.http.Path("key") String key
+    @retrofit2.http.Path("dag_id") String dagId, @retrofit2.http.Path("dag_run_id") String dagRunId, @retrofit2.http.Path("task_id") String taskId, @retrofit2.http.Path("xcom_key") String xcomKey
   );
 
   /**
@@ -54,12 +54,12 @@ public interface XComApi {
    * @param dagId The DAG ID. (required)
    * @param dagRunId The DAG Run ID. (required)
    * @param taskId The Task ID. (required)
-   * @param key The XCom Key. (required)
+   * @param xcomKey The XCom Key. (required)
    * @return Call&lt;XCom&gt;
    */
   @GET("dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}")
   Call<XCom> getXComValue(
-    @retrofit2.http.Path("dag_id") String dagId, @retrofit2.http.Path("dag_run_id") String dagRunId, @retrofit2.http.Path("task_id") String taskId, @retrofit2.http.Path("key") String key
+    @retrofit2.http.Path("dag_id") String dagId, @retrofit2.http.Path("dag_run_id") String dagRunId, @retrofit2.http.Path("task_id") String taskId, @retrofit2.http.Path("xcom_key") String xcomKey
   );
 
   /**
@@ -85,7 +85,7 @@ public interface XComApi {
    * @param dagId The DAG ID. (required)
    * @param dagRunId The DAG Run ID. (required)
    * @param taskId The Task ID. (required)
-   * @param key The XCom Key. (required)
+   * @param xcomKey The XCom Key. (required)
    * @param xcom  (required)
    * @param updateMask The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  (optional, default to new ArrayList&lt;String&gt;())
    * @return Call&lt;XCom&gt;
@@ -95,7 +95,7 @@ public interface XComApi {
   })
   @PATCH("dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}")
   Call<XCom> updateXComValue(
-    @retrofit2.http.Path("dag_id") String dagId, @retrofit2.http.Path("dag_run_id") String dagRunId, @retrofit2.http.Path("task_id") String taskId, @retrofit2.http.Path("key") String key, @retrofit2.http.Body XCom xcom, @retrofit2.http.Query("update_mask") CSVParams updateMask
+    @retrofit2.http.Path("dag_id") String dagId, @retrofit2.http.Path("dag_run_id") String dagRunId, @retrofit2.http.Path("task_id") String taskId, @retrofit2.http.Path("xcom_key") String xcomKey, @retrofit2.http.Body XCom xcom, @retrofit2.http.Query("update_mask") CSVParams updateMask
   );
 
 }

@@ -35,9 +35,9 @@ public class XComApi extends OpenApi {
     /*
      * Returns void 
      */
-    public function delete_x_com_value (dagId: String, dagRunId: String, taskId: String, key: String): String {
+    public function delete_x_com_value (dagId: String, dagRunId: String, taskId: String, xcomKey: String): String {
         // create path and map variables
-        var path: String = "/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}".replace(/{format}/g,"xml").replace("{" + "dag_id" + "}", getApiInvoker().escapeString(dagId)).replace("{" + "dag_run_id" + "}", getApiInvoker().escapeString(dagRunId)).replace("{" + "task_id" + "}", getApiInvoker().escapeString(taskId)).replace("{" + "key" + "}", getApiInvoker().escapeString(key));
+        var path: String = "/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}".replace(/{format}/g,"xml").replace("{" + "dag_id" + "}", getApiInvoker().escapeString(dagId)).replace("{" + "dag_run_id" + "}", getApiInvoker().escapeString(dagRunId)).replace("{" + "task_id" + "}", getApiInvoker().escapeString(taskId)).replace("{" + "xcom_key" + "}", getApiInvoker().escapeString(xcomKey));
 
         // query params
         var queryParams: Dictionary = new Dictionary();
@@ -127,9 +127,9 @@ if("null" != String(offset))
     /*
      * Returns XCom 
      */
-    public function get_x_com_value (dagId: String, dagRunId: String, taskId: String, key: String): String {
+    public function get_x_com_value (dagId: String, dagRunId: String, taskId: String, xcomKey: String): String {
         // create path and map variables
-        var path: String = "/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}".replace(/{format}/g,"xml").replace("{" + "dag_id" + "}", getApiInvoker().escapeString(dagId)).replace("{" + "dag_run_id" + "}", getApiInvoker().escapeString(dagRunId)).replace("{" + "task_id" + "}", getApiInvoker().escapeString(taskId)).replace("{" + "key" + "}", getApiInvoker().escapeString(key));
+        var path: String = "/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}".replace(/{format}/g,"xml").replace("{" + "dag_id" + "}", getApiInvoker().escapeString(dagId)).replace("{" + "dag_run_id" + "}", getApiInvoker().escapeString(dagRunId)).replace("{" + "task_id" + "}", getApiInvoker().escapeString(taskId)).replace("{" + "xcom_key" + "}", getApiInvoker().escapeString(xcomKey));
 
         // query params
         var queryParams: Dictionary = new Dictionary();
@@ -211,9 +211,9 @@ if("null" != String(offset))
     /*
      * Returns XCom 
      */
-    public function update_x_com_value (dagId: String, dagRunId: String, taskId: String, key: String, xCom: XCom, updateMask: Array): String {
+    public function update_x_com_value (dagId: String, dagRunId: String, taskId: String, xcomKey: String, xCom: XCom, updateMask: Array): String {
         // create path and map variables
-        var path: String = "/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}".replace(/{format}/g,"xml").replace("{" + "dag_id" + "}", getApiInvoker().escapeString(dagId)).replace("{" + "dag_run_id" + "}", getApiInvoker().escapeString(dagRunId)).replace("{" + "task_id" + "}", getApiInvoker().escapeString(taskId)).replace("{" + "key" + "}", getApiInvoker().escapeString(key));
+        var path: String = "/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}".replace(/{format}/g,"xml").replace("{" + "dag_id" + "}", getApiInvoker().escapeString(dagId)).replace("{" + "dag_run_id" + "}", getApiInvoker().escapeString(dagRunId)).replace("{" + "task_id" + "}", getApiInvoker().escapeString(taskId)).replace("{" + "xcom_key" + "}", getApiInvoker().escapeString(xcomKey));
 
         // query params
         var queryParams: Dictionary = new Dictionary();

@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ClassReference.JSON_PROPERTY_MODULE_PATH,
   ClassReference.JSON_PROPERTY_CLASS_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:01:44.250Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:46:07.346Z[GMT]")
 public class ClassReference {
   public static final String JSON_PROPERTY_MODULE_PATH = "module_path";
   private String modulePath;

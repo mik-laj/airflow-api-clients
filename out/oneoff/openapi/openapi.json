@@ -2682,7 +2682,7 @@
           "description" : "The XCom Key.",
           "explode" : false,
           "in" : "path",
-          "name" : "key",
+          "name" : "xcom_key",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -2763,7 +2763,7 @@
           "description" : "The XCom Key.",
           "explode" : false,
           "in" : "path",
-          "name" : "key",
+          "name" : "xcom_key",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -2851,7 +2851,7 @@
           "description" : "The XCom Key.",
           "explode" : false,
           "in" : "path",
-          "name" : "key",
+          "name" : "xcom_key",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -3619,7 +3619,7 @@
         "description" : "The XCom Key.",
         "explode" : false,
         "in" : "path",
-        "name" : "key",
+        "name" : "xcom_key",
         "required" : true,
         "schema" : {
           "type" : "string"
@@ -3894,22 +3894,6 @@
         } ]
       },
       "DAG" : {
-        "example" : {
-          "root_dag_id" : "root_dag_id",
-          "is_paused" : true,
-          "description" : "description",
-          "schedule_interval" : "",
-          "file_token" : "file_token",
-          "owners" : [ "owners", "owners" ],
-          "dag_id" : "dag_id",
-          "is_subdag" : true,
-          "fileloc" : "fileloc",
-          "tags" : [ {
-            "name" : "name"
-          }, {
-            "name" : "name"
-          } ]
-        },
         "properties" : {
           "dag_id" : {
             "readOnly" : true,
@@ -3974,15 +3958,6 @@
         "type" : "object"
       },
       "DAGRun" : {
-        "example" : {
-          "end_date" : "2000-01-23T04:56:07.000+00:00",
-          "execution_date" : "2000-01-23T04:56:07.000+00:00",
-          "dag_run_id" : "dag_run_id",
-          "external_trigger" : true,
-          "conf" : "",
-          "dag_id" : "dag_id",
-          "start_date" : "2000-01-23T04:56:07.000+00:00"
-        },
         "properties" : {
           "dag_run_id" : {
             "description" : "Run ID.\nThe value of this field can be set only when creating the object. If you try to modify the field of an existing object, the request fails with an BAD_REQUEST error.\nIf not provided, a value will be generated based on execution_date.\nIf the specified dag_run_id is in use, the creation request fails with an ALREADY_EXISTS error.\nThis together with DAG_ID are a unique key.\n",
@@ -4039,16 +4014,6 @@
         "type" : "object"
       },
       "EventLog" : {
-        "example" : {
-          "owner" : "owner",
-          "execution_date" : "execution_date",
-          "extra" : "extra",
-          "event_log_id" : 0,
-          "task_id" : "task_id",
-          "dag_id" : "dag_id",
-          "event" : "event",
-          "when" : "when"
-        },
         "properties" : {
           "event_log_id" : {
             "readOnly" : true,
@@ -4097,12 +4062,6 @@
         "type" : "object"
       },
       "ImportError" : {
-        "example" : {
-          "filename" : "filename",
-          "stack_trace" : "stack_trace",
-          "import_error_id" : 0,
-          "timestamp" : "timestamp"
-        },
         "properties" : {
           "import_error_id" : {
             "readOnly" : true,
@@ -4136,14 +4095,6 @@
         "type" : "object"
       },
       "Pool" : {
-        "example" : {
-          "queued_slots" : 5,
-          "open_slots" : 5,
-          "slots" : 0,
-          "name" : "name",
-          "used_slots" : 1,
-          "occupied_slots" : 6
-        },
         "properties" : {
           "name" : {
             "type" : "string"
@@ -4182,15 +4133,6 @@
         "type" : "object"
       },
       "SLAMiss" : {
-        "example" : {
-          "notification_sent" : true,
-          "email_sent" : true,
-          "execution_date" : "execution_date",
-          "description" : "description",
-          "task_id" : "task_id",
-          "dag_id" : "dag_id",
-          "timestamp" : "timestamp"
-        },
         "properties" : {
           "task_id" : {
             "readOnly" : true,
@@ -4257,35 +4199,6 @@
         "type" : "object"
       },
       "TaskInstance" : {
-        "example" : {
-          "end_date" : "end_date",
-          "unixname" : "unixname",
-          "execution_date" : "execution_date",
-          "pool_slots" : 5,
-          "pool" : "pool",
-          "task_id" : "task_id",
-          "pid" : 2,
-          "max_tries" : 1,
-          "operator" : "operator",
-          "sla_miss" : {
-            "notification_sent" : true,
-            "email_sent" : true,
-            "execution_date" : "execution_date",
-            "description" : "description",
-            "task_id" : "task_id",
-            "dag_id" : "dag_id",
-            "timestamp" : "timestamp"
-          },
-          "duration" : 0.8008281904610115,
-          "hostname" : "hostname",
-          "executor_config" : "executor_config",
-          "try_number" : 6,
-          "dag_id" : "dag_id",
-          "priority_weight" : 5,
-          "queue" : "queue",
-          "start_date" : "start_date",
-          "queued_when" : "queued_when"
-        },
         "properties" : {
           "task_id" : {
             "type" : "string"
@@ -4365,12 +4278,6 @@
         "type" : "object"
       },
       "TaskInstanceReference" : {
-        "example" : {
-          "execution_date" : "execution_date",
-          "dag_run_id" : "dag_run_id",
-          "task_id" : "task_id",
-          "dag_id" : "dag_id"
-        },
         "properties" : {
           "task_id" : {
             "readOnly" : true,
@@ -4393,19 +4300,6 @@
         "type" : "object"
       },
       "TaskInstanceReferenceCollection" : {
-        "example" : {
-          "task_instances" : [ {
-            "execution_date" : "execution_date",
-            "dag_run_id" : "dag_run_id",
-            "task_id" : "task_id",
-            "dag_id" : "dag_id"
-          }, {
-            "execution_date" : "execution_date",
-            "dag_run_id" : "dag_run_id",
-            "task_id" : "task_id",
-            "dag_id" : "dag_id"
-          } ]
-        },
         "properties" : {
           "task_instances" : {
             "items" : {
@@ -4490,14 +4384,6 @@
         } ]
       },
       "ExtraLink" : {
-        "example" : {
-          "name" : "name",
-          "href" : "href",
-          "class_ref" : {
-            "class_name" : "class_name",
-            "module_path" : "module_path"
-          }
-        },
         "properties" : {
           "class_ref" : {
             "$ref" : "#/components/schemas/ClassReference"
@@ -4514,23 +4400,6 @@
         "type" : "object"
       },
       "ExtraLinkCollection" : {
-        "example" : {
-          "extra_links" : [ {
-            "name" : "name",
-            "href" : "href",
-            "class_ref" : {
-              "class_name" : "class_name",
-              "module_path" : "module_path"
-            }
-          }, {
-            "name" : "name",
-            "href" : "href",
-            "class_ref" : {
-              "class_name" : "class_name",
-              "module_path" : "module_path"
-            }
-          } ]
-        },
         "properties" : {
           "extra_links" : {
             "items" : {
@@ -4542,67 +4411,6 @@
         "type" : "object"
       },
       "Task" : {
-        "example" : {
-          "owner" : "owner",
-          "end_date" : "2000-01-23T04:56:07.000+00:00",
-          "ui_fgcolor" : "ui_fgcolor",
-          "extra_links" : [ {
-            "class_ref" : {
-              "class_name" : "class_name",
-              "module_path" : "module_path"
-            }
-          }, {
-            "class_ref" : {
-              "class_name" : "class_name",
-              "module_path" : "module_path"
-            }
-          } ],
-          "depends_on_past" : true,
-          "ui_color" : "ui_color",
-          "pool_slots" : 6.027456183070403,
-          "pool" : "pool",
-          "task_id" : "task_id",
-          "retry_exponential_backoff" : true,
-          "downstream_task_ids" : [ "downstream_task_ids", "downstream_task_ids" ],
-          "sub_dag" : {
-            "root_dag_id" : "root_dag_id",
-            "is_paused" : true,
-            "description" : "description",
-            "schedule_interval" : "",
-            "file_token" : "file_token",
-            "owners" : [ "owners", "owners" ],
-            "dag_id" : "dag_id",
-            "is_subdag" : true,
-            "fileloc" : "fileloc",
-            "tags" : [ {
-              "name" : "name"
-            }, {
-              "name" : "name"
-            } ]
-          },
-          "retries" : 0.8008281904610115,
-          "template_fields" : [ "template_fields", "template_fields" ],
-          "retry_delay" : {
-            "seconds" : 5,
-            "microsecond" : 5,
-            "__type" : "__type",
-            "days" : 1
-          },
-          "wait_for_downstream" : true,
-          "priority_weight" : 2.3021358869347655,
-          "class_ref" : {
-            "class_name" : "class_name",
-            "module_path" : "module_path"
-          },
-          "execution_timeout" : {
-            "seconds" : 5,
-            "microsecond" : 5,
-            "__type" : "__type",
-            "days" : 1
-          },
-          "queue" : "queue",
-          "start_date" : "2000-01-23T04:56:07.000+00:00"
-        },
         "properties" : {
           "class_ref" : {
             "$ref" : "#/components/schemas/ClassReference"
@@ -4677,12 +4485,10 @@
             "$ref" : "#/components/schemas/WeightRule"
           },
           "ui_color" : {
-            "pattern" : "^#[a-fA-F0-9]{3,6}$",
-            "type" : "string"
+            "$ref" : "#/components/schemas/Color"
           },
           "ui_fgcolor" : {
-            "pattern" : "^#[a-fA-F0-9]{3,6}$",
-            "type" : "string"
+            "$ref" : "#/components/schemas/Color"
           },
           "template_fields" : {
             "items" : {
@@ -4705,129 +4511,6 @@
         "type" : "object"
       },
       "TaskCollection" : {
-        "example" : {
-          "tasks" : [ {
-            "owner" : "owner",
-            "end_date" : "2000-01-23T04:56:07.000+00:00",
-            "ui_fgcolor" : "ui_fgcolor",
-            "extra_links" : [ {
-              "class_ref" : {
-                "class_name" : "class_name",
-                "module_path" : "module_path"
-              }
-            }, {
-              "class_ref" : {
-                "class_name" : "class_name",
-                "module_path" : "module_path"
-              }
-            } ],
-            "depends_on_past" : true,
-            "ui_color" : "ui_color",
-            "pool_slots" : 6.027456183070403,
-            "pool" : "pool",
-            "task_id" : "task_id",
-            "retry_exponential_backoff" : true,
-            "downstream_task_ids" : [ "downstream_task_ids", "downstream_task_ids" ],
-            "sub_dag" : {
-              "root_dag_id" : "root_dag_id",
-              "is_paused" : true,
-              "description" : "description",
-              "schedule_interval" : "",
-              "file_token" : "file_token",
-              "owners" : [ "owners", "owners" ],
-              "dag_id" : "dag_id",
-              "is_subdag" : true,
-              "fileloc" : "fileloc",
-              "tags" : [ {
-                "name" : "name"
-              }, {
-                "name" : "name"
-              } ]
-            },
-            "retries" : 0.8008281904610115,
-            "template_fields" : [ "template_fields", "template_fields" ],
-            "retry_delay" : {
-              "seconds" : 5,
-              "microsecond" : 5,
-              "__type" : "__type",
-              "days" : 1
-            },
-            "wait_for_downstream" : true,
-            "priority_weight" : 2.3021358869347655,
-            "class_ref" : {
-              "class_name" : "class_name",
-              "module_path" : "module_path"
-            },
-            "execution_timeout" : {
-              "seconds" : 5,
-              "microsecond" : 5,
-              "__type" : "__type",
-              "days" : 1
-            },
-            "queue" : "queue",
-            "start_date" : "2000-01-23T04:56:07.000+00:00"
-          }, {
-            "owner" : "owner",
-            "end_date" : "2000-01-23T04:56:07.000+00:00",
-            "ui_fgcolor" : "ui_fgcolor",
-            "extra_links" : [ {
-              "class_ref" : {
-                "class_name" : "class_name",
-                "module_path" : "module_path"
-              }
-            }, {
-              "class_ref" : {
-                "class_name" : "class_name",
-                "module_path" : "module_path"
-              }
-            } ],
-            "depends_on_past" : true,
-            "ui_color" : "ui_color",
-            "pool_slots" : 6.027456183070403,
-            "pool" : "pool",
-            "task_id" : "task_id",
-            "retry_exponential_backoff" : true,
-            "downstream_task_ids" : [ "downstream_task_ids", "downstream_task_ids" ],
-            "sub_dag" : {
-              "root_dag_id" : "root_dag_id",
-              "is_paused" : true,
-              "description" : "description",
-              "schedule_interval" : "",
-              "file_token" : "file_token",
-              "owners" : [ "owners", "owners" ],
-              "dag_id" : "dag_id",
-              "is_subdag" : true,
-              "fileloc" : "fileloc",
-              "tags" : [ {
-                "name" : "name"
-              }, {
-                "name" : "name"
-              } ]
-            },
-            "retries" : 0.8008281904610115,
-            "template_fields" : [ "template_fields", "template_fields" ],
-            "retry_delay" : {
-              "seconds" : 5,
-              "microsecond" : 5,
-              "__type" : "__type",
-              "days" : 1
-            },
-            "wait_for_downstream" : true,
-            "priority_weight" : 2.3021358869347655,
-            "class_ref" : {
-              "class_name" : "class_name",
-              "module_path" : "module_path"
-            },
-            "execution_timeout" : {
-              "seconds" : 5,
-              "microsecond" : 5,
-              "__type" : "__type",
-              "days" : 1
-            },
-            "queue" : "queue",
-            "start_date" : "2000-01-23T04:56:07.000+00:00"
-          } ]
-        },
         "properties" : {
           "tasks" : {
             "items" : {
@@ -4839,10 +4522,6 @@
         "type" : "object"
       },
       "ConfigOption" : {
-        "example" : {
-          "value" : "value",
-          "key" : "key"
-        },
         "properties" : {
           "key" : {
             "readOnly" : true,
@@ -4856,16 +4535,6 @@
         "type" : "object"
       },
       "ConfigSection" : {
-        "example" : {
-          "name" : "name",
-          "options" : [ {
-            "value" : "value",
-            "key" : "key"
-          }, {
-            "value" : "value",
-            "key" : "key"
-          } ]
-        },
         "properties" : {
           "name" : {
             "readOnly" : true,
@@ -4881,27 +4550,6 @@
         "type" : "object"
       },
       "Config" : {
-        "example" : {
-          "sections" : [ {
-            "name" : "name",
-            "options" : [ {
-              "value" : "value",
-              "key" : "key"
-            }, {
-              "value" : "value",
-              "key" : "key"
-            } ]
-          }, {
-            "name" : "name",
-            "options" : [ {
-              "value" : "value",
-              "key" : "key"
-            }, {
-              "value" : "value",
-              "key" : "key"
-            } ]
-          } ]
-        },
         "properties" : {
           "sections" : {
             "items" : {
@@ -4913,16 +4561,6 @@
         "type" : "object"
       },
       "ClearTaskInstance" : {
-        "example" : {
-          "end_date" : "end_date",
-          "only_running" : "only_running",
-          "reset_dag_runs" : true,
-          "include_parentdag" : true,
-          "include_subdags" : true,
-          "dry_run" : true,
-          "only_failed" : "only_failed",
-          "start_date" : "start_date"
-        },
         "properties" : {
           "dry_run" : {
             "default" : true,
@@ -4965,17 +4603,6 @@
         "type" : "object"
       },
       "ListDagRunsForm" : {
-        "example" : {
-          "start_date_gte" : "2000-01-23T04:56:07.000+00:00",
-          "end_date_lte" : "2000-01-23T04:56:07.000+00:00",
-          "execution_date_gte" : "2000-01-23T04:56:07.000+00:00",
-          "page_limit" : 1,
-          "execution_date_lte" : "2000-01-23T04:56:07.000+00:00",
-          "page_offset" : 0,
-          "end_date_gte" : "2000-01-23T04:56:07.000+00:00",
-          "start_date_lte" : "2000-01-23T04:56:07.000+00:00",
-          "dag_ids" : [ "dag_ids", "dag_ids" ]
-        },
         "properties" : {
           "page_offset" : {
             "description" : "The number of items to skip before starting to collect the result set.",
@@ -5029,20 +4656,6 @@
         "type" : "object"
       },
       "ListTaskInstanceForm" : {
-        "example" : {
-          "start_date_gte" : "2000-01-23T04:56:07.000+00:00",
-          "end_date_lte" : "2000-01-23T04:56:07.000+00:00",
-          "execution_date_gte" : "2000-01-23T04:56:07.000+00:00",
-          "duration_gte" : 0.8008281904610115,
-          "State" : [ "State", "State" ],
-          "execution_date_lte" : "2000-01-23T04:56:07.000+00:00",
-          "duration_lte" : 6.027456183070403,
-          "Pool" : [ "Pool", "Pool" ],
-          "end_date_gte" : "2000-01-23T04:56:07.000+00:00",
-          "start_date_lte" : "2000-01-23T04:56:07.000+00:00",
-          "Queue" : [ "Queue", "Queue" ],
-          "dag_ids" : [ "dag_ids", "dag_ids" ]
-        },
         "properties" : {
           "dag_ids" : {
             "description" : "Return objects with specific DAG IDs.\nThe value can be repeated to retrieve multiple matching values (OR condition).",
@@ -5126,12 +4739,6 @@
         } ]
       },
       "TimeDelta" : {
-        "example" : {
-          "seconds" : 5,
-          "microsecond" : 5,
-          "__type" : "__type",
-          "days" : 1
-        },
         "properties" : {
           "__type" : {
             "type" : "string"
@@ -5219,9 +4826,6 @@
         "type" : "string"
       },
       "Tag" : {
-        "example" : {
-          "name" : "name"
-        },
         "properties" : {
           "name" : {
             "type" : "string"
@@ -5234,10 +4838,6 @@
         "type" : "string"
       },
       "ClassReference" : {
-        "example" : {
-          "class_name" : "class_name",
-          "module_path" : "module_path"
-        },
         "properties" : {
           "module_path" : {
             "readOnly" : true,
@@ -5302,10 +4902,6 @@
         "type" : "string"
       },
       "inline_response_200" : {
-        "example" : {
-          "continuation_token" : "continuation_token",
-          "content" : "content"
-        },
         "properties" : {
           "continuation_token" : {
             "type" : "string"
@@ -5316,9 +4912,6 @@
         }
       },
       "inline_response_200_1" : {
-        "example" : {
-          "content" : "content"
-        },
         "properties" : {
           "content" : {
             "type" : "string"
@@ -5347,7 +4940,7 @@
       "DAGDetail_allOf" : {
         "properties" : {
           "timezone" : {
-            "type" : "string"
+            "$ref" : "#/components/schemas/Timezone"
           },
           "catchup" : {
             "readOnly" : true,
@@ -5380,12 +4973,6 @@
         }
       },
       "Task_extra_links" : {
-        "example" : {
-          "class_ref" : {
-            "class_name" : "class_name",
-            "module_path" : "module_path"
-          }
-        },
         "properties" : {
           "class_ref" : {
             "$ref" : "#/components/schemas/ClassReference"

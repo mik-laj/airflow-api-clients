@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:04:53.551Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:46:58.558Z[GMT]")
 public class XComApi {
   private ApiClient apiClient;
 
@@ -53,7 +53,7 @@ public class XComApi {
    * @param dagId The DAG ID. (required)
    * @param dagRunId The DAG Run ID. (required)
    * @param taskId The Task ID. (required)
-   * @param key The XCom Key. (required)
+   * @param xcomKey The XCom Key. (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -64,8 +64,8 @@ public class XComApi {
        <tr><td> 403 </td><td> Client does not have sufficient permission. </td><td>  -  </td></tr>
      </table>
    */
-  public void deleteXComValue(String dagId, String dagRunId, String taskId, String key) throws ApiException {
-    deleteXComValueWithHttpInfo(dagId, dagRunId, taskId, key);
+  public void deleteXComValue(String dagId, String dagRunId, String taskId, String xcomKey) throws ApiException {
+    deleteXComValueWithHttpInfo(dagId, dagRunId, taskId, xcomKey);
   }
 
   /**
@@ -74,7 +74,7 @@ public class XComApi {
    * @param dagId The DAG ID. (required)
    * @param dagRunId The DAG Run ID. (required)
    * @param taskId The Task ID. (required)
-   * @param key The XCom Key. (required)
+   * @param xcomKey The XCom Key. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -86,7 +86,7 @@ public class XComApi {
        <tr><td> 403 </td><td> Client does not have sufficient permission. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteXComValueWithHttpInfo(String dagId, String dagRunId, String taskId, String key) throws ApiException {
+  public ApiResponse<Void> deleteXComValueWithHttpInfo(String dagId, String dagRunId, String taskId, String xcomKey) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'dagId' is set
@@ -104,9 +104,9 @@ public class XComApi {
       throw new ApiException(400, "Missing the required parameter 'taskId' when calling deleteXComValue");
     }
     
-    // verify the required parameter 'key' is set
-    if (key == null) {
-      throw new ApiException(400, "Missing the required parameter 'key' when calling deleteXComValue");
+    // verify the required parameter 'xcomKey' is set
+    if (xcomKey == null) {
+      throw new ApiException(400, "Missing the required parameter 'xcomKey' when calling deleteXComValue");
     }
     
     // create path and map variables
@@ -114,7 +114,7 @@ public class XComApi {
       .replaceAll("\\{" + "dag_id" + "\\}", apiClient.escapeString(dagId.toString()))
       .replaceAll("\\{" + "dag_run_id" + "\\}", apiClient.escapeString(dagRunId.toString()))
       .replaceAll("\\{" + "task_id" + "\\}", apiClient.escapeString(taskId.toString()))
-      .replaceAll("\\{" + "key" + "\\}", apiClient.escapeString(key.toString()));
+      .replaceAll("\\{" + "xcom_key" + "\\}", apiClient.escapeString(xcomKey.toString()));
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -242,7 +242,7 @@ public class XComApi {
    * @param dagId The DAG ID. (required)
    * @param dagRunId The DAG Run ID. (required)
    * @param taskId The Task ID. (required)
-   * @param key The XCom Key. (required)
+   * @param xcomKey The XCom Key. (required)
    * @return XCom
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -254,8 +254,8 @@ public class XComApi {
        <tr><td> 404 </td><td> A specified resource is not found. </td><td>  -  </td></tr>
      </table>
    */
-  public XCom getXComValue(String dagId, String dagRunId, String taskId, String key) throws ApiException {
-    return getXComValueWithHttpInfo(dagId, dagRunId, taskId, key).getData();
+  public XCom getXComValue(String dagId, String dagRunId, String taskId, String xcomKey) throws ApiException {
+    return getXComValueWithHttpInfo(dagId, dagRunId, taskId, xcomKey).getData();
   }
 
   /**
@@ -264,7 +264,7 @@ public class XComApi {
    * @param dagId The DAG ID. (required)
    * @param dagRunId The DAG Run ID. (required)
    * @param taskId The Task ID. (required)
-   * @param key The XCom Key. (required)
+   * @param xcomKey The XCom Key. (required)
    * @return ApiResponse&lt;XCom&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -276,7 +276,7 @@ public class XComApi {
        <tr><td> 404 </td><td> A specified resource is not found. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<XCom> getXComValueWithHttpInfo(String dagId, String dagRunId, String taskId, String key) throws ApiException {
+  public ApiResponse<XCom> getXComValueWithHttpInfo(String dagId, String dagRunId, String taskId, String xcomKey) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'dagId' is set
@@ -294,9 +294,9 @@ public class XComApi {
       throw new ApiException(400, "Missing the required parameter 'taskId' when calling getXComValue");
     }
     
-    // verify the required parameter 'key' is set
-    if (key == null) {
-      throw new ApiException(400, "Missing the required parameter 'key' when calling getXComValue");
+    // verify the required parameter 'xcomKey' is set
+    if (xcomKey == null) {
+      throw new ApiException(400, "Missing the required parameter 'xcomKey' when calling getXComValue");
     }
     
     // create path and map variables
@@ -304,7 +304,7 @@ public class XComApi {
       .replaceAll("\\{" + "dag_id" + "\\}", apiClient.escapeString(dagId.toString()))
       .replaceAll("\\{" + "dag_run_id" + "\\}", apiClient.escapeString(dagRunId.toString()))
       .replaceAll("\\{" + "task_id" + "\\}", apiClient.escapeString(taskId.toString()))
-      .replaceAll("\\{" + "key" + "\\}", apiClient.escapeString(key.toString()));
+      .replaceAll("\\{" + "xcom_key" + "\\}", apiClient.escapeString(xcomKey.toString()));
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -437,7 +437,7 @@ public class XComApi {
    * @param dagId The DAG ID. (required)
    * @param dagRunId The DAG Run ID. (required)
    * @param taskId The Task ID. (required)
-   * @param key The XCom Key. (required)
+   * @param xcomKey The XCom Key. (required)
    * @param xcom  (required)
    * @param updateMask The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  (optional, default to new ArrayList&lt;String&gt;())
    * @return XCom
@@ -452,8 +452,8 @@ public class XComApi {
        <tr><td> 404 </td><td> A specified resource is not found. </td><td>  -  </td></tr>
      </table>
    */
-  public XCom updateXComValue(String dagId, String dagRunId, String taskId, String key, XCom xcom, List<String> updateMask) throws ApiException {
-    return updateXComValueWithHttpInfo(dagId, dagRunId, taskId, key, xcom, updateMask).getData();
+  public XCom updateXComValue(String dagId, String dagRunId, String taskId, String xcomKey, XCom xcom, List<String> updateMask) throws ApiException {
+    return updateXComValueWithHttpInfo(dagId, dagRunId, taskId, xcomKey, xcom, updateMask).getData();
   }
 
   /**
@@ -462,7 +462,7 @@ public class XComApi {
    * @param dagId The DAG ID. (required)
    * @param dagRunId The DAG Run ID. (required)
    * @param taskId The Task ID. (required)
-   * @param key The XCom Key. (required)
+   * @param xcomKey The XCom Key. (required)
    * @param xcom  (required)
    * @param updateMask The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  (optional, default to new ArrayList&lt;String&gt;())
    * @return ApiResponse&lt;XCom&gt;
@@ -477,7 +477,7 @@ public class XComApi {
        <tr><td> 404 </td><td> A specified resource is not found. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<XCom> updateXComValueWithHttpInfo(String dagId, String dagRunId, String taskId, String key, XCom xcom, List<String> updateMask) throws ApiException {
+  public ApiResponse<XCom> updateXComValueWithHttpInfo(String dagId, String dagRunId, String taskId, String xcomKey, XCom xcom, List<String> updateMask) throws ApiException {
     Object localVarPostBody = xcom;
     
     // verify the required parameter 'dagId' is set
@@ -495,9 +495,9 @@ public class XComApi {
       throw new ApiException(400, "Missing the required parameter 'taskId' when calling updateXComValue");
     }
     
-    // verify the required parameter 'key' is set
-    if (key == null) {
-      throw new ApiException(400, "Missing the required parameter 'key' when calling updateXComValue");
+    // verify the required parameter 'xcomKey' is set
+    if (xcomKey == null) {
+      throw new ApiException(400, "Missing the required parameter 'xcomKey' when calling updateXComValue");
     }
     
     // verify the required parameter 'xcom' is set
@@ -510,7 +510,7 @@ public class XComApi {
       .replaceAll("\\{" + "dag_id" + "\\}", apiClient.escapeString(dagId.toString()))
       .replaceAll("\\{" + "dag_run_id" + "\\}", apiClient.escapeString(dagRunId.toString()))
       .replaceAll("\\{" + "task_id" + "\\}", apiClient.escapeString(taskId.toString()))
-      .replaceAll("\\{" + "key" + "\\}", apiClient.escapeString(key.toString()));
+      .replaceAll("\\{" + "xcom_key" + "\\}", apiClient.escapeString(xcomKey.toString()));
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();

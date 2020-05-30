@@ -36,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ClearTaskInstance.JSON_PROPERTY_INCLUDE_PARENTDAG,
   ClearTaskInstance.JSON_PROPERTY_RESET_DAG_RUNS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:09:53.101Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:17.155Z[GMT]")
 public class ClearTaskInstance {
   public static final String JSON_PROPERTY_DRY_RUN = "dry_run";
   private Boolean dryRun = true;

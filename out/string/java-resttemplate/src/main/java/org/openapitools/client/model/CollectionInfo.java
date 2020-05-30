@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   CollectionInfo.JSON_PROPERTY_TOTAL_ENTRIES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:01:10.438Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:46:00.262Z[GMT]")
 public class CollectionInfo {
   public static final String JSON_PROPERTY_TOTAL_ENTRIES = "total_entries";
   private Integer totalEntries;

@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   Config.JSON_PROPERTY_SECTIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:10:30.163Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:24.732Z[GMT]")
 public class Config {
   public static final String JSON_PROPERTY_SECTIONS = "sections";
   private List<ConfigSection> sections = null;

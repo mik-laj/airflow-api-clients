@@ -28,7 +28,7 @@ import org.openapitools.client.model.ClassReference;
 /**
  * TaskExtraLinks
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:00:59.994Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:45:57.968Z[GMT]")
 public class TaskExtraLinks {
   public static final String SERIALIZED_NAME_CLASS_REF = "class_ref";
   @SerializedName(SERIALIZED_NAME_CLASS_REF)

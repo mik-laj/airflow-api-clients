@@ -30,7 +30,7 @@ import org.openapitools.client.model.XComCollectionItem;
 /**
  * XComCollection
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:09:40.302Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:14.686Z[GMT]")
 public class XComCollection {
   public static final String SERIALIZED_NAME_XCOM_ENTRIES = "xcom_entries";
   @SerializedName(SERIALIZED_NAME_XCOM_ENTRIES)

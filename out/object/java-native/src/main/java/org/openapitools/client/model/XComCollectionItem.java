@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   XComCollectionItem.JSON_PROPERTY_TASK_ID,
   XComCollectionItem.JSON_PROPERTY_DAG_ID
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:06:56.947Z[GMT]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:47:23.675Z[GMT]")
 public class XComCollectionItem {
   public static final String JSON_PROPERTY_KEY = "key";
   private String key;

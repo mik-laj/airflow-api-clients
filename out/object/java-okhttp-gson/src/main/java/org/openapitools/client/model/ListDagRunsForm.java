@@ -30,7 +30,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * ListDagRunsForm
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-29T12:05:13.583Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:47:03.587Z[GMT]")
 public class ListDagRunsForm {
   public static final String SERIALIZED_NAME_PAGE_OFFSET = "page_offset";
   @SerializedName(SERIALIZED_NAME_PAGE_OFFSET)

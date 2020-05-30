@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## DeleteXComValue
 
-> DeleteXComValue(ctx, dagId, dagRunId, taskId, key)
+> DeleteXComValue(ctx, dagId, dagRunId, taskId, xcomKey)
 
 Delete an XCom entry
 
@@ -27,7 +27,7 @@ Name | Type | Description  | Notes
 **dagId** | **string**| The DAG ID. | 
 **dagRunId** | **string**| The DAG Run ID. | 
 **taskId** | **string**| The Task ID. | 
-**key** | **string**| The XCom Key. | 
+**xcomKey** | **string**| The XCom Key. | 
 
 ### Return type
 
@@ -99,7 +99,7 @@ No authorization required
 
 ## GetXComValue
 
-> XCom GetXComValue(ctx, dagId, dagRunId, taskId, key)
+> XCom GetXComValue(ctx, dagId, dagRunId, taskId, xcomKey)
 
 Get an XCom entry
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 **dagId** | **string**| The DAG ID. | 
 **dagRunId** | **string**| The DAG Run ID. | 
 **taskId** | **string**| The Task ID. | 
-**key** | **string**| The XCom Key. | 
+**xcomKey** | **string**| The XCom Key. | 
 
 ### Return type
 
@@ -169,7 +169,7 @@ No authorization required
 
 ## UpdateXComValue
 
-> XCom UpdateXComValue(ctx, dagId, dagRunId, taskId, key, xCom, optional)
+> XCom UpdateXComValue(ctx, dagId, dagRunId, taskId, xcomKey, xCom, optional)
 
 Update an XCom entry
 
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 **dagId** | **string**| The DAG ID. | 
 **dagRunId** | **string**| The DAG Run ID. | 
 **taskId** | **string**| The Task ID. | 
-**key** | **string**| The XCom Key. | 
+**xcomKey** | **string**| The XCom Key. | 
 **xCom** | [**XCom**](XCom.md)|  | 
  **optional** | ***UpdateXComValueOpts** | optional parameters | nil if no parameters
 

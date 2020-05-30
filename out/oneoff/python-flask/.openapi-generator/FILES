@@ -1,6 +1,5 @@
 .dockerignore
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 Dockerfile
 README.md
@@ -79,16 +78,6 @@ openapi_server/models/x_com_collection.py
 openapi_server/models/x_com_collection_item.py
 openapi_server/openapi/openapi.yaml
 openapi_server/test/__init__.py
-openapi_server/test/test_config_controller.py
-openapi_server/test/test_connection_controller.py
-openapi_server/test/test_dag_controller.py
-openapi_server/test/test_dag_run_controller.py
-openapi_server/test/test_event_log_controller.py
-openapi_server/test/test_import_error_controller.py
-openapi_server/test/test_pool_controller.py
-openapi_server/test/test_task_instance_controller.py
-openapi_server/test/test_variable_controller.py
-openapi_server/test/test_x_com_controller.py
 openapi_server/typing_utils.py
 openapi_server/util.py
 requirements.txt
