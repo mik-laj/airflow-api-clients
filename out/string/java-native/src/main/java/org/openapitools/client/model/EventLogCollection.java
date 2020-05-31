@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   EventLogCollection.JSON_PROPERTY_EVENT_LOGS
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:46:14.445Z[GMT]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:37:32.318Z[GMT]")
 public class EventLogCollection {
   public static final String JSON_PROPERTY_EVENT_LOGS = "event_logs";
   private List<EventLog> eventLogs = null;

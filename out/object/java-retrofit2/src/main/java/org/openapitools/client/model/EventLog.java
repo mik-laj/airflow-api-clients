@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * EventLog
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:47:06.066Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:53:09.406Z[GMT]")
 public class EventLog {
   public static final String SERIALIZED_NAME_EVENT_LOG_ID = "event_log_id";
   @SerializedName(SERIALIZED_NAME_EVENT_LOG_ID)

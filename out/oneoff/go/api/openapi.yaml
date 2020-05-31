@@ -1943,7 +1943,7 @@ paths:
       - description: The XCom Key.
         explode: false
         in: path
-        name: xcom_key
+        name: key
         required: true
         schema:
           type: string
@@ -2003,7 +2003,7 @@ paths:
       - description: The XCom Key.
         explode: false
         in: path
-        name: xcom_key
+        name: key
         required: true
         schema:
           type: string
@@ -2067,7 +2067,7 @@ paths:
       - description: The XCom Key.
         explode: false
         in: path
-        name: xcom_key
+        name: key
         required: true
         schema:
           type: string
@@ -2632,7 +2632,7 @@ components:
       description: The XCom Key.
       explode: false
       in: path
-      name: xcom_key
+      name: key
       required: true
       schema:
         type: string

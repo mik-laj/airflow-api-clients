@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import org.openapitools.client.model.OneOfScheduleInterval;
+import org.openapitools.client.model.ScheduleInterval;
 import org.openapitools.client.model.Tag;
 import org.junit.Assert;
 import org.junit.Ignore;

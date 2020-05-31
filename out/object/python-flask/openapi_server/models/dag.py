@@ -6,11 +6,11 @@ from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
 from openapi_server.models.base_model_ import Model
-from openapi_server.models.one_of_schedule_interval import OneOfScheduleInterval
+from openapi_server.models.schedule_interval import ScheduleInterval
 from openapi_server.models.tag import Tag
 from openapi_server import util
 
-from openapi_server.models.one_of_schedule_interval import OneOfScheduleInterval  # noqa: E501
+from openapi_server.models.schedule_interval import ScheduleInterval  # noqa: E501
 from openapi_server.models.tag import Tag  # noqa: E501
 
 class DAG(Model):
@@ -39,7 +39,7 @@ class DAG(Model):
         :param description: The description of this DAG.  # noqa: E501
         :type description: str
         :param schedule_interval: The schedule_interval of this DAG.  # noqa: E501
-        :type schedule_interval: OneOfScheduleInterval
+        :type schedule_interval: ScheduleInterval
         :param tags: The tags of this DAG.  # noqa: E501
         :type tags: List[Tag]
         """
@@ -52,7 +52,7 @@ class DAG(Model):
             'file_token': str,
             'owners': List[str],
             'description': str,
-            'schedule_interval': OneOfScheduleInterval,
+            'schedule_interval': ScheduleInterval,
             'tags': List[Tag]
         }
 
@@ -267,7 +267,7 @@ class DAG(Model):
 
 
         :return: The schedule_interval of this DAG.
-        :rtype: OneOfScheduleInterval
+        :rtype: ScheduleInterval
         """
         return self._schedule_interval
 
@@ -277,7 +277,7 @@ class DAG(Model):
 
 
         :param schedule_interval: The schedule_interval of this DAG.
-        :type schedule_interval: OneOfScheduleInterval
+        :type schedule_interval: ScheduleInterval
         """
 
         self._schedule_interval = schedule_interval

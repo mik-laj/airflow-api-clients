@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   DAGCollection.JSON_PROPERTY_DAGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:47:16.120Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:53:19.156Z[GMT]")
 public class DAGCollection {
   public static final String JSON_PROPERTY_DAGS = "dags";
   private List<DAG> dags = null;

@@ -7,7 +7,7 @@ authors     = ["F. Bar (foo@bar.baz)"]
 
 imports {
   Root = tosca.resourceTypes.Root
-  OneOfScheduleInterval = openapi_server.resourceTypes.OneOfScheduleInterval
+  ScheduleInterval = openapi_server.resourceTypes.ScheduleInterval
   Tag = openapi_server.resourceTypes.Tag
 }
 resourceTypes {
@@ -59,7 +59,7 @@ resourceTypes {
           optional = false
         }
         schedule_interval {
-          type = OneOfScheduleInterval
+          type = ScheduleInterval
           description = ""
           optional = false
         }

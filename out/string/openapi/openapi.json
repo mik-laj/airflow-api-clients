@@ -2682,7 +2682,7 @@
           "description" : "The XCom Key.",
           "explode" : false,
           "in" : "path",
-          "name" : "xcom_key",
+          "name" : "key",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -2763,7 +2763,7 @@
           "description" : "The XCom Key.",
           "explode" : false,
           "in" : "path",
-          "name" : "xcom_key",
+          "name" : "key",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -2851,7 +2851,7 @@
           "description" : "The XCom Key.",
           "explode" : false,
           "in" : "path",
-          "name" : "xcom_key",
+          "name" : "key",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -3619,7 +3619,7 @@
         "description" : "The XCom Key.",
         "explode" : false,
         "in" : "path",
-        "name" : "xcom_key",
+        "name" : "key",
         "required" : true,
         "schema" : {
           "type" : "string"

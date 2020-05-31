@@ -8,14 +8,14 @@ from typing import List, Dict  # noqa: F401
 from openapi_server.models.base_model_ import Model
 from openapi_server.models.dag import DAG
 from openapi_server.models.dag_detail_all_of import DAGDetailAllOf
-from openapi_server.models.one_of_schedule_interval import OneOfScheduleInterval
+from openapi_server.models.schedule_interval import ScheduleInterval
 from openapi_server.models.tag import Tag
 from openapi_server.models.time_delta import TimeDelta
 from openapi_server import util
 
 from openapi_server.models.dag import DAG  # noqa: E501
 from openapi_server.models.dag_detail_all_of import DAGDetailAllOf  # noqa: E501
-from openapi_server.models.one_of_schedule_interval import OneOfScheduleInterval  # noqa: E501
+from openapi_server.models.schedule_interval import ScheduleInterval  # noqa: E501
 from openapi_server.models.tag import Tag  # noqa: E501
 from openapi_server.models.time_delta import TimeDelta  # noqa: E501
 
@@ -45,7 +45,7 @@ class DAGDetail(Model):
         :param description: The description of this DAGDetail.  # noqa: E501
         :type description: str
         :param schedule_interval: The schedule_interval of this DAGDetail.  # noqa: E501
-        :type schedule_interval: OneOfScheduleInterval
+        :type schedule_interval: ScheduleInterval
         :param tags: The tags of this DAGDetail.  # noqa: E501
         :type tags: List[Tag]
         :param timezone: The timezone of this DAGDetail.  # noqa: E501
@@ -74,7 +74,7 @@ class DAGDetail(Model):
             'file_token': str,
             'owners': List[str],
             'description': str,
-            'schedule_interval': OneOfScheduleInterval,
+            'schedule_interval': ScheduleInterval,
             'tags': List[Tag],
             'timezone': str,
             'catchup': bool,
@@ -313,7 +313,7 @@ class DAGDetail(Model):
 
 
         :return: The schedule_interval of this DAGDetail.
-        :rtype: OneOfScheduleInterval
+        :rtype: ScheduleInterval
         """
         return self._schedule_interval
 
@@ -323,7 +323,7 @@ class DAGDetail(Model):
 
 
         :param schedule_interval: The schedule_interval of this DAGDetail.
-        :type schedule_interval: OneOfScheduleInterval
+        :type schedule_interval: ScheduleInterval
         """
 
         self._schedule_interval = schedule_interval

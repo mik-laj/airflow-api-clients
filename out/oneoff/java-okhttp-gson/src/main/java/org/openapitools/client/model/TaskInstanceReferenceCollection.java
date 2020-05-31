@@ -30,7 +30,7 @@ import org.openapitools.client.model.TaskInstanceReference;
 /**
  * TaskInstanceReferenceCollection
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:12.169Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:39:26.573Z[GMT]")
 public class TaskInstanceReferenceCollection {
   public static final String SERIALIZED_NAME_TASK_INSTANCES = "task_instances";
   @SerializedName(SERIALIZED_NAME_TASK_INSTANCES)

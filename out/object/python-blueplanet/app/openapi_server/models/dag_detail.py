@@ -8,7 +8,7 @@ from typing import List, Dict  # noqa: F401
 from app.openapi_server.models.base_model_ import Model
 from app.openapi_server.models.dag import DAG  # noqa: F401,E501
 from app.openapi_server.models.dag_detail_all_of import DAGDetailAllOf  # noqa: F401,E501
-from app.openapi_server.models.one_of_schedule_interval import OneOfScheduleInterval  # noqa: F401,E501
+from app.openapi_server.models.schedule_interval import ScheduleInterval  # noqa: F401,E501
 from app.openapi_server.models.tag import Tag  # noqa: F401,E501
 from app.openapi_server.models.time_delta import TimeDelta  # noqa: F401,E501
 from openapi_server import util
@@ -20,7 +20,7 @@ class DAGDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, dag_id: str=None, root_dag_id: str=None, is_paused: bool=None, is_subdag: bool=None, fileloc: str=None, file_token: str=None, owners: List[str]=None, description: str=None, schedule_interval: OneOfScheduleInterval=None, tags: List[Tag]=None, timezone: str=None, catchup: bool=None, orientation: str=None, concurrency: float=None, start_date: datetime=None, dag_run_timeout: TimeDelta=None, doc_md: str=None, default_view: str=None):  # noqa: E501
+    def __init__(self, dag_id: str=None, root_dag_id: str=None, is_paused: bool=None, is_subdag: bool=None, fileloc: str=None, file_token: str=None, owners: List[str]=None, description: str=None, schedule_interval: ScheduleInterval=None, tags: List[Tag]=None, timezone: str=None, catchup: bool=None, orientation: str=None, concurrency: float=None, start_date: datetime=None, dag_run_timeout: TimeDelta=None, doc_md: str=None, default_view: str=None):  # noqa: E501
         """DAGDetail - a model defined in Swagger
 
         :param dag_id: The dag_id of this DAGDetail.  # noqa: E501
@@ -40,7 +40,7 @@ class DAGDetail(Model):
         :param description: The description of this DAGDetail.  # noqa: E501
         :type description: str
         :param schedule_interval: The schedule_interval of this DAGDetail.  # noqa: E501
-        :type schedule_interval: OneOfScheduleInterval
+        :type schedule_interval: ScheduleInterval
         :param tags: The tags of this DAGDetail.  # noqa: E501
         :type tags: List[Tag]
         :param timezone: The timezone of this DAGDetail.  # noqa: E501
@@ -69,7 +69,7 @@ class DAGDetail(Model):
             'file_token': str,
             'owners': List[str],
             'description': str,
-            'schedule_interval': OneOfScheduleInterval,
+            'schedule_interval': ScheduleInterval,
             'tags': List[Tag],
             'timezone': str,
             'catchup': bool,
@@ -303,22 +303,22 @@ class DAGDetail(Model):
         self._description = description
 
     @property
-    def schedule_interval(self) -> OneOfScheduleInterval:
+    def schedule_interval(self) -> ScheduleInterval:
         """Gets the schedule_interval of this DAGDetail.
 
 
         :return: The schedule_interval of this DAGDetail.
-        :rtype: OneOfScheduleInterval
+        :rtype: ScheduleInterval
         """
         return self._schedule_interval
 
     @schedule_interval.setter
-    def schedule_interval(self, schedule_interval: OneOfScheduleInterval):
+    def schedule_interval(self, schedule_interval: ScheduleInterval):
         """Sets the schedule_interval of this DAGDetail.
 
 
         :param schedule_interval: The schedule_interval of this DAGDetail.
-        :type schedule_interval: OneOfScheduleInterval
+        :type schedule_interval: ScheduleInterval
         """
 
         self._schedule_interval = schedule_interval

@@ -192,7 +192,7 @@ operation_parameters_minimum_occurrences["updateVariable:::update_mask"]=0
 operation_parameters_minimum_occurrences["deleteXComValue:::dag_id"]=1
 operation_parameters_minimum_occurrences["deleteXComValue:::dag_run_id"]=1
 operation_parameters_minimum_occurrences["deleteXComValue:::task_id"]=1
-operation_parameters_minimum_occurrences["deleteXComValue:::xcom_key"]=1
+operation_parameters_minimum_occurrences["deleteXComValue:::key"]=1
 operation_parameters_minimum_occurrences["getXComEntry:::dag_id"]=1
 operation_parameters_minimum_occurrences["getXComEntry:::dag_run_id"]=1
 operation_parameters_minimum_occurrences["getXComEntry:::task_id"]=1
@@ -201,7 +201,7 @@ operation_parameters_minimum_occurrences["getXComEntry:::offset"]=0
 operation_parameters_minimum_occurrences["getXComValue:::dag_id"]=1
 operation_parameters_minimum_occurrences["getXComValue:::dag_run_id"]=1
 operation_parameters_minimum_occurrences["getXComValue:::task_id"]=1
-operation_parameters_minimum_occurrences["getXComValue:::xcom_key"]=1
+operation_parameters_minimum_occurrences["getXComValue:::key"]=1
 operation_parameters_minimum_occurrences["updateXComEntry:::dag_id"]=1
 operation_parameters_minimum_occurrences["updateXComEntry:::dag_run_id"]=1
 operation_parameters_minimum_occurrences["updateXComEntry:::task_id"]=1
@@ -209,7 +209,7 @@ operation_parameters_minimum_occurrences["updateXComEntry:::XCom"]=1
 operation_parameters_minimum_occurrences["updateXComValue:::dag_id"]=1
 operation_parameters_minimum_occurrences["updateXComValue:::dag_run_id"]=1
 operation_parameters_minimum_occurrences["updateXComValue:::task_id"]=1
-operation_parameters_minimum_occurrences["updateXComValue:::xcom_key"]=1
+operation_parameters_minimum_occurrences["updateXComValue:::key"]=1
 operation_parameters_minimum_occurrences["updateXComValue:::XCom"]=1
 operation_parameters_minimum_occurrences["updateXComValue:::update_mask"]=0
 
@@ -317,7 +317,7 @@ operation_parameters_maximum_occurrences["updateVariable:::update_mask"]=0
 operation_parameters_maximum_occurrences["deleteXComValue:::dag_id"]=0
 operation_parameters_maximum_occurrences["deleteXComValue:::dag_run_id"]=0
 operation_parameters_maximum_occurrences["deleteXComValue:::task_id"]=0
-operation_parameters_maximum_occurrences["deleteXComValue:::xcom_key"]=0
+operation_parameters_maximum_occurrences["deleteXComValue:::key"]=0
 operation_parameters_maximum_occurrences["getXComEntry:::dag_id"]=0
 operation_parameters_maximum_occurrences["getXComEntry:::dag_run_id"]=0
 operation_parameters_maximum_occurrences["getXComEntry:::task_id"]=0
@@ -326,7 +326,7 @@ operation_parameters_maximum_occurrences["getXComEntry:::offset"]=0
 operation_parameters_maximum_occurrences["getXComValue:::dag_id"]=0
 operation_parameters_maximum_occurrences["getXComValue:::dag_run_id"]=0
 operation_parameters_maximum_occurrences["getXComValue:::task_id"]=0
-operation_parameters_maximum_occurrences["getXComValue:::xcom_key"]=0
+operation_parameters_maximum_occurrences["getXComValue:::key"]=0
 operation_parameters_maximum_occurrences["updateXComEntry:::dag_id"]=0
 operation_parameters_maximum_occurrences["updateXComEntry:::dag_run_id"]=0
 operation_parameters_maximum_occurrences["updateXComEntry:::task_id"]=0
@@ -334,7 +334,7 @@ operation_parameters_maximum_occurrences["updateXComEntry:::XCom"]=0
 operation_parameters_maximum_occurrences["updateXComValue:::dag_id"]=0
 operation_parameters_maximum_occurrences["updateXComValue:::dag_run_id"]=0
 operation_parameters_maximum_occurrences["updateXComValue:::task_id"]=0
-operation_parameters_maximum_occurrences["updateXComValue:::xcom_key"]=0
+operation_parameters_maximum_occurrences["updateXComValue:::key"]=0
 operation_parameters_maximum_occurrences["updateXComValue:::XCom"]=0
 operation_parameters_maximum_occurrences["updateXComValue:::update_mask"]=0
 
@@ -439,7 +439,7 @@ operation_parameters_collection_type["updateVariable:::update_mask"]="csv"
 operation_parameters_collection_type["deleteXComValue:::dag_id"]=""
 operation_parameters_collection_type["deleteXComValue:::dag_run_id"]=""
 operation_parameters_collection_type["deleteXComValue:::task_id"]=""
-operation_parameters_collection_type["deleteXComValue:::xcom_key"]=""
+operation_parameters_collection_type["deleteXComValue:::key"]=""
 operation_parameters_collection_type["getXComEntry:::dag_id"]=""
 operation_parameters_collection_type["getXComEntry:::dag_run_id"]=""
 operation_parameters_collection_type["getXComEntry:::task_id"]=""
@@ -448,7 +448,7 @@ operation_parameters_collection_type["getXComEntry:::offset"]=""
 operation_parameters_collection_type["getXComValue:::dag_id"]=""
 operation_parameters_collection_type["getXComValue:::dag_run_id"]=""
 operation_parameters_collection_type["getXComValue:::task_id"]=""
-operation_parameters_collection_type["getXComValue:::xcom_key"]=""
+operation_parameters_collection_type["getXComValue:::key"]=""
 operation_parameters_collection_type["updateXComEntry:::dag_id"]=""
 operation_parameters_collection_type["updateXComEntry:::dag_run_id"]=""
 operation_parameters_collection_type["updateXComEntry:::task_id"]=""
@@ -456,7 +456,7 @@ operation_parameters_collection_type["updateXComEntry:::XCom"]=""
 operation_parameters_collection_type["updateXComValue:::dag_id"]=""
 operation_parameters_collection_type["updateXComValue:::dag_run_id"]=""
 operation_parameters_collection_type["updateXComValue:::task_id"]=""
-operation_parameters_collection_type["updateXComValue:::xcom_key"]=""
+operation_parameters_collection_type["updateXComValue:::key"]=""
 operation_parameters_collection_type["updateXComValue:::XCom"]=""
 operation_parameters_collection_type["updateXComValue:::update_mask"]="csv"
 
@@ -1984,7 +1984,7 @@ print_deleteXComValue_help() {
     echo -e "  * ${GREEN}dag_id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - The DAG ID. ${YELLOW}Specify as: dag_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}dag_run_id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - The DAG Run ID. ${YELLOW}Specify as: dag_run_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}task_id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - The Task ID. ${YELLOW}Specify as: task_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}xcom_key${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - The XCom Key. ${YELLOW}Specify as: xcom_key=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}key${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - The XCom Key. ${YELLOW}Specify as: key=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=204
@@ -2037,7 +2037,7 @@ print_getXComValue_help() {
     echo -e "  * ${GREEN}dag_id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - The DAG ID. ${YELLOW}Specify as: dag_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}dag_run_id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - The DAG Run ID. ${YELLOW}Specify as: dag_run_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}task_id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - The Task ID. ${YELLOW}Specify as: task_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}xcom_key${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - The XCom Key. ${YELLOW}Specify as: xcom_key=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}key${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - The XCom Key. ${YELLOW}Specify as: key=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -2088,7 +2088,7 @@ print_updateXComValue_help() {
     echo -e "  * ${GREEN}dag_id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - The DAG ID. ${YELLOW}Specify as: dag_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}dag_run_id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - The DAG Run ID. ${YELLOW}Specify as: dag_run_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}task_id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - The Task ID. ${YELLOW}Specify as: task_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}xcom_key${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - The XCom Key. ${YELLOW}Specify as: xcom_key=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}key${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - The XCom Key. ${YELLOW}Specify as: key=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}update_mask${OFF} ${BLUE}[array[string]]${OFF} ${CYAN}(default: null)${OFF} - The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.${YELLOW} Specify as: update_mask="value1,value2,..."${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - " | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
@@ -4060,7 +4060,7 @@ call_updateVariable() {
 call_deleteXComValue() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local path_parameter_names=(dag_id dag_run_id task_id xcom_key)
+    local path_parameter_names=(dag_id dag_run_id task_id key)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local query_parameter_names=()
@@ -4132,7 +4132,7 @@ call_getXComEntry() {
 call_getXComValue() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local path_parameter_names=(dag_id dag_run_id task_id xcom_key)
+    local path_parameter_names=(dag_id dag_run_id task_id key)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local query_parameter_names=()
@@ -4246,7 +4246,7 @@ call_updateXComEntry() {
 call_updateXComValue() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local path_parameter_names=(dag_id dag_run_id task_id xcom_key)
+    local path_parameter_names=(dag_id dag_run_id task_id key)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local query_parameter_names=(update_mask)

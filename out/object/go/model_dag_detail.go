@@ -23,7 +23,7 @@ type DagDetail struct {
 	FileToken string `json:"file_token,omitempty"`
 	Owners []string `json:"owners,omitempty"`
 	Description string `json:"description,omitempty"`
-	ScheduleInterval OneOfScheduleInterval `json:"schedule_interval,omitempty"`
+	ScheduleInterval ScheduleInterval `json:"schedule_interval,omitempty"`
 	Tags []Tag `json:"tags,omitempty"`
 	Timezone string `json:"timezone,omitempty"`
 	Catchup bool `json:"catchup,omitempty"`

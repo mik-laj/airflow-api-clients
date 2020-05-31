@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **delete_x_com_value**
-> delete_x_com_value(dag_id, dag_run_id, task_id, xcom_key)
+> delete_x_com_value(dag_id, dag_run_id, task_id, key)
 
 Delete an XCom entry
 
@@ -38,11 +38,11 @@ with openapi_client.ApiClient() as api_client:
     dag_id = 'dag_id_example' # str | The DAG ID.
 dag_run_id = 'dag_run_id_example' # str | The DAG Run ID.
 task_id = 'task_id_example' # str | The Task ID.
-xcom_key = 'xcom_key_example' # str | The XCom Key.
+key = 'key_example' # str | The XCom Key.
 
     try:
         # Delete an XCom entry
-        api_instance.delete_x_com_value(dag_id, dag_run_id, task_id, xcom_key)
+        api_instance.delete_x_com_value(dag_id, dag_run_id, task_id, key)
     except ApiException as e:
         print("Exception when calling XComApi->delete_x_com_value: %s\n" % e)
 ```
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
  **dag_id** | **str**| The DAG ID. | 
  **dag_run_id** | **str**| The DAG Run ID. | 
  **task_id** | **str**| The Task ID. | 
- **xcom_key** | **str**| The XCom Key. | 
+ **key** | **str**| The XCom Key. | 
 
 ### Return type
 
@@ -152,7 +152,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_x_com_value**
-> XCom get_x_com_value(dag_id, dag_run_id, task_id, xcom_key)
+> XCom get_x_com_value(dag_id, dag_run_id, task_id, key)
 
 Get an XCom entry
 
@@ -178,11 +178,11 @@ with openapi_client.ApiClient() as api_client:
     dag_id = 'dag_id_example' # str | The DAG ID.
 dag_run_id = 'dag_run_id_example' # str | The DAG Run ID.
 task_id = 'task_id_example' # str | The Task ID.
-xcom_key = 'xcom_key_example' # str | The XCom Key.
+key = 'key_example' # str | The XCom Key.
 
     try:
         # Get an XCom entry
-        api_response = api_instance.get_x_com_value(dag_id, dag_run_id, task_id, xcom_key)
+        api_response = api_instance.get_x_com_value(dag_id, dag_run_id, task_id, key)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling XComApi->get_x_com_value: %s\n" % e)
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
  **dag_id** | **str**| The DAG ID. | 
  **dag_run_id** | **str**| The DAG Run ID. | 
  **task_id** | **str**| The Task ID. | 
- **xcom_key** | **str**| The XCom Key. | 
+ **key** | **str**| The XCom Key. | 
 
 ### Return type
 
@@ -290,7 +290,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_x_com_value**
-> XCom update_x_com_value(dag_id, dag_run_id, task_id, xcom_key, x_com, update_mask=update_mask)
+> XCom update_x_com_value(dag_id, dag_run_id, task_id, key, x_com, update_mask=update_mask)
 
 Update an XCom entry
 
@@ -316,13 +316,13 @@ with openapi_client.ApiClient() as api_client:
     dag_id = 'dag_id_example' # str | The DAG ID.
 dag_run_id = 'dag_run_id_example' # str | The DAG Run ID.
 task_id = 'task_id_example' # str | The Task ID.
-xcom_key = 'xcom_key_example' # str | The XCom Key.
+key = 'key_example' # str | The XCom Key.
 x_com = openapi_client.XCom() # XCom | 
 update_mask = ['update_mask_example'] # list[str] | The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  (optional)
 
     try:
         # Update an XCom entry
-        api_response = api_instance.update_x_com_value(dag_id, dag_run_id, task_id, xcom_key, x_com, update_mask=update_mask)
+        api_response = api_instance.update_x_com_value(dag_id, dag_run_id, task_id, key, x_com, update_mask=update_mask)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling XComApi->update_x_com_value: %s\n" % e)
@@ -335,7 +335,7 @@ Name | Type | Description  | Notes
  **dag_id** | **str**| The DAG ID. | 
  **dag_run_id** | **str**| The DAG Run ID. | 
  **task_id** | **str**| The Task ID. | 
- **xcom_key** | **str**| The XCom Key. | 
+ **key** | **str**| The XCom Key. | 
  **x_com** | [**XCom**](XCom.md)|  | 
  **update_mask** | [**list[str]**](str.md)| The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  | [optional] 
 

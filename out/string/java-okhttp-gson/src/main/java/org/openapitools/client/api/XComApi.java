@@ -61,7 +61,7 @@ public class XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param xcomKey The XCom Key. (required)
+     * @param key The XCom Key. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -74,7 +74,7 @@ public class XComApi {
         <tr><td> 403 </td><td> Client does not have sufficient permission. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteXComValueCall(String dagId, String dagRunId, String taskId, String xcomKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteXComValueCall(String dagId, String dagRunId, String taskId, String key, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -82,7 +82,7 @@ public class XComApi {
             .replaceAll("\\{" + "dag_id" + "\\}", localVarApiClient.escapeString(dagId.toString()))
             .replaceAll("\\{" + "dag_run_id" + "\\}", localVarApiClient.escapeString(dagRunId.toString()))
             .replaceAll("\\{" + "task_id" + "\\}", localVarApiClient.escapeString(taskId.toString()))
-            .replaceAll("\\{" + "xcom_key" + "\\}", localVarApiClient.escapeString(xcomKey.toString()));
+            .replaceAll("\\{" + "key" + "\\}", localVarApiClient.escapeString(key.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -108,7 +108,7 @@ public class XComApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteXComValueValidateBeforeCall(String dagId, String dagRunId, String taskId, String xcomKey, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteXComValueValidateBeforeCall(String dagId, String dagRunId, String taskId, String key, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'dagId' is set
         if (dagId == null) {
@@ -125,13 +125,13 @@ public class XComApi {
             throw new ApiException("Missing the required parameter 'taskId' when calling deleteXComValue(Async)");
         }
         
-        // verify the required parameter 'xcomKey' is set
-        if (xcomKey == null) {
-            throw new ApiException("Missing the required parameter 'xcomKey' when calling deleteXComValue(Async)");
+        // verify the required parameter 'key' is set
+        if (key == null) {
+            throw new ApiException("Missing the required parameter 'key' when calling deleteXComValue(Async)");
         }
         
 
-        okhttp3.Call localVarCall = deleteXComValueCall(dagId, dagRunId, taskId, xcomKey, _callback);
+        okhttp3.Call localVarCall = deleteXComValueCall(dagId, dagRunId, taskId, key, _callback);
         return localVarCall;
 
     }
@@ -142,7 +142,7 @@ public class XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param xcomKey The XCom Key. (required)
+     * @param key The XCom Key. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -153,8 +153,8 @@ public class XComApi {
         <tr><td> 403 </td><td> Client does not have sufficient permission. </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteXComValue(String dagId, String dagRunId, String taskId, String xcomKey) throws ApiException {
-        deleteXComValueWithHttpInfo(dagId, dagRunId, taskId, xcomKey);
+    public void deleteXComValue(String dagId, String dagRunId, String taskId, String key) throws ApiException {
+        deleteXComValueWithHttpInfo(dagId, dagRunId, taskId, key);
     }
 
     /**
@@ -163,7 +163,7 @@ public class XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param xcomKey The XCom Key. (required)
+     * @param key The XCom Key. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -175,8 +175,8 @@ public class XComApi {
         <tr><td> 403 </td><td> Client does not have sufficient permission. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteXComValueWithHttpInfo(String dagId, String dagRunId, String taskId, String xcomKey) throws ApiException {
-        okhttp3.Call localVarCall = deleteXComValueValidateBeforeCall(dagId, dagRunId, taskId, xcomKey, null);
+    public ApiResponse<Void> deleteXComValueWithHttpInfo(String dagId, String dagRunId, String taskId, String key) throws ApiException {
+        okhttp3.Call localVarCall = deleteXComValueValidateBeforeCall(dagId, dagRunId, taskId, key, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -186,7 +186,7 @@ public class XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param xcomKey The XCom Key. (required)
+     * @param key The XCom Key. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -199,9 +199,9 @@ public class XComApi {
         <tr><td> 403 </td><td> Client does not have sufficient permission. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteXComValueAsync(String dagId, String dagRunId, String taskId, String xcomKey, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteXComValueAsync(String dagId, String dagRunId, String taskId, String key, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteXComValueValidateBeforeCall(dagId, dagRunId, taskId, xcomKey, _callback);
+        okhttp3.Call localVarCall = deleteXComValueValidateBeforeCall(dagId, dagRunId, taskId, key, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -365,7 +365,7 @@ public class XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param xcomKey The XCom Key. (required)
+     * @param key The XCom Key. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -378,7 +378,7 @@ public class XComApi {
         <tr><td> 404 </td><td> A specified resource is not found. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getXComValueCall(String dagId, String dagRunId, String taskId, String xcomKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getXComValueCall(String dagId, String dagRunId, String taskId, String key, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -386,7 +386,7 @@ public class XComApi {
             .replaceAll("\\{" + "dag_id" + "\\}", localVarApiClient.escapeString(dagId.toString()))
             .replaceAll("\\{" + "dag_run_id" + "\\}", localVarApiClient.escapeString(dagRunId.toString()))
             .replaceAll("\\{" + "task_id" + "\\}", localVarApiClient.escapeString(taskId.toString()))
-            .replaceAll("\\{" + "xcom_key" + "\\}", localVarApiClient.escapeString(xcomKey.toString()));
+            .replaceAll("\\{" + "key" + "\\}", localVarApiClient.escapeString(key.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -412,7 +412,7 @@ public class XComApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getXComValueValidateBeforeCall(String dagId, String dagRunId, String taskId, String xcomKey, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getXComValueValidateBeforeCall(String dagId, String dagRunId, String taskId, String key, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'dagId' is set
         if (dagId == null) {
@@ -429,13 +429,13 @@ public class XComApi {
             throw new ApiException("Missing the required parameter 'taskId' when calling getXComValue(Async)");
         }
         
-        // verify the required parameter 'xcomKey' is set
-        if (xcomKey == null) {
-            throw new ApiException("Missing the required parameter 'xcomKey' when calling getXComValue(Async)");
+        // verify the required parameter 'key' is set
+        if (key == null) {
+            throw new ApiException("Missing the required parameter 'key' when calling getXComValue(Async)");
         }
         
 
-        okhttp3.Call localVarCall = getXComValueCall(dagId, dagRunId, taskId, xcomKey, _callback);
+        okhttp3.Call localVarCall = getXComValueCall(dagId, dagRunId, taskId, key, _callback);
         return localVarCall;
 
     }
@@ -446,7 +446,7 @@ public class XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param xcomKey The XCom Key. (required)
+     * @param key The XCom Key. (required)
      * @return XCom
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -458,8 +458,8 @@ public class XComApi {
         <tr><td> 404 </td><td> A specified resource is not found. </td><td>  -  </td></tr>
      </table>
      */
-    public XCom getXComValue(String dagId, String dagRunId, String taskId, String xcomKey) throws ApiException {
-        ApiResponse<XCom> localVarResp = getXComValueWithHttpInfo(dagId, dagRunId, taskId, xcomKey);
+    public XCom getXComValue(String dagId, String dagRunId, String taskId, String key) throws ApiException {
+        ApiResponse<XCom> localVarResp = getXComValueWithHttpInfo(dagId, dagRunId, taskId, key);
         return localVarResp.getData();
     }
 
@@ -469,7 +469,7 @@ public class XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param xcomKey The XCom Key. (required)
+     * @param key The XCom Key. (required)
      * @return ApiResponse&lt;XCom&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -481,8 +481,8 @@ public class XComApi {
         <tr><td> 404 </td><td> A specified resource is not found. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<XCom> getXComValueWithHttpInfo(String dagId, String dagRunId, String taskId, String xcomKey) throws ApiException {
-        okhttp3.Call localVarCall = getXComValueValidateBeforeCall(dagId, dagRunId, taskId, xcomKey, null);
+    public ApiResponse<XCom> getXComValueWithHttpInfo(String dagId, String dagRunId, String taskId, String key) throws ApiException {
+        okhttp3.Call localVarCall = getXComValueValidateBeforeCall(dagId, dagRunId, taskId, key, null);
         Type localVarReturnType = new TypeToken<XCom>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -493,7 +493,7 @@ public class XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param xcomKey The XCom Key. (required)
+     * @param key The XCom Key. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -506,9 +506,9 @@ public class XComApi {
         <tr><td> 404 </td><td> A specified resource is not found. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getXComValueAsync(String dagId, String dagRunId, String taskId, String xcomKey, final ApiCallback<XCom> _callback) throws ApiException {
+    public okhttp3.Call getXComValueAsync(String dagId, String dagRunId, String taskId, String key, final ApiCallback<XCom> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getXComValueValidateBeforeCall(dagId, dagRunId, taskId, xcomKey, _callback);
+        okhttp3.Call localVarCall = getXComValueValidateBeforeCall(dagId, dagRunId, taskId, key, _callback);
         Type localVarReturnType = new TypeToken<XCom>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -670,7 +670,7 @@ public class XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param xcomKey The XCom Key. (required)
+     * @param key The XCom Key. (required)
      * @param xcom  (required)
      * @param updateMask The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  (optional)
      * @param _callback Callback for upload/download progress
@@ -686,7 +686,7 @@ public class XComApi {
         <tr><td> 404 </td><td> A specified resource is not found. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateXComValueCall(String dagId, String dagRunId, String taskId, String xcomKey, XCom xcom, List<String> updateMask, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateXComValueCall(String dagId, String dagRunId, String taskId, String key, XCom xcom, List<String> updateMask, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = xcom;
 
         // create path and map variables
@@ -694,7 +694,7 @@ public class XComApi {
             .replaceAll("\\{" + "dag_id" + "\\}", localVarApiClient.escapeString(dagId.toString()))
             .replaceAll("\\{" + "dag_run_id" + "\\}", localVarApiClient.escapeString(dagRunId.toString()))
             .replaceAll("\\{" + "task_id" + "\\}", localVarApiClient.escapeString(taskId.toString()))
-            .replaceAll("\\{" + "xcom_key" + "\\}", localVarApiClient.escapeString(xcomKey.toString()));
+            .replaceAll("\\{" + "key" + "\\}", localVarApiClient.escapeString(key.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -724,7 +724,7 @@ public class XComApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateXComValueValidateBeforeCall(String dagId, String dagRunId, String taskId, String xcomKey, XCom xcom, List<String> updateMask, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateXComValueValidateBeforeCall(String dagId, String dagRunId, String taskId, String key, XCom xcom, List<String> updateMask, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'dagId' is set
         if (dagId == null) {
@@ -741,9 +741,9 @@ public class XComApi {
             throw new ApiException("Missing the required parameter 'taskId' when calling updateXComValue(Async)");
         }
         
-        // verify the required parameter 'xcomKey' is set
-        if (xcomKey == null) {
-            throw new ApiException("Missing the required parameter 'xcomKey' when calling updateXComValue(Async)");
+        // verify the required parameter 'key' is set
+        if (key == null) {
+            throw new ApiException("Missing the required parameter 'key' when calling updateXComValue(Async)");
         }
         
         // verify the required parameter 'xcom' is set
@@ -752,7 +752,7 @@ public class XComApi {
         }
         
 
-        okhttp3.Call localVarCall = updateXComValueCall(dagId, dagRunId, taskId, xcomKey, xcom, updateMask, _callback);
+        okhttp3.Call localVarCall = updateXComValueCall(dagId, dagRunId, taskId, key, xcom, updateMask, _callback);
         return localVarCall;
 
     }
@@ -763,7 +763,7 @@ public class XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param xcomKey The XCom Key. (required)
+     * @param key The XCom Key. (required)
      * @param xcom  (required)
      * @param updateMask The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  (optional)
      * @return XCom
@@ -778,8 +778,8 @@ public class XComApi {
         <tr><td> 404 </td><td> A specified resource is not found. </td><td>  -  </td></tr>
      </table>
      */
-    public XCom updateXComValue(String dagId, String dagRunId, String taskId, String xcomKey, XCom xcom, List<String> updateMask) throws ApiException {
-        ApiResponse<XCom> localVarResp = updateXComValueWithHttpInfo(dagId, dagRunId, taskId, xcomKey, xcom, updateMask);
+    public XCom updateXComValue(String dagId, String dagRunId, String taskId, String key, XCom xcom, List<String> updateMask) throws ApiException {
+        ApiResponse<XCom> localVarResp = updateXComValueWithHttpInfo(dagId, dagRunId, taskId, key, xcom, updateMask);
         return localVarResp.getData();
     }
 
@@ -789,7 +789,7 @@ public class XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param xcomKey The XCom Key. (required)
+     * @param key The XCom Key. (required)
      * @param xcom  (required)
      * @param updateMask The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  (optional)
      * @return ApiResponse&lt;XCom&gt;
@@ -804,8 +804,8 @@ public class XComApi {
         <tr><td> 404 </td><td> A specified resource is not found. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<XCom> updateXComValueWithHttpInfo(String dagId, String dagRunId, String taskId, String xcomKey, XCom xcom, List<String> updateMask) throws ApiException {
-        okhttp3.Call localVarCall = updateXComValueValidateBeforeCall(dagId, dagRunId, taskId, xcomKey, xcom, updateMask, null);
+    public ApiResponse<XCom> updateXComValueWithHttpInfo(String dagId, String dagRunId, String taskId, String key, XCom xcom, List<String> updateMask) throws ApiException {
+        okhttp3.Call localVarCall = updateXComValueValidateBeforeCall(dagId, dagRunId, taskId, key, xcom, updateMask, null);
         Type localVarReturnType = new TypeToken<XCom>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -816,7 +816,7 @@ public class XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param xcomKey The XCom Key. (required)
+     * @param key The XCom Key. (required)
      * @param xcom  (required)
      * @param updateMask The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -832,9 +832,9 @@ public class XComApi {
         <tr><td> 404 </td><td> A specified resource is not found. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateXComValueAsync(String dagId, String dagRunId, String taskId, String xcomKey, XCom xcom, List<String> updateMask, final ApiCallback<XCom> _callback) throws ApiException {
+    public okhttp3.Call updateXComValueAsync(String dagId, String dagRunId, String taskId, String key, XCom xcom, List<String> updateMask, final ApiCallback<XCom> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateXComValueValidateBeforeCall(dagId, dagRunId, taskId, xcomKey, xcom, updateMask, _callback);
+        okhttp3.Call localVarCall = updateXComValueValidateBeforeCall(dagId, dagRunId, taskId, key, xcom, updateMask, _callback);
         Type localVarReturnType = new TypeToken<XCom>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

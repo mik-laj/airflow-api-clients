@@ -2,7 +2,7 @@ package org.openapitools.client.model {
 
 import org.openapitools.client.model.DAG;
 import org.openapitools.client.model.DAGDetailAllOf;
-import org.openapitools.client.model.OneOfScheduleInterval;
+import org.openapitools.client.model.ScheduleInterval;
 import org.openapitools.client.model.Tag;
 import org.openapitools.client.model.TimeDelta;
 
@@ -29,7 +29,7 @@ import org.openapitools.client.model.TimeDelta;
                 [XmlElement(name="description")]
         public var description: String = null;
                 [XmlElement(name="schedule_interval")]
-        public var scheduleInterval: OneOfScheduleInterval = NaN;
+        public var scheduleInterval: ScheduleInterval = NaN;
                 // This declaration below of _tags_obj_class is to force flash compiler to include this class
         private var _tags_obj_class: Array = null;
         [XmlElementWrapper(name="tags")]

@@ -9,7 +9,7 @@ imports {
   Root = tosca.resourceTypes.Root
   DAG = openapi_server.resourceTypes.DAG
   DAGDetailAllOf = openapi_server.resourceTypes.DAGDetailAllOf
-  OneOfScheduleInterval = openapi_server.resourceTypes.OneOfScheduleInterval
+  ScheduleInterval = openapi_server.resourceTypes.ScheduleInterval
   Tag = openapi_server.resourceTypes.Tag
   TimeDelta = openapi_server.resourceTypes.TimeDelta
 }
@@ -62,7 +62,7 @@ resourceTypes {
           optional = false
         }
         schedule_interval {
-          type = OneOfScheduleInterval
+          type = ScheduleInterval
           description = ""
           optional = false
         }

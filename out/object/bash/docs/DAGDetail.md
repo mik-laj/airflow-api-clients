@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **fileUnderscoretoken** | **string** |  | [optional] [readonly] [default to null]
 **owners** | **array[string]** |  | [optional] [readonly] [default to null]
 **description** | **string** |  | [optional] [readonly] [default to null]
-**scheduleUnderscoreinterval** | [**OneOf&lt;ScheduleInterval&gt;**](OneOf&lt;ScheduleInterval&gt;.md) |  | [optional] [readonly] [default to null]
+**scheduleUnderscoreinterval** | [**ScheduleInterval**](ScheduleInterval.md) |  | [optional] [readonly] [default to null]
 **tags** | [**array[Tag]**](Tag.md) |  | [optional] [readonly] [default to null]
 **timezone** | **string** |  | [optional] [default to null]
 **catchup** | **boolean** |  | [optional] [readonly] [default to null]

@@ -25,13 +25,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.openapitools.client.model.OneOfScheduleInterval;
+import org.openapitools.client.model.ScheduleInterval;
 import org.openapitools.client.model.Tag;
 
 /**
  * DAG
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:47:21.263Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:53:24.122Z[GMT]")
 public class DAG {
   public static final String SERIALIZED_NAME_DAG_ID = "dag_id";
   @SerializedName(SERIALIZED_NAME_DAG_ID)
@@ -67,7 +67,7 @@ public class DAG {
 
   public static final String SERIALIZED_NAME_SCHEDULE_INTERVAL = "schedule_interval";
   @SerializedName(SERIALIZED_NAME_SCHEDULE_INTERVAL)
-  private OneOfScheduleInterval scheduleInterval = null;
+  private ScheduleInterval scheduleInterval = null;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -202,7 +202,7 @@ public class DAG {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public OneOfScheduleInterval getScheduleInterval() {
+  public ScheduleInterval getScheduleInterval() {
     return scheduleInterval;
   }
 

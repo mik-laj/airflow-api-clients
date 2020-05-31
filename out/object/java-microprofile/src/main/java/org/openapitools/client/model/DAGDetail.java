@@ -30,7 +30,7 @@ import java.util.Date;
 import java.util.List;
 import org.openapitools.client.model.DAG;
 import org.openapitools.client.model.DAGDetailAllOf;
-import org.openapitools.client.model.OneOfScheduleInterval;
+import org.openapitools.client.model.ScheduleInterval;
 import org.openapitools.client.model.Tag;
 import org.openapitools.client.model.TimeDelta;
 
@@ -64,7 +64,7 @@ public class DAGDetail  {
 
   private String description;
 
-  private OneOfScheduleInterval scheduleInterval = null;
+  private ScheduleInterval scheduleInterval = null;
 
   private List<Tag> tags = null;
 
@@ -180,7 +180,7 @@ public class DAGDetail  {
    * @return scheduleInterval
   **/
   @JsonbProperty("schedule_interval")
-  public OneOfScheduleInterval getScheduleInterval() {
+  public ScheduleInterval getScheduleInterval() {
     return scheduleInterval;
   }
 

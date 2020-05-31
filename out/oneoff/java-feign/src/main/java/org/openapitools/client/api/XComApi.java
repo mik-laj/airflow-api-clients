@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 import feign.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:09.710Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:39:24.160Z[GMT]")
 public interface XComApi extends ApiClient.Api {
 
 
@@ -23,13 +23,13 @@ public interface XComApi extends ApiClient.Api {
    * @param dagId The DAG ID. (required)
    * @param dagRunId The DAG Run ID. (required)
    * @param taskId The Task ID. (required)
-   * @param xcomKey The XCom Key. (required)
+   * @param key The XCom Key. (required)
    */
   @RequestLine("DELETE /dags/{dagId}/dagRuns/{dagRunId}/taskInstances/{taskId}/xcomEntries/{key}")
   @Headers({
     "Accept: application/json",
   })
-  void deleteXComValue(@Param("dagId") String dagId, @Param("dagRunId") String dagRunId, @Param("taskId") String taskId, @Param("xcomKey") String xcomKey);
+  void deleteXComValue(@Param("dagId") String dagId, @Param("dagRunId") String dagRunId, @Param("taskId") String taskId, @Param("key") String key);
 
   /**
    * Get all XCom entries
@@ -93,14 +93,14 @@ public interface XComApi extends ApiClient.Api {
    * @param dagId The DAG ID. (required)
    * @param dagRunId The DAG Run ID. (required)
    * @param taskId The Task ID. (required)
-   * @param xcomKey The XCom Key. (required)
+   * @param key The XCom Key. (required)
    * @return XCom
    */
   @RequestLine("GET /dags/{dagId}/dagRuns/{dagRunId}/taskInstances/{taskId}/xcomEntries/{key}")
   @Headers({
     "Accept: application/json",
   })
-  XCom getXComValue(@Param("dagId") String dagId, @Param("dagRunId") String dagRunId, @Param("taskId") String taskId, @Param("xcomKey") String xcomKey);
+  XCom getXComValue(@Param("dagId") String dagId, @Param("dagRunId") String dagRunId, @Param("taskId") String taskId, @Param("key") String key);
 
   /**
    * Create an XCom entry
@@ -124,7 +124,7 @@ public interface XComApi extends ApiClient.Api {
    * @param dagId The DAG ID. (required)
    * @param dagRunId The DAG Run ID. (required)
    * @param taskId The Task ID. (required)
-   * @param xcomKey The XCom Key. (required)
+   * @param key The XCom Key. (required)
    * @param xcom  (required)
    * @param updateMask The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  (optional)
    * @return XCom
@@ -134,7 +134,7 @@ public interface XComApi extends ApiClient.Api {
     "Content-Type: application/json",
     "Accept: application/json",
   })
-  XCom updateXComValue(@Param("dagId") String dagId, @Param("dagRunId") String dagRunId, @Param("taskId") String taskId, @Param("xcomKey") String xcomKey, XCom xcom, @Param("updateMask") List<String> updateMask);
+  XCom updateXComValue(@Param("dagId") String dagId, @Param("dagRunId") String dagRunId, @Param("taskId") String taskId, @Param("key") String key, XCom xcom, @Param("updateMask") List<String> updateMask);
 
   /**
    * Update an XCom entry
@@ -147,7 +147,7 @@ public interface XComApi extends ApiClient.Api {
    * @param dagId The DAG ID. (required)
    * @param dagRunId The DAG Run ID. (required)
    * @param taskId The Task ID. (required)
-   * @param xcomKey The XCom Key. (required)
+   * @param key The XCom Key. (required)
    * @param xcom  (required)
    * @param queryParams Map of query parameters as name-value pairs
    *   <p>The following elements may be specified in the query map:</p>
@@ -161,7 +161,7 @@ public interface XComApi extends ApiClient.Api {
   "Content-Type: application/json",
   "Accept: application/json",
   })
-  XCom updateXComValue(@Param("dagId") String dagId, @Param("dagRunId") String dagRunId, @Param("taskId") String taskId, @Param("xcomKey") String xcomKey, XCom xcom, @QueryMap(encoded=true) Map<String, Object> queryParams);
+  XCom updateXComValue(@Param("dagId") String dagId, @Param("dagRunId") String dagRunId, @Param("taskId") String taskId, @Param("key") String key, XCom xcom, @QueryMap(encoded=true) Map<String, Object> queryParams);
 
   /**
    * A convenience class for generating query parameters for the

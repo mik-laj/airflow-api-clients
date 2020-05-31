@@ -4,7 +4,7 @@ Airflow API (Stable)
 
 - API version: 1.0.0
 
-- Build date: 2020-05-30T18:48:22.158Z[GMT]
+- Build date: 2020-05-31T07:39:36.456Z[GMT]
 
 Apache Airflow management API.
 

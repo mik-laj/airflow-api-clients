@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ConnectionAllOf.JSON_PROPERTY_PASSWORD,
   ConnectionAllOf.JSON_PROPERTY_EXTRA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:47:11.028Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:53:14.226Z[GMT]")
 public class ConnectionAllOf {
   public static final String JSON_PROPERTY_PASSWORD = "password";
   private String password;

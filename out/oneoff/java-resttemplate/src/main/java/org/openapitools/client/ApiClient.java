@@ -56,7 +56,7 @@ import java.util.TimeZone;
 
 import org.openapitools.client.auth.Authentication;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:17.155Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:39:31.501Z[GMT]")
 @Component("org.openapitools.client.ApiClient")
 public class ApiClient {
     public enum CollectionFormat {

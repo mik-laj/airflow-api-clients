@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import org.openapitools.client.model.OneOfScheduleInterval;
+import org.openapitools.client.model.ScheduleInterval;
 import org.openapitools.client.model.Tag;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -42,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DAG.JSON_PROPERTY_SCHEDULE_INTERVAL,
   DAG.JSON_PROPERTY_TAGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:47:18.700Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:53:21.630Z[GMT]")
 public class DAG {
   public static final String JSON_PROPERTY_DAG_ID = "dag_id";
   private String dagId;
@@ -69,7 +69,7 @@ public class DAG {
   private String description;
 
   public static final String JSON_PROPERTY_SCHEDULE_INTERVAL = "schedule_interval";
-  private OneOfScheduleInterval scheduleInterval = null;
+  private ScheduleInterval scheduleInterval = null;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<Tag> tags = null;
@@ -221,7 +221,7 @@ public class DAG {
   @JsonProperty(JSON_PROPERTY_SCHEDULE_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OneOfScheduleInterval getScheduleInterval() {
+  public ScheduleInterval getScheduleInterval() {
     return scheduleInterval;
   }
 

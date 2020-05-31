@@ -28,7 +28,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:46:00.262Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:37:16.815Z[GMT]")
 @Component("org.openapitools.client.api.XComApi")
 public class XComApi {
     private ApiClient apiClient;
@@ -60,11 +60,11 @@ public class XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param xcomKey The XCom Key. (required)
+     * @param key The XCom Key. (required)
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public void deleteXComValue(String dagId, String dagRunId, String taskId, String xcomKey) throws RestClientException {
-        deleteXComValueWithHttpInfo(dagId, dagRunId, taskId, xcomKey);
+    public void deleteXComValue(String dagId, String dagRunId, String taskId, String key) throws RestClientException {
+        deleteXComValueWithHttpInfo(dagId, dagRunId, taskId, key);
     }
 
     /**
@@ -77,11 +77,11 @@ public class XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param xcomKey The XCom Key. (required)
+     * @param key The XCom Key. (required)
      * @return ResponseEntity&lt;Void&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<Void> deleteXComValueWithHttpInfo(String dagId, String dagRunId, String taskId, String xcomKey) throws RestClientException {
+    public ResponseEntity<Void> deleteXComValueWithHttpInfo(String dagId, String dagRunId, String taskId, String key) throws RestClientException {
         Object postBody = null;
         
         // verify the required parameter 'dagId' is set
@@ -99,9 +99,9 @@ public class XComApi {
             throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'taskId' when calling deleteXComValue");
         }
         
-        // verify the required parameter 'xcomKey' is set
-        if (xcomKey == null) {
-            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'xcomKey' when calling deleteXComValue");
+        // verify the required parameter 'key' is set
+        if (key == null) {
+            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'key' when calling deleteXComValue");
         }
         
         // create path and map variables
@@ -109,7 +109,7 @@ public class XComApi {
         uriVariables.put("dag_id", dagId);
         uriVariables.put("dag_run_id", dagRunId);
         uriVariables.put("task_id", taskId);
-        uriVariables.put("xcom_key", xcomKey);
+        uriVariables.put("key", key);
         String path = apiClient.expandPath("/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}", uriVariables);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
@@ -216,12 +216,12 @@ public class XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param xcomKey The XCom Key. (required)
+     * @param key The XCom Key. (required)
      * @return XCom
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public XCom getXComValue(String dagId, String dagRunId, String taskId, String xcomKey) throws RestClientException {
-        return getXComValueWithHttpInfo(dagId, dagRunId, taskId, xcomKey).getBody();
+    public XCom getXComValue(String dagId, String dagRunId, String taskId, String key) throws RestClientException {
+        return getXComValueWithHttpInfo(dagId, dagRunId, taskId, key).getBody();
     }
 
     /**
@@ -234,11 +234,11 @@ public class XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param xcomKey The XCom Key. (required)
+     * @param key The XCom Key. (required)
      * @return ResponseEntity&lt;XCom&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<XCom> getXComValueWithHttpInfo(String dagId, String dagRunId, String taskId, String xcomKey) throws RestClientException {
+    public ResponseEntity<XCom> getXComValueWithHttpInfo(String dagId, String dagRunId, String taskId, String key) throws RestClientException {
         Object postBody = null;
         
         // verify the required parameter 'dagId' is set
@@ -256,9 +256,9 @@ public class XComApi {
             throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'taskId' when calling getXComValue");
         }
         
-        // verify the required parameter 'xcomKey' is set
-        if (xcomKey == null) {
-            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'xcomKey' when calling getXComValue");
+        // verify the required parameter 'key' is set
+        if (key == null) {
+            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'key' when calling getXComValue");
         }
         
         // create path and map variables
@@ -266,7 +266,7 @@ public class XComApi {
         uriVariables.put("dag_id", dagId);
         uriVariables.put("dag_run_id", dagRunId);
         uriVariables.put("task_id", taskId);
-        uriVariables.put("xcom_key", xcomKey);
+        uriVariables.put("key", key);
         String path = apiClient.expandPath("/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}", uriVariables);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
@@ -378,14 +378,14 @@ public class XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param xcomKey The XCom Key. (required)
+     * @param key The XCom Key. (required)
      * @param xcom  (required)
      * @param updateMask The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  (optional, default to new ArrayList&lt;String&gt;())
      * @return XCom
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public XCom updateXComValue(String dagId, String dagRunId, String taskId, String xcomKey, XCom xcom, List<String> updateMask) throws RestClientException {
-        return updateXComValueWithHttpInfo(dagId, dagRunId, taskId, xcomKey, xcom, updateMask).getBody();
+    public XCom updateXComValue(String dagId, String dagRunId, String taskId, String key, XCom xcom, List<String> updateMask) throws RestClientException {
+        return updateXComValueWithHttpInfo(dagId, dagRunId, taskId, key, xcom, updateMask).getBody();
     }
 
     /**
@@ -399,13 +399,13 @@ public class XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param xcomKey The XCom Key. (required)
+     * @param key The XCom Key. (required)
      * @param xcom  (required)
      * @param updateMask The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  (optional, default to new ArrayList&lt;String&gt;())
      * @return ResponseEntity&lt;XCom&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<XCom> updateXComValueWithHttpInfo(String dagId, String dagRunId, String taskId, String xcomKey, XCom xcom, List<String> updateMask) throws RestClientException {
+    public ResponseEntity<XCom> updateXComValueWithHttpInfo(String dagId, String dagRunId, String taskId, String key, XCom xcom, List<String> updateMask) throws RestClientException {
         Object postBody = xcom;
         
         // verify the required parameter 'dagId' is set
@@ -423,9 +423,9 @@ public class XComApi {
             throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'taskId' when calling updateXComValue");
         }
         
-        // verify the required parameter 'xcomKey' is set
-        if (xcomKey == null) {
-            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'xcomKey' when calling updateXComValue");
+        // verify the required parameter 'key' is set
+        if (key == null) {
+            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'key' when calling updateXComValue");
         }
         
         // verify the required parameter 'xcom' is set
@@ -438,7 +438,7 @@ public class XComApi {
         uriVariables.put("dag_id", dagId);
         uriVariables.put("dag_run_id", dagRunId);
         uriVariables.put("task_id", taskId);
-        uriVariables.put("xcom_key", xcomKey);
+        uriVariables.put("key", key);
         String path = apiClient.expandPath("/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}", uriVariables);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();

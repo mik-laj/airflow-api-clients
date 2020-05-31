@@ -13,6 +13,11 @@
 
 package org.openapitools.client.api;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.api.client.http.HttpContent;
+import com.google.api.client.json.JsonObjectParser;
+import com.google.common.base.Splitter;
 import org.openapitools.client.model.DAGRun;
 import org.openapitools.client.model.DAGRunCollection;
 import org.openapitools.client.model.Error;
@@ -22,6 +27,7 @@ import org.junit.Test;
 import org.junit.Ignore;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -30,7 +36,6 @@ import java.util.Map;
 /**
  * API tests for DagRunApi
  */
-@Ignore
 public class DagRunApiTest {
 
     private final DagRunApi api = new DagRunApi();
@@ -45,11 +50,32 @@ public class DagRunApiTest {
      *          if the Api call fails
      */
     @Test
-    public void createDagRunTest() throws IOException {
-        String dagId = null;
-        String dagRunId = null;
-        DAGRun daGRun = null;
-        DAGRun response = api.createDagRun(dagId, dagRunId, daGRun);
+    public void dagTest() throws IOException {
+        DAGRun dagRun = new DAGRun();
+        HashMap<Object, Object> confObject = new HashMap<>();
+        String array[] = new String[] {"1", "2", "3"};
+        confObject.put("a", array);
+        confObject.put("b", "c");
+        dagRun.setConf(confObject);
+        ObjectMapper mapper = api.getApiClient().getObjectMapper();
+        String data = mapper.writer().writeValueAsString(dagRun);
+        System.out.println(data);
+        TypeReference<DAGRun> typeRef = new TypeReference<DAGRun>() {};
+        DAGRun dagRunRead = mapper.readValue(data, typeRef);
+        System.out.println();
+        System.out.println(dagRunRead);
+        System.out.println(dagRunRead.getConf().getClass());
+
+        DAGRun dagRun2 = new DAGRun();
+        HashMap confObject2 =
+                mapper.readValue("{\"a\":[\"1\", \"2\", \"3\"],\"b\":\"c\" }", confObject.getClass());
+        dagRun2.setConf(confObject2);
+        String data2 = mapper.writer().writeValueAsString(dagRun2);
+        System.out.println(data2);
+        DAGRun dagRunRead2 = mapper.readValue(data2, typeRef);
+        System.out.println();
+        System.out.println(dagRunRead2);
+        System.out.println(dagRunRead2.getConf().getClass());
 
         // TODO: test validations
     }

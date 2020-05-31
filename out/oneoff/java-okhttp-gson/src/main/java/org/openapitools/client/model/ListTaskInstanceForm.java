@@ -31,7 +31,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * ListTaskInstanceForm
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:12.169Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:39:26.573Z[GMT]")
 public class ListTaskInstanceForm {
   public static final String SERIALIZED_NAME_DAG_IDS = "dag_ids";
   @SerializedName(SERIALIZED_NAME_DAG_IDS)

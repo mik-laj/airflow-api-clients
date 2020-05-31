@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.DAG;
 import org.openapitools.client.model.DAGDetailAllOf;
-import org.openapitools.client.model.OneOfScheduleInterval;
+import org.openapitools.client.model.ScheduleInterval;
 import org.openapitools.client.model.Tag;
 import org.openapitools.client.model.TimeDelta;
 import org.threeten.bp.OffsetDateTime;

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * InlineResponse200
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:47:21.263Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:53:24.122Z[GMT]")
 public class InlineResponse200 {
   public static final String SERIALIZED_NAME_CONTINUATION_TOKEN = "continuation_token";
   @SerializedName(SERIALIZED_NAME_CONTINUATION_TOKEN)

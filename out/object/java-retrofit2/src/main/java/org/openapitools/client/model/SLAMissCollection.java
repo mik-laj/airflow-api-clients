@@ -30,7 +30,7 @@ import org.openapitools.client.model.SLAMiss;
 /**
  * SLAMissCollection
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:47:06.066Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:53:09.406Z[GMT]")
 public class SLAMissCollection {
   public static final String SERIALIZED_NAME_SLA_MISSES = "sla_misses";
   @SerializedName(SERIALIZED_NAME_SLA_MISSES)

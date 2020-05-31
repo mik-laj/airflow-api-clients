@@ -38,7 +38,7 @@ import java.util.List;
 import java.util.Map;
 
 
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:32.163Z[GMT]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:39:46.427Z[GMT]")
 public class XComApi {
   private final HttpClient memberVarHttpClient;
   private final ObjectMapper memberVarObjectMapper;
@@ -66,10 +66,10 @@ public class XComApi {
    * @param dagId The DAG ID. (required)
    * @param dagRunId The DAG Run ID. (required)
    * @param taskId The Task ID. (required)
-   * @param xcomKey The XCom Key. (required)
+   * @param key The XCom Key. (required)
    * @throws ApiException if fails to make API call
    */
-  public void deleteXComValue (String dagId, String dagRunId, String taskId, String xcomKey) throws ApiException {
+  public void deleteXComValue (String dagId, String dagRunId, String taskId, String key) throws ApiException {
     // verify the required parameter 'dagId' is set
     if (dagId == null) {
         throw new ApiException(400, "Missing the required parameter 'dagId' when calling deleteXComValue");
@@ -82,9 +82,9 @@ public class XComApi {
     if (taskId == null) {
         throw new ApiException(400, "Missing the required parameter 'taskId' when calling deleteXComValue");
     }
-    // verify the required parameter 'xcomKey' is set
-    if (xcomKey == null) {
-        throw new ApiException(400, "Missing the required parameter 'xcomKey' when calling deleteXComValue");
+    // verify the required parameter 'key' is set
+    if (key == null) {
+        throw new ApiException(400, "Missing the required parameter 'key' when calling deleteXComValue");
     }
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
@@ -93,7 +93,7 @@ public class XComApi {
         .replace("{dag_id}", ApiClient.urlEncode(dagId.toString()))
         .replace("{dag_run_id}", ApiClient.urlEncode(dagRunId.toString()))
         .replace("{task_id}", ApiClient.urlEncode(taskId.toString()))
-        .replace("{xcom_key}", ApiClient.urlEncode(xcomKey.toString()));
+        .replace("{key}", ApiClient.urlEncode(key.toString()));
 
     localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
@@ -208,11 +208,11 @@ public class XComApi {
    * @param dagId The DAG ID. (required)
    * @param dagRunId The DAG Run ID. (required)
    * @param taskId The Task ID. (required)
-   * @param xcomKey The XCom Key. (required)
+   * @param key The XCom Key. (required)
    * @return XCom
    * @throws ApiException if fails to make API call
    */
-  public XCom getXComValue (String dagId, String dagRunId, String taskId, String xcomKey) throws ApiException {
+  public XCom getXComValue (String dagId, String dagRunId, String taskId, String key) throws ApiException {
     // verify the required parameter 'dagId' is set
     if (dagId == null) {
         throw new ApiException(400, "Missing the required parameter 'dagId' when calling getXComValue");
@@ -225,9 +225,9 @@ public class XComApi {
     if (taskId == null) {
         throw new ApiException(400, "Missing the required parameter 'taskId' when calling getXComValue");
     }
-    // verify the required parameter 'xcomKey' is set
-    if (xcomKey == null) {
-        throw new ApiException(400, "Missing the required parameter 'xcomKey' when calling getXComValue");
+    // verify the required parameter 'key' is set
+    if (key == null) {
+        throw new ApiException(400, "Missing the required parameter 'key' when calling getXComValue");
     }
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
@@ -236,7 +236,7 @@ public class XComApi {
         .replace("{dag_id}", ApiClient.urlEncode(dagId.toString()))
         .replace("{dag_run_id}", ApiClient.urlEncode(dagRunId.toString()))
         .replace("{task_id}", ApiClient.urlEncode(taskId.toString()))
-        .replace("{xcom_key}", ApiClient.urlEncode(xcomKey.toString()));
+        .replace("{key}", ApiClient.urlEncode(key.toString()));
 
     localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
@@ -347,13 +347,13 @@ public class XComApi {
    * @param dagId The DAG ID. (required)
    * @param dagRunId The DAG Run ID. (required)
    * @param taskId The Task ID. (required)
-   * @param xcomKey The XCom Key. (required)
+   * @param key The XCom Key. (required)
    * @param xcom  (required)
    * @param updateMask The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  (optional
    * @return XCom
    * @throws ApiException if fails to make API call
    */
-  public XCom updateXComValue (String dagId, String dagRunId, String taskId, String xcomKey, XCom xcom, List<String> updateMask) throws ApiException {
+  public XCom updateXComValue (String dagId, String dagRunId, String taskId, String key, XCom xcom, List<String> updateMask) throws ApiException {
     // verify the required parameter 'dagId' is set
     if (dagId == null) {
         throw new ApiException(400, "Missing the required parameter 'dagId' when calling updateXComValue");
@@ -366,9 +366,9 @@ public class XComApi {
     if (taskId == null) {
         throw new ApiException(400, "Missing the required parameter 'taskId' when calling updateXComValue");
     }
-    // verify the required parameter 'xcomKey' is set
-    if (xcomKey == null) {
-        throw new ApiException(400, "Missing the required parameter 'xcomKey' when calling updateXComValue");
+    // verify the required parameter 'key' is set
+    if (key == null) {
+        throw new ApiException(400, "Missing the required parameter 'key' when calling updateXComValue");
     }
     // verify the required parameter 'xcom' is set
     if (xcom == null) {
@@ -381,7 +381,7 @@ public class XComApi {
         .replace("{dag_id}", ApiClient.urlEncode(dagId.toString()))
         .replace("{dag_run_id}", ApiClient.urlEncode(dagRunId.toString()))
         .replace("{task_id}", ApiClient.urlEncode(taskId.toString()))
-        .replace("{xcom_key}", ApiClient.urlEncode(xcomKey.toString()));
+        .replace("{key}", ApiClient.urlEncode(key.toString()));
 
     List<Pair> localVarQueryParams = new ArrayList<>();
     localVarQueryParams.addAll(ApiClient.parameterToPairs("csv", "update_mask", updateMask));

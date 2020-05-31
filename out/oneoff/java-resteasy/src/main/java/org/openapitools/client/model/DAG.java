@@ -42,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DAG.JSON_PROPERTY_SCHEDULE_INTERVAL,
   DAG.JSON_PROPERTY_TAGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:22.158Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:39:36.456Z[GMT]")
 public class DAG {
   public static final String JSON_PROPERTY_DAG_ID = "dag_id";
   private String dagId;

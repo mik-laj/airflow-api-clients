@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ClassReference
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:47:03.587Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:53:06.958Z[GMT]")
 public class ClassReference {
   public static final String SERIALIZED_NAME_MODULE_PATH = "module_path";
   @SerializedName(SERIALIZED_NAME_MODULE_PATH)

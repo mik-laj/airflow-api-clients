@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ImportError.JSON_PROPERTY_FILENAME,
   ImportError.JSON_PROPERTY_STACK_TRACE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:24.732Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:39:38.900Z[GMT]")
 public class ImportError {
   public static final String JSON_PROPERTY_IMPORT_ERROR_ID = "import_error_id";
   private Integer importErrorId;

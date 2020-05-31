@@ -40,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ListDagRunsForm.JSON_PROPERTY_END_DATE_GTE,
   ListDagRunsForm.JSON_PROPERTY_END_DATE_LTE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:46:07.346Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:37:24.519Z[GMT]")
 public class ListDagRunsForm {
   public static final String JSON_PROPERTY_PAGE_OFFSET = "page_offset";
   private Integer pageOffset;

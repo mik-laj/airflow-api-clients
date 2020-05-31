@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   PoolCollection.JSON_PROPERTY_POOLS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:45:48.394Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:37:05.006Z[GMT]")
 public class PoolCollection {
   public static final String JSON_PROPERTY_POOLS = "pools";
   private List<Pool> pools = null;

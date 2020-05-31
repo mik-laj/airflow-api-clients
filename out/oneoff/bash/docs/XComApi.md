@@ -19,7 +19,7 @@ Delete an XCom entry
 ### Example
 
 ```bash
- deleteXComValue dag_id=value dag_run_id=value task_id=value xcom_key=value
+ deleteXComValue dag_id=value dag_run_id=value task_id=value key=value
 ```
 
 ### Parameters
@@ -30,7 +30,7 @@ Name | Type | Description  | Notes
  **dagId** | **string** | The DAG ID. | [default to null]
  **dagRunId** | **string** | The DAG Run ID. | [default to null]
  **taskId** | **string** | The Task ID. | [default to null]
- **xcomKey** | **string** | The XCom Key. | [default to null]
+ **key** | **string** | The XCom Key. | [default to null]
 
 ### Return type
 
@@ -94,7 +94,7 @@ Get an XCom entry
 ### Example
 
 ```bash
- getXComValue dag_id=value dag_run_id=value task_id=value xcom_key=value
+ getXComValue dag_id=value dag_run_id=value task_id=value key=value
 ```
 
 ### Parameters
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
  **dagId** | **string** | The DAG ID. | [default to null]
  **dagRunId** | **string** | The DAG Run ID. | [default to null]
  **taskId** | **string** | The Task ID. | [default to null]
- **xcomKey** | **string** | The XCom Key. | [default to null]
+ **key** | **string** | The XCom Key. | [default to null]
 
 ### Return type
 
@@ -166,7 +166,7 @@ Update an XCom entry
 ### Example
 
 ```bash
- updateXComValue dag_id=value dag_run_id=value task_id=value xcom_key=value  Specify as:  update_mask="value1,value2,..."
+ updateXComValue dag_id=value dag_run_id=value task_id=value key=value  Specify as:  update_mask="value1,value2,..."
 ```
 
 ### Parameters
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
  **dagId** | **string** | The DAG ID. | [default to null]
  **dagRunId** | **string** | The DAG Run ID. | [default to null]
  **taskId** | **string** | The Task ID. | [default to null]
- **xcomKey** | **string** | The XCom Key. | [default to null]
+ **key** | **string** | The XCom Key. | [default to null]
  **xCom** | [**XCom**](XCom.md) |  |
  **updateMask** | [**array[string]**](string.md) | The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields. | [optional] [default to null]
 

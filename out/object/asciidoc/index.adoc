@@ -5387,7 +5387,7 @@ endif::internal-generation[]
 
 | schedule_interval 
 |  
-| oneOf&lt;ScheduleInterval&gt;  
+| ScheduleInterval  
 | 
 |  
 
@@ -5479,7 +5479,7 @@ endif::internal-generation[]
 
 | schedule_interval 
 |  
-| oneOf&lt;ScheduleInterval&gt;  
+| ScheduleInterval  
 | 
 |  
 
