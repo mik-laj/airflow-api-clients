@@ -6,7 +6,7 @@ from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
 from app.openapi_server.models.base_model_ import Model
-from app.openapi_server.models.one_of_schedule_interval import OneOfScheduleInterval  # noqa: F401,E501
+from app.openapi_server.models.schedule_interval import ScheduleInterval  # noqa: F401,E501
 from app.openapi_server.models.tag import Tag  # noqa: F401,E501
 from openapi_server import util
 
@@ -17,7 +17,7 @@ class DAG(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, dag_id: str=None, root_dag_id: str=None, is_paused: bool=None, is_subdag: bool=None, fileloc: str=None, file_token: str=None, owners: List[str]=None, description: str=None, schedule_interval: OneOfScheduleInterval=None, tags: List[Tag]=None):  # noqa: E501
+    def __init__(self, dag_id: str=None, root_dag_id: str=None, is_paused: bool=None, is_subdag: bool=None, fileloc: str=None, file_token: str=None, owners: List[str]=None, description: str=None, schedule_interval: ScheduleInterval=None, tags: List[Tag]=None):  # noqa: E501
         """DAG - a model defined in Swagger
 
         :param dag_id: The dag_id of this DAG.  # noqa: E501
@@ -37,7 +37,7 @@ class DAG(Model):
         :param description: The description of this DAG.  # noqa: E501
         :type description: str
         :param schedule_interval: The schedule_interval of this DAG.  # noqa: E501
-        :type schedule_interval: OneOfScheduleInterval
+        :type schedule_interval: ScheduleInterval
         :param tags: The tags of this DAG.  # noqa: E501
         :type tags: List[Tag]
         """
@@ -50,7 +50,7 @@ class DAG(Model):
             'file_token': str,
             'owners': List[str],
             'description': str,
-            'schedule_interval': OneOfScheduleInterval,
+            'schedule_interval': ScheduleInterval,
             'tags': List[Tag]
         }
 
@@ -260,22 +260,22 @@ class DAG(Model):
         self._description = description
 
     @property
-    def schedule_interval(self) -> OneOfScheduleInterval:
+    def schedule_interval(self) -> ScheduleInterval:
         """Gets the schedule_interval of this DAG.
 
 
         :return: The schedule_interval of this DAG.
-        :rtype: OneOfScheduleInterval
+        :rtype: ScheduleInterval
         """
         return self._schedule_interval
 
     @schedule_interval.setter
-    def schedule_interval(self, schedule_interval: OneOfScheduleInterval):
+    def schedule_interval(self, schedule_interval: ScheduleInterval):
         """Sets the schedule_interval of this DAG.
 
 
         :param schedule_interval: The schedule_interval of this DAG.
-        :type schedule_interval: OneOfScheduleInterval
+        :type schedule_interval: ScheduleInterval
         """
 
         self._schedule_interval = schedule_interval

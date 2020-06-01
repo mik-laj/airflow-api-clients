@@ -157,11 +157,11 @@ _()
     operation_parameters["getVariable"]="variable_key= "
     operation_parameters["getVariables"]="limit= offset= "
     operation_parameters["updateVariable"]="variable_key= update_mask= "
-    operation_parameters["deleteXComValue"]="dag_id= dag_run_id= task_id= xcom_key= "
+    operation_parameters["deleteXComValue"]="dag_id= dag_run_id= task_id= key= "
     operation_parameters["getXComEntry"]="dag_id= dag_run_id= task_id= limit= offset= "
-    operation_parameters["getXComValue"]="dag_id= dag_run_id= task_id= xcom_key= "
+    operation_parameters["getXComValue"]="dag_id= dag_run_id= task_id= key= "
     operation_parameters["updateXComEntry"]="dag_id= dag_run_id= task_id= "
-    operation_parameters["updateXComValue"]="dag_id= dag_run_id= task_id= xcom_key= update_mask= "
+    operation_parameters["updateXComValue"]="dag_id= dag_run_id= task_id= key= update_mask= "
 
     # An associative array of possible values for enum parameters
     declare -A operation_parameters_enum_values

@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="deleteXComValue"></a>
 # **deleteXComValue**
-> deleteXComValue(dagId, dagRunId, taskId, xcomKey)
+> deleteXComValue(dagId, dagRunId, taskId, key)
 
 Delete an XCom entry
 
@@ -24,7 +24,7 @@ Name | Type | Description  | Notes
  **dagId** | **String**| The DAG ID. | [default to null]
  **dagRunId** | **String**| The DAG Run ID. | [default to null]
  **taskId** | **String**| The Task ID. | [default to null]
- **xcomKey** | **String**| The XCom Key. | [default to null]
+ **key** | **String**| The XCom Key. | [default to null]
 
 ### Return type
 
@@ -72,7 +72,7 @@ No authorization required
 
 <a name="getXComValue"></a>
 # **getXComValue**
-> XCom getXComValue(dagId, dagRunId, taskId, xcomKey)
+> XCom getXComValue(dagId, dagRunId, taskId, key)
 
 Get an XCom entry
 
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
  **dagId** | **String**| The DAG ID. | [default to null]
  **dagRunId** | **String**| The DAG Run ID. | [default to null]
  **taskId** | **String**| The Task ID. | [default to null]
- **xcomKey** | **String**| The XCom Key. | [default to null]
+ **key** | **String**| The XCom Key. | [default to null]
 
 ### Return type
 
@@ -128,7 +128,7 @@ No authorization required
 
 <a name="updateXComValue"></a>
 # **updateXComValue**
-> XCom updateXComValue(dagId, dagRunId, taskId, xcomKey, xCom, updateMask)
+> XCom updateXComValue(dagId, dagRunId, taskId, key, xCom, updateMask)
 
 Update an XCom entry
 
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
  **dagId** | **String**| The DAG ID. | [default to null]
  **dagRunId** | **String**| The DAG Run ID. | [default to null]
  **taskId** | **String**| The Task ID. | [default to null]
- **xcomKey** | **String**| The XCom Key. | [default to null]
+ **key** | **String**| The XCom Key. | [default to null]
  **xCom** | [**XCom**](..//Models/XCom.md)|  |
  **updateMask** | [**List**](..//Models/String.md)| The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  | [optional] [default to null]
 

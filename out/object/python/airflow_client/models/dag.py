@@ -42,7 +42,7 @@ class DAG(object):
         'file_token': 'str',
         'owners': 'list[str]',
         'description': 'str',
-        'schedule_interval': 'OneOfScheduleInterval',
+        'schedule_interval': 'ScheduleInterval',
         'tags': 'list[Tag]'
     }
 
@@ -274,7 +274,7 @@ class DAG(object):
 
 
         :return: The schedule_interval of this DAG.  # noqa: E501
-        :rtype: OneOfScheduleInterval
+        :rtype: ScheduleInterval
         """
         return self._schedule_interval
 
@@ -284,7 +284,7 @@ class DAG(object):
 
 
         :param schedule_interval: The schedule_interval of this DAG.  # noqa: E501
-        :type: OneOfScheduleInterval
+        :type: ScheduleInterval
         """
 
         self._schedule_interval = schedule_interval

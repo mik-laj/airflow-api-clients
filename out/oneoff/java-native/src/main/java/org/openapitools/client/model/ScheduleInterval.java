@@ -50,7 +50,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ScheduleInterval.JSON_PROPERTY_SECOND,
   ScheduleInterval.JSON_PROPERTY_VALUE
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:32.163Z[GMT]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:39:46.427Z[GMT]")
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "__type", visible = true)
 @JsonSubTypes({
   @JsonSubTypes.Type(value = CronExpression.class, name = "CronExpression"),

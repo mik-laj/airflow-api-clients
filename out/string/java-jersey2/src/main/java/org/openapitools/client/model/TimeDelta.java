@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   TimeDelta.JSON_PROPERTY_SECONDS,
   TimeDelta.JSON_PROPERTY_MICROSECOND
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:45:50.802Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:37:07.361Z[GMT]")
 public class TimeDelta {
   public static final String JSON_PROPERTY_TYPE = "__type";
   private String type;

@@ -3931,7 +3931,7 @@
             "type" : "string"
           },
           "schedule_interval" : {
-            "oneOf" : [ {
+            "allOf" : [ {
               "$ref" : "#/components/schemas/ScheduleInterval"
             } ],
             "readOnly" : true

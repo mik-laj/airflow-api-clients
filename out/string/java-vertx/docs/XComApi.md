@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## deleteXComValue
 
-> deleteXComValue(dagId, dagRunId, taskId, xcomKey)
+> deleteXComValue(dagId, dagRunId, taskId, key)
 
 Delete an XCom entry
 
@@ -37,9 +37,9 @@ public class Example {
         String dagId = "dagId_example"; // String | The DAG ID.
         String dagRunId = "dagRunId_example"; // String | The DAG Run ID.
         String taskId = "taskId_example"; // String | The Task ID.
-        String xcomKey = "xcomKey_example"; // String | The XCom Key.
+        String key = "key_example"; // String | The XCom Key.
         try {
-            apiInstance.deleteXComValue(dagId, dagRunId, taskId, xcomKey);
+            apiInstance.deleteXComValue(dagId, dagRunId, taskId, key);
         } catch (ApiException e) {
             System.err.println("Exception when calling XComApi#deleteXComValue");
             System.err.println("Status code: " + e.getCode());
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
  **dagId** | **String**| The DAG ID. |
  **dagRunId** | **String**| The DAG Run ID. |
  **taskId** | **String**| The Task ID. |
- **xcomKey** | **String**| The XCom Key. |
+ **key** | **String**| The XCom Key. |
 
 ### Return type
 
@@ -160,7 +160,7 @@ No authorization required
 
 ## getXComValue
 
-> XCom getXComValue(dagId, dagRunId, taskId, xcomKey)
+> XCom getXComValue(dagId, dagRunId, taskId, key)
 
 Get an XCom entry
 
@@ -183,9 +183,9 @@ public class Example {
         String dagId = "dagId_example"; // String | The DAG ID.
         String dagRunId = "dagRunId_example"; // String | The DAG Run ID.
         String taskId = "taskId_example"; // String | The Task ID.
-        String xcomKey = "xcomKey_example"; // String | The XCom Key.
+        String key = "key_example"; // String | The XCom Key.
         try {
-            XCom result = apiInstance.getXComValue(dagId, dagRunId, taskId, xcomKey);
+            XCom result = apiInstance.getXComValue(dagId, dagRunId, taskId, key);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling XComApi#getXComValue");
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
  **dagId** | **String**| The DAG ID. |
  **dagRunId** | **String**| The DAG Run ID. |
  **taskId** | **String**| The Task ID. |
- **xcomKey** | **String**| The XCom Key. |
+ **key** | **String**| The XCom Key. |
 
 ### Return type
 
@@ -304,7 +304,7 @@ No authorization required
 
 ## updateXComValue
 
-> XCom updateXComValue(dagId, dagRunId, taskId, xcomKey, xcom, updateMask)
+> XCom updateXComValue(dagId, dagRunId, taskId, key, xcom, updateMask)
 
 Update an XCom entry
 
@@ -327,11 +327,11 @@ public class Example {
         String dagId = "dagId_example"; // String | The DAG ID.
         String dagRunId = "dagRunId_example"; // String | The DAG Run ID.
         String taskId = "taskId_example"; // String | The Task ID.
-        String xcomKey = "xcomKey_example"; // String | The XCom Key.
+        String key = "key_example"; // String | The XCom Key.
         XCom xcom = new XCom(); // XCom | 
         List<String> updateMask = Arrays.asList(); // List<String> | The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields. 
         try {
-            XCom result = apiInstance.updateXComValue(dagId, dagRunId, taskId, xcomKey, xcom, updateMask);
+            XCom result = apiInstance.updateXComValue(dagId, dagRunId, taskId, key, xcom, updateMask);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling XComApi#updateXComValue");
@@ -352,7 +352,7 @@ Name | Type | Description  | Notes
  **dagId** | **String**| The DAG ID. |
  **dagRunId** | **String**| The DAG Run ID. |
  **taskId** | **String**| The Task ID. |
- **xcomKey** | **String**| The XCom Key. |
+ **key** | **String**| The XCom Key. |
  **xcom** | [**XCom**](XCom.md)|  |
  **updateMask** | [**List&lt;String&gt;**](String.md)| The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  | [optional]
 

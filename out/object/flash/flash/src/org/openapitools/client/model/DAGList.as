@@ -1,7 +1,7 @@
 package org.openapitools.client.model {
 
 import org.openapitools.common.ListWrapper;
-import org.openapitools.client.model.OneOfScheduleInterval;
+import org.openapitools.client.model.ScheduleInterval;
 import org.openapitools.client.model.Tag;
 
     public class DAGList implements ListWrapper {

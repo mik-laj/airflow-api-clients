@@ -36,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   EventLog.JSON_PROPERTY_OWNER,
   EventLog.JSON_PROPERTY_EXTRA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:19.635Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:39:33.983Z[GMT]")
 public class EventLog {
   public static final String JSON_PROPERTY_EVENT_LOG_ID = "event_log_id";
   private Integer eventLogId;

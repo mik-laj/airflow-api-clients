@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   ExtraLinkCollection.JSON_PROPERTY_EXTRA_LINKS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:07.228Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:39:21.588Z[GMT]")
 public class ExtraLinkCollection {
   public static final String JSON_PROPERTY_EXTRA_LINKS = "extra_links";
   private List<ExtraLink> extraLinks = null;

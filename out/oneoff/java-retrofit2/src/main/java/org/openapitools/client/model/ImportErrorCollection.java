@@ -30,7 +30,7 @@ import org.openapitools.client.model.ImportError;
 /**
  * ImportErrorCollection
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:14.686Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:39:29.071Z[GMT]")
 public class ImportErrorCollection {
   public static final String SERIALIZED_NAME_IMPORT_ERRORS = "import_errors";
   @SerializedName(SERIALIZED_NAME_IMPORT_ERRORS)

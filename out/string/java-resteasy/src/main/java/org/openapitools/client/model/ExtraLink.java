@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ExtraLink.JSON_PROPERTY_NAME,
   ExtraLink.JSON_PROPERTY_HREF
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:46:04.995Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:37:21.709Z[GMT]")
 public class ExtraLink {
   public static final String JSON_PROPERTY_CLASS_REF = "class_ref";
   private ClassReference classRef;

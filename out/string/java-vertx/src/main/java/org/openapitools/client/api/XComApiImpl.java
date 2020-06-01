@@ -18,7 +18,7 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:46:07.346Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:37:24.519Z[GMT]")
 public class XComApiImpl implements XComApi {
 
     private ApiClient apiClient;
@@ -45,10 +45,10 @@ public class XComApiImpl implements XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param xcomKey The XCom Key. (required)
+     * @param key The XCom Key. (required)
      * @param resultHandler Asynchronous result handler
      */
-    public void deleteXComValue(String dagId, String dagRunId, String taskId, String xcomKey, Handler<AsyncResult<Void>> resultHandler) {
+    public void deleteXComValue(String dagId, String dagRunId, String taskId, String key, Handler<AsyncResult<Void>> resultHandler) {
         Object localVarBody = null;
         
         // verify the required parameter 'dagId' is set
@@ -69,14 +69,14 @@ public class XComApiImpl implements XComApi {
             return;
         }
         
-        // verify the required parameter 'xcomKey' is set
-        if (xcomKey == null) {
-            resultHandler.handle(ApiException.fail(400, "Missing the required parameter 'xcomKey' when calling deleteXComValue"));
+        // verify the required parameter 'key' is set
+        if (key == null) {
+            resultHandler.handle(ApiException.fail(400, "Missing the required parameter 'key' when calling deleteXComValue"));
             return;
         }
         
         // create path and map variables
-        String localVarPath = "/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}".replaceAll("\\{" + "dag_id" + "\\}", dagId.toString()).replaceAll("\\{" + "dag_run_id" + "\\}", dagRunId.toString()).replaceAll("\\{" + "task_id" + "\\}", taskId.toString()).replaceAll("\\{" + "xcom_key" + "\\}", xcomKey.toString());
+        String localVarPath = "/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}".replaceAll("\\{" + "dag_id" + "\\}", dagId.toString()).replaceAll("\\{" + "dag_run_id" + "\\}", dagRunId.toString()).replaceAll("\\{" + "task_id" + "\\}", taskId.toString()).replaceAll("\\{" + "key" + "\\}", key.toString());
 
         // query params
         List<Pair> localVarQueryParams = new ArrayList<>();
@@ -158,10 +158,10 @@ public class XComApiImpl implements XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param xcomKey The XCom Key. (required)
+     * @param key The XCom Key. (required)
      * @param resultHandler Asynchronous result handler
      */
-    public void getXComValue(String dagId, String dagRunId, String taskId, String xcomKey, Handler<AsyncResult<XCom>> resultHandler) {
+    public void getXComValue(String dagId, String dagRunId, String taskId, String key, Handler<AsyncResult<XCom>> resultHandler) {
         Object localVarBody = null;
         
         // verify the required parameter 'dagId' is set
@@ -182,14 +182,14 @@ public class XComApiImpl implements XComApi {
             return;
         }
         
-        // verify the required parameter 'xcomKey' is set
-        if (xcomKey == null) {
-            resultHandler.handle(ApiException.fail(400, "Missing the required parameter 'xcomKey' when calling getXComValue"));
+        // verify the required parameter 'key' is set
+        if (key == null) {
+            resultHandler.handle(ApiException.fail(400, "Missing the required parameter 'key' when calling getXComValue"));
             return;
         }
         
         // create path and map variables
-        String localVarPath = "/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}".replaceAll("\\{" + "dag_id" + "\\}", dagId.toString()).replaceAll("\\{" + "dag_run_id" + "\\}", dagRunId.toString()).replaceAll("\\{" + "task_id" + "\\}", taskId.toString()).replaceAll("\\{" + "xcom_key" + "\\}", xcomKey.toString());
+        String localVarPath = "/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}".replaceAll("\\{" + "dag_id" + "\\}", dagId.toString()).replaceAll("\\{" + "dag_run_id" + "\\}", dagRunId.toString()).replaceAll("\\{" + "task_id" + "\\}", taskId.toString()).replaceAll("\\{" + "key" + "\\}", key.toString());
 
         // query params
         List<Pair> localVarQueryParams = new ArrayList<>();
@@ -274,12 +274,12 @@ public class XComApiImpl implements XComApi {
      * @param dagId The DAG ID. (required)
      * @param dagRunId The DAG Run ID. (required)
      * @param taskId The Task ID. (required)
-     * @param xcomKey The XCom Key. (required)
+     * @param key The XCom Key. (required)
      * @param xcom  (required)
      * @param updateMask The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  (optional, default to new ArrayList&lt;&gt;())
      * @param resultHandler Asynchronous result handler
      */
-    public void updateXComValue(String dagId, String dagRunId, String taskId, String xcomKey, XCom xcom, List<String> updateMask, Handler<AsyncResult<XCom>> resultHandler) {
+    public void updateXComValue(String dagId, String dagRunId, String taskId, String key, XCom xcom, List<String> updateMask, Handler<AsyncResult<XCom>> resultHandler) {
         Object localVarBody = xcom;
         
         // verify the required parameter 'dagId' is set
@@ -300,9 +300,9 @@ public class XComApiImpl implements XComApi {
             return;
         }
         
-        // verify the required parameter 'xcomKey' is set
-        if (xcomKey == null) {
-            resultHandler.handle(ApiException.fail(400, "Missing the required parameter 'xcomKey' when calling updateXComValue"));
+        // verify the required parameter 'key' is set
+        if (key == null) {
+            resultHandler.handle(ApiException.fail(400, "Missing the required parameter 'key' when calling updateXComValue"));
             return;
         }
         
@@ -313,7 +313,7 @@ public class XComApiImpl implements XComApi {
         }
         
         // create path and map variables
-        String localVarPath = "/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}".replaceAll("\\{" + "dag_id" + "\\}", dagId.toString()).replaceAll("\\{" + "dag_run_id" + "\\}", dagRunId.toString()).replaceAll("\\{" + "task_id" + "\\}", taskId.toString()).replaceAll("\\{" + "xcom_key" + "\\}", xcomKey.toString());
+        String localVarPath = "/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}".replaceAll("\\{" + "dag_id" + "\\}", dagId.toString()).replaceAll("\\{" + "dag_run_id" + "\\}", dagRunId.toString()).replaceAll("\\{" + "task_id" + "\\}", taskId.toString()).replaceAll("\\{" + "key" + "\\}", key.toString());
 
         // query params
         List<Pair> localVarQueryParams = new ArrayList<>();

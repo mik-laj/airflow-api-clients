@@ -45,10 +45,10 @@ except ImportError:
     dag_detail_all_of = sys.modules[
         'openapi_client.models.dag_detail_all_of']
 try:
-    from openapi_client.models import one_of_schedule_interval
+    from openapi_client.models import schedule_interval
 except ImportError:
-    one_of_schedule_interval = sys.modules[
-        'openapi_client.models.one_of_schedule_interval']
+    schedule_interval = sys.modules[
+        'openapi_client.models.schedule_interval']
 try:
     from openapi_client.models import tag
 except ImportError:
@@ -114,7 +114,7 @@ class DAGDetail(ModelComposed):
             'file_token': (str,),  # noqa: E501
             'owners': ([str],),  # noqa: E501
             'description': (str,),  # noqa: E501
-            'schedule_interval': (one_of_schedule_interval.OneOfScheduleInterval,),  # noqa: E501
+            'schedule_interval': (schedule_interval.ScheduleInterval,),  # noqa: E501
             'tags': ([tag.Tag],),  # noqa: E501
             'timezone': (str,),  # noqa: E501
             'catchup': (bool,),  # noqa: E501
@@ -206,7 +206,7 @@ class DAGDetail(ModelComposed):
             file_token (str): The key containing the encrypted path to the file. Encryption and decryption take place only on the server. This prevents the client from reading an non-DAG file. This also ensures API extensibility, because the format of encrypted data may change. . [optional]  # noqa: E501
             owners ([str]): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
-            schedule_interval (one_of_schedule_interval.OneOfScheduleInterval): [optional]  # noqa: E501
+            schedule_interval (schedule_interval.ScheduleInterval): [optional]  # noqa: E501
             tags ([tag.Tag]): [optional]  # noqa: E501
             timezone (str): [optional]  # noqa: E501
             catchup (bool): [optional]  # noqa: E501

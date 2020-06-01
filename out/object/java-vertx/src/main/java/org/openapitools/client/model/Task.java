@@ -61,7 +61,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Task.JSON_PROPERTY_SUB_DAG,
   Task.JSON_PROPERTY_DOWNSTREAM_TASK_IDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:47:16.120Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:53:19.156Z[GMT]")
 public class Task {
   public static final String JSON_PROPERTY_CLASS_REF = "class_ref";
   private ClassReference classRef;

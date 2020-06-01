@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.DAG;
 import org.openapitools.client.model.DAGDetailAllOf;
-import org.openapitools.client.model.OneOfScheduleInterval;
+import org.openapitools.client.model.ScheduleInterval;
 import org.openapitools.client.model.Tag;
 import org.openapitools.client.model.TimeDelta;
 import org.threeten.bp.OffsetDateTime;
@@ -36,7 +36,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * DAGDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:47:06.066Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:53:09.406Z[GMT]")
 public class DAGDetail {
   public static final String SERIALIZED_NAME_DAG_ID = "dag_id";
   @SerializedName(SERIALIZED_NAME_DAG_ID)
@@ -72,7 +72,7 @@ public class DAGDetail {
 
   public static final String SERIALIZED_NAME_SCHEDULE_INTERVAL = "schedule_interval";
   @SerializedName(SERIALIZED_NAME_SCHEDULE_INTERVAL)
-  private OneOfScheduleInterval scheduleInterval = null;
+  private ScheduleInterval scheduleInterval = null;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -239,7 +239,7 @@ public class DAGDetail {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public OneOfScheduleInterval getScheduleInterval() {
+  public ScheduleInterval getScheduleInterval() {
     return scheduleInterval;
   }
 

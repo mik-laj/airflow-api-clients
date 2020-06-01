@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   TaskExtraLinks.JSON_PROPERTY_CLASS_REF
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:22.158Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:39:36.456Z[GMT]")
 public class TaskExtraLinks {
   public static final String JSON_PROPERTY_CLASS_REF = "class_ref";
   private ClassReference classRef;

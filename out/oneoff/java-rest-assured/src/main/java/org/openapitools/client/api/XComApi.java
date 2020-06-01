@@ -151,7 +151,7 @@ public class XComApi {
      * @see #dagIdPath The DAG ID. (required)
      * @see #dagRunIdPath The DAG Run ID. (required)
      * @see #taskIdPath The Task ID. (required)
-     * @see #xcomKeyPath The XCom Key. (required)
+     * @see #keyPath The XCom Key. (required)
      */
     public static class DeleteXComValueOper implements Oper {
 
@@ -211,14 +211,14 @@ public class XComApi {
             return this;
         }
 
-        public static final String XCOM_KEY_PATH = "xcom_key";
+        public static final String KEY_PATH = "key";
 
         /**
-         * @param xcomKey (String) The XCom Key. (required)
+         * @param key (String) The XCom Key. (required)
          * @return operation
          */
-        public DeleteXComValueOper xcomKeyPath(Object xcomKey) {
-            reqSpec.addPathParam(XCOM_KEY_PATH, xcomKey);
+        public DeleteXComValueOper keyPath(Object key) {
+            reqSpec.addPathParam(KEY_PATH, key);
             return this;
         }
 
@@ -370,7 +370,7 @@ public class XComApi {
      * @see #dagIdPath The DAG ID. (required)
      * @see #dagRunIdPath The DAG Run ID. (required)
      * @see #taskIdPath The Task ID. (required)
-     * @see #xcomKeyPath The XCom Key. (required)
+     * @see #keyPath The XCom Key. (required)
      * return XCom
      */
     public static class GetXComValueOper implements Oper {
@@ -441,14 +441,14 @@ public class XComApi {
             return this;
         }
 
-        public static final String XCOM_KEY_PATH = "xcom_key";
+        public static final String KEY_PATH = "key";
 
         /**
-         * @param xcomKey (String) The XCom Key. (required)
+         * @param key (String) The XCom Key. (required)
          * @return operation
          */
-        public GetXComValueOper xcomKeyPath(Object xcomKey) {
-            reqSpec.addPathParam(XCOM_KEY_PATH, xcomKey);
+        public GetXComValueOper keyPath(Object key) {
+            reqSpec.addPathParam(KEY_PATH, key);
             return this;
         }
 
@@ -587,7 +587,7 @@ public class XComApi {
      * @see #dagIdPath The DAG ID. (required)
      * @see #dagRunIdPath The DAG Run ID. (required)
      * @see #taskIdPath The Task ID. (required)
-     * @see #xcomKeyPath The XCom Key. (required)
+     * @see #keyPath The XCom Key. (required)
      * @see #body  (required)
      * @see #updateMaskQuery The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  (optional, default to new ArrayList&lt;String&gt;())
      * return XCom
@@ -670,14 +670,14 @@ public class XComApi {
             return this;
         }
 
-        public static final String XCOM_KEY_PATH = "xcom_key";
+        public static final String KEY_PATH = "key";
 
         /**
-         * @param xcomKey (String) The XCom Key. (required)
+         * @param key (String) The XCom Key. (required)
          * @return operation
          */
-        public UpdateXComValueOper xcomKeyPath(Object xcomKey) {
-            reqSpec.addPathParam(XCOM_KEY_PATH, xcomKey);
+        public UpdateXComValueOper keyPath(Object key) {
+            reqSpec.addPathParam(KEY_PATH, key);
             return this;
         }
 

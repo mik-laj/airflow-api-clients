@@ -26,7 +26,7 @@ package org.openapitools.client.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.openapitools.client.model.OneOfScheduleInterval;
+import org.openapitools.client.model.ScheduleInterval;
 import org.openapitools.client.model.Tag;
 
 import javax.xml.bind.annotation.XmlElement;
@@ -59,7 +59,7 @@ public class DAG  {
 
   private String description;
 
-  private OneOfScheduleInterval scheduleInterval = null;
+  private ScheduleInterval scheduleInterval = null;
 
   private List<Tag> tags = null;
   
@@ -159,7 +159,7 @@ public class DAG  {
    * @return scheduleInterval
   **/
   @JsonbProperty("schedule_interval")
-  public OneOfScheduleInterval getScheduleInterval() {
+  public ScheduleInterval getScheduleInterval() {
     return scheduleInterval;
   }
 

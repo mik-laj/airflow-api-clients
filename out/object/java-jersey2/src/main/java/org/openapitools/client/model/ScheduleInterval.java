@@ -42,7 +42,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:46:58.558Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:53:02.054Z[GMT]")
 @JsonDeserialize(using=ScheduleInterval.ScheduleIntervalDeserializer.class)
 public class ScheduleInterval extends AbstractOpenApiSchema {
     public static class ScheduleIntervalDeserializer extends StdDeserializer<ScheduleInterval> {

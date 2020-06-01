@@ -13,7 +13,6 @@
         <developerConnection>scm:git:git@github.com:openapitools/openapi-generator.git</developerConnection>
         <url>https://github.com/openapitools/openapi-generator</url>
     </scm>
-
     <licenses>
         <license>
             <name>Unlicense</name>
@@ -137,14 +136,14 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.6.1</version>
                 <configuration>
-                        <source>1.7</source>
-                        <target>1.7</target>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.source}</target>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.1.1</version>
+                <version>3.2.0</version>
                 <configuration>
                     <doclint>none</doclint>
                 </configuration>
@@ -154,7 +153,10 @@
                         <goals>
                             <goal>jar</goal>
                         </goals>
-                    </execution>
+                        <configuration>
+                            <source>${maven.compiler.source}</source>
+                        </configuration>
+                </execution>
                 </executions>
             </plugin>
             <plugin>
@@ -266,6 +268,7 @@
         <jackson-databind-nullable-version>0.2.1</jackson-databind-nullable-version>
         <jackson-threetenbp-version>2.9.10</jackson-threetenbp-version>
         <maven-plugin-version>1.0.0</maven-plugin-version>
+        <maven.compiler.source>8</maven.compiler.source>
         <junit-version>4.13</junit-version>
     </properties>
 </project>

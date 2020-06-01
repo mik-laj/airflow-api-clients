@@ -55,7 +55,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DAGDetail.JSON_PROPERTY_DOC_MD,
   DAGDetail.JSON_PROPERTY_DEFAULT_VIEW
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:24.732Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:39:38.900Z[GMT]")
 public class DAGDetail {
   public static final String JSON_PROPERTY_DAG_ID = "dag_id";
   private String dagId;

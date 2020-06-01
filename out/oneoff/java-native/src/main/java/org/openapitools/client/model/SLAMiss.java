@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SLAMiss.JSON_PROPERTY_DESCRIPTION,
   SLAMiss.JSON_PROPERTY_NOTIFICATION_SENT
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:32.163Z[GMT]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:39:46.427Z[GMT]")
 public class SLAMiss {
   public static final String JSON_PROPERTY_TASK_ID = "task_id";
   private String taskId;

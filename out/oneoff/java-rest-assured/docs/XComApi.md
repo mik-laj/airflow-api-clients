@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="deleteXComValue"></a>
 # **deleteXComValue**
-> deleteXComValue(dagId, dagRunId, taskId, xcomKey)
+> deleteXComValue(dagId, dagRunId, taskId, key)
 
 Delete an XCom entry
 
@@ -32,7 +32,7 @@ api.deleteXComValue()
     .dagIdPath(dagId)
     .dagRunIdPath(dagRunId)
     .taskIdPath(taskId)
-    .xcomKeyPath(xcomKey).execute(r -> r.prettyPeek());
+    .keyPath(key).execute(r -> r.prettyPeek());
 ```
 
 ### Parameters
@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
  **dagId** | **String**| The DAG ID. |
  **dagRunId** | **String**| The DAG Run ID. |
  **taskId** | **String**| The Task ID. |
- **xcomKey** | **String**| The XCom Key. |
+ **key** | **String**| The XCom Key. |
 
 ### Return type
 
@@ -107,7 +107,7 @@ No authorization required
 
 <a name="getXComValue"></a>
 # **getXComValue**
-> XCom getXComValue(dagId, dagRunId, taskId, xcomKey)
+> XCom getXComValue(dagId, dagRunId, taskId, key)
 
 Get an XCom entry
 
@@ -126,7 +126,7 @@ api.getXComValue()
     .dagIdPath(dagId)
     .dagRunIdPath(dagRunId)
     .taskIdPath(taskId)
-    .xcomKeyPath(xcomKey).execute(r -> r.prettyPeek());
+    .keyPath(key).execute(r -> r.prettyPeek());
 ```
 
 ### Parameters
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
  **dagId** | **String**| The DAG ID. |
  **dagRunId** | **String**| The DAG Run ID. |
  **taskId** | **String**| The Task ID. |
- **xcomKey** | **String**| The XCom Key. |
+ **key** | **String**| The XCom Key. |
 
 ### Return type
 
@@ -199,7 +199,7 @@ No authorization required
 
 <a name="updateXComValue"></a>
 # **updateXComValue**
-> XCom updateXComValue(dagId, dagRunId, taskId, xcomKey, xcom, updateMask)
+> XCom updateXComValue(dagId, dagRunId, taskId, key, xcom, updateMask)
 
 Update an XCom entry
 
@@ -218,7 +218,7 @@ api.updateXComValue()
     .dagIdPath(dagId)
     .dagRunIdPath(dagRunId)
     .taskIdPath(taskId)
-    .xcomKeyPath(xcomKey)
+    .keyPath(key)
     .body(xcom).execute(r -> r.prettyPeek());
 ```
 
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
  **dagId** | **String**| The DAG ID. |
  **dagRunId** | **String**| The DAG Run ID. |
  **taskId** | **String**| The Task ID. |
- **xcomKey** | **String**| The XCom Key. |
+ **key** | **String**| The XCom Key. |
  **xcom** | [**XCom**](XCom.md)|  |
  **updateMask** | [**List&lt;String&gt;**](String.md)| The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields.  | [optional] [default to new ArrayList&lt;String&gt;()]
 

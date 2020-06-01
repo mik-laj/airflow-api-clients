@@ -68,7 +68,7 @@ entity DAG {
     file_token: String
     owners: List<String>
     description: String
-    schedule_interval: OneOf<ScheduleInterval>
+    schedule_interval: ScheduleInterval
     tags: List<Tag>
 }
 
@@ -404,7 +404,7 @@ DAGDetail -- TimeDelta : dag_run_timeout
 ExtraLink -- ClassReference : class_ref
 VariableCollection -- "0..*" VariableCollectionItem : variables
 ConnectionCollection -- "0..*" ConnectionCollectionItem : connections
-DAG -- OneOf<ScheduleInterval> : schedule_interval
+DAG -- ScheduleInterval : schedule_interval
 DAG -- "0..*" Tag : tags
 XComCollection -- "0..*" XComCollectionItem : xcom_entries
 TaskCollection -- "0..*" Task : tasks

@@ -44,7 +44,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ListTaskInstanceForm.JSON_PROPERTY_POOL,
   ListTaskInstanceForm.JSON_PROPERTY_QUEUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:45:50.802Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:37:07.361Z[GMT]")
 public class ListTaskInstanceForm {
   public static final String JSON_PROPERTY_DAG_IDS = "dag_ids";
   private List<String> dagIds = null;

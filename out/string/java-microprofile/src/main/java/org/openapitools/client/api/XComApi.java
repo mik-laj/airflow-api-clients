@@ -59,7 +59,7 @@ public interface XComApi  {
     @DELETE
     @Path("/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}")
     @Produces({ "application/json" })
-    public void deleteXComValue(@PathParam("dag_id") String dagId, @PathParam("dag_run_id") String dagRunId, @PathParam("task_id") String taskId, @PathParam("xcom_key") String xcomKey) throws ApiException, ProcessingException;
+    public void deleteXComValue(@PathParam("dag_id") String dagId, @PathParam("dag_run_id") String dagRunId, @PathParam("task_id") String taskId, @PathParam("key") String key) throws ApiException, ProcessingException;
 
     /**
      * Get all XCom entries
@@ -79,7 +79,7 @@ public interface XComApi  {
     @GET
     @Path("/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}")
     @Produces({ "application/json" })
-    public XCom getXComValue(@PathParam("dag_id") String dagId, @PathParam("dag_run_id") String dagRunId, @PathParam("task_id") String taskId, @PathParam("xcom_key") String xcomKey) throws ApiException, ProcessingException;
+    public XCom getXComValue(@PathParam("dag_id") String dagId, @PathParam("dag_run_id") String dagRunId, @PathParam("task_id") String taskId, @PathParam("key") String key) throws ApiException, ProcessingException;
 
     /**
      * Create an XCom entry
@@ -99,6 +99,6 @@ public interface XComApi  {
     @Path("/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{key}")
     @Consumes({ "application/json" })
     @Produces({ "application/json" })
-    public XCom updateXComValue(@PathParam("dag_id") String dagId, @PathParam("dag_run_id") String dagRunId, @PathParam("task_id") String taskId, @PathParam("xcom_key") String xcomKey, XCom xcom, @QueryParam("update_mask") List<String> updateMask) throws ApiException, ProcessingException;
+    public XCom updateXComValue(@PathParam("dag_id") String dagId, @PathParam("dag_run_id") String dagRunId, @PathParam("task_id") String taskId, @PathParam("key") String key, XCom xcom, @QueryParam("update_mask") List<String> updateMask) throws ApiException, ProcessingException;
 }
 

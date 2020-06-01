@@ -30,7 +30,7 @@ import org.openapitools.client.model.DAG;
 /**
  * DAGCollection
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:45:55.582Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:37:12.038Z[GMT]")
 public class DAGCollection {
   public static final String SERIALIZED_NAME_DAGS = "dags";
   @SerializedName(SERIALIZED_NAME_DAGS)

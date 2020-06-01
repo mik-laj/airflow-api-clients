@@ -30,7 +30,7 @@ import org.openapitools.client.model.ConnectionCollectionItem;
 /**
  * ConnectionCollection
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:29.715Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:39:43.985Z[GMT]")
 public class ConnectionCollection {
   public static final String SERIALIZED_NAME_CONNECTIONS = "connections";
   @SerializedName(SERIALIZED_NAME_CONNECTIONS)

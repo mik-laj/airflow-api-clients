@@ -37,19 +37,19 @@ class XComApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def delete_x_com_value(self, dag_id, dag_run_id, task_id, xcom_key, **kwargs):  # noqa: E501
+    def delete_x_com_value(self, dag_id, dag_run_id, task_id, key, **kwargs):  # noqa: E501
         """Delete an XCom entry  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_x_com_value(dag_id, dag_run_id, task_id, xcom_key, async_req=True)
+        >>> thread = api.delete_x_com_value(dag_id, dag_run_id, task_id, key, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str dag_id: The DAG ID. (required)
         :param str dag_run_id: The DAG Run ID. (required)
         :param str task_id: The Task ID. (required)
-        :param str xcom_key: The XCom Key. (required)
+        :param str key: The XCom Key. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -62,21 +62,21 @@ class XComApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.delete_x_com_value_with_http_info(dag_id, dag_run_id, task_id, xcom_key, **kwargs)  # noqa: E501
+        return self.delete_x_com_value_with_http_info(dag_id, dag_run_id, task_id, key, **kwargs)  # noqa: E501
 
-    def delete_x_com_value_with_http_info(self, dag_id, dag_run_id, task_id, xcom_key, **kwargs):  # noqa: E501
+    def delete_x_com_value_with_http_info(self, dag_id, dag_run_id, task_id, key, **kwargs):  # noqa: E501
         """Delete an XCom entry  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_x_com_value_with_http_info(dag_id, dag_run_id, task_id, xcom_key, async_req=True)
+        >>> thread = api.delete_x_com_value_with_http_info(dag_id, dag_run_id, task_id, key, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str dag_id: The DAG ID. (required)
         :param str dag_run_id: The DAG Run ID. (required)
         :param str task_id: The Task ID. (required)
-        :param str xcom_key: The XCom Key. (required)
+        :param str key: The XCom Key. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -97,7 +97,7 @@ class XComApi(object):
             'dag_id',
             'dag_run_id',
             'task_id',
-            'xcom_key'
+            'key'
         ]
         all_params.extend(
             [
@@ -128,10 +128,10 @@ class XComApi(object):
         if self.api_client.client_side_validation and ('task_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['task_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `task_id` when calling `delete_x_com_value`")  # noqa: E501
-        # verify the required parameter 'xcom_key' is set
-        if self.api_client.client_side_validation and ('xcom_key' not in local_var_params or  # noqa: E501
-                                                        local_var_params['xcom_key'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `xcom_key` when calling `delete_x_com_value`")  # noqa: E501
+        # verify the required parameter 'key' is set
+        if self.api_client.client_side_validation and ('key' not in local_var_params or  # noqa: E501
+                                                        local_var_params['key'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `key` when calling `delete_x_com_value`")  # noqa: E501
 
         collection_formats = {}
 
@@ -142,8 +142,8 @@ class XComApi(object):
             path_params['dag_run_id'] = local_var_params['dag_run_id']  # noqa: E501
         if 'task_id' in local_var_params:
             path_params['task_id'] = local_var_params['task_id']  # noqa: E501
-        if 'xcom_key' in local_var_params:
-            path_params['xcom_key'] = local_var_params['xcom_key']  # noqa: E501
+        if 'key' in local_var_params:
+            path_params['key'] = local_var_params['key']  # noqa: E501
 
         query_params = []
 
@@ -322,19 +322,19 @@ class XComApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_x_com_value(self, dag_id, dag_run_id, task_id, xcom_key, **kwargs):  # noqa: E501
+    def get_x_com_value(self, dag_id, dag_run_id, task_id, key, **kwargs):  # noqa: E501
         """Get an XCom entry  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_x_com_value(dag_id, dag_run_id, task_id, xcom_key, async_req=True)
+        >>> thread = api.get_x_com_value(dag_id, dag_run_id, task_id, key, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str dag_id: The DAG ID. (required)
         :param str dag_run_id: The DAG Run ID. (required)
         :param str task_id: The Task ID. (required)
-        :param str xcom_key: The XCom Key. (required)
+        :param str key: The XCom Key. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -347,21 +347,21 @@ class XComApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_x_com_value_with_http_info(dag_id, dag_run_id, task_id, xcom_key, **kwargs)  # noqa: E501
+        return self.get_x_com_value_with_http_info(dag_id, dag_run_id, task_id, key, **kwargs)  # noqa: E501
 
-    def get_x_com_value_with_http_info(self, dag_id, dag_run_id, task_id, xcom_key, **kwargs):  # noqa: E501
+    def get_x_com_value_with_http_info(self, dag_id, dag_run_id, task_id, key, **kwargs):  # noqa: E501
         """Get an XCom entry  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_x_com_value_with_http_info(dag_id, dag_run_id, task_id, xcom_key, async_req=True)
+        >>> thread = api.get_x_com_value_with_http_info(dag_id, dag_run_id, task_id, key, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str dag_id: The DAG ID. (required)
         :param str dag_run_id: The DAG Run ID. (required)
         :param str task_id: The Task ID. (required)
-        :param str xcom_key: The XCom Key. (required)
+        :param str key: The XCom Key. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -382,7 +382,7 @@ class XComApi(object):
             'dag_id',
             'dag_run_id',
             'task_id',
-            'xcom_key'
+            'key'
         ]
         all_params.extend(
             [
@@ -413,10 +413,10 @@ class XComApi(object):
         if self.api_client.client_side_validation and ('task_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['task_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `task_id` when calling `get_x_com_value`")  # noqa: E501
-        # verify the required parameter 'xcom_key' is set
-        if self.api_client.client_side_validation and ('xcom_key' not in local_var_params or  # noqa: E501
-                                                        local_var_params['xcom_key'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `xcom_key` when calling `get_x_com_value`")  # noqa: E501
+        # verify the required parameter 'key' is set
+        if self.api_client.client_side_validation and ('key' not in local_var_params or  # noqa: E501
+                                                        local_var_params['key'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `key` when calling `get_x_com_value`")  # noqa: E501
 
         collection_formats = {}
 
@@ -427,8 +427,8 @@ class XComApi(object):
             path_params['dag_run_id'] = local_var_params['dag_run_id']  # noqa: E501
         if 'task_id' in local_var_params:
             path_params['task_id'] = local_var_params['task_id']  # noqa: E501
-        if 'xcom_key' in local_var_params:
-            path_params['xcom_key'] = local_var_params['xcom_key']  # noqa: E501
+        if 'key' in local_var_params:
+            path_params['key'] = local_var_params['key']  # noqa: E501
 
         query_params = []
 
@@ -604,19 +604,19 @@ class XComApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_x_com_value(self, dag_id, dag_run_id, task_id, xcom_key, x_com, **kwargs):  # noqa: E501
+    def update_x_com_value(self, dag_id, dag_run_id, task_id, key, x_com, **kwargs):  # noqa: E501
         """Update an XCom entry  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_x_com_value(dag_id, dag_run_id, task_id, xcom_key, x_com, async_req=True)
+        >>> thread = api.update_x_com_value(dag_id, dag_run_id, task_id, key, x_com, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str dag_id: The DAG ID. (required)
         :param str dag_run_id: The DAG Run ID. (required)
         :param str task_id: The Task ID. (required)
-        :param str xcom_key: The XCom Key. (required)
+        :param str key: The XCom Key. (required)
         :param XCom x_com: (required)
         :param list[str] update_mask: The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -631,21 +631,21 @@ class XComApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_x_com_value_with_http_info(dag_id, dag_run_id, task_id, xcom_key, x_com, **kwargs)  # noqa: E501
+        return self.update_x_com_value_with_http_info(dag_id, dag_run_id, task_id, key, x_com, **kwargs)  # noqa: E501
 
-    def update_x_com_value_with_http_info(self, dag_id, dag_run_id, task_id, xcom_key, x_com, **kwargs):  # noqa: E501
+    def update_x_com_value_with_http_info(self, dag_id, dag_run_id, task_id, key, x_com, **kwargs):  # noqa: E501
         """Update an XCom entry  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_x_com_value_with_http_info(dag_id, dag_run_id, task_id, xcom_key, x_com, async_req=True)
+        >>> thread = api.update_x_com_value_with_http_info(dag_id, dag_run_id, task_id, key, x_com, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str dag_id: The DAG ID. (required)
         :param str dag_run_id: The DAG Run ID. (required)
         :param str task_id: The Task ID. (required)
-        :param str xcom_key: The XCom Key. (required)
+        :param str key: The XCom Key. (required)
         :param XCom x_com: (required)
         :param list[str] update_mask: The fields to update on the connection (connection, pool etc). If absent or empty, all modifiable fields are updated. A comma-separated list of fully qualified names of fields. 
         :param _return_http_data_only: response data without head status code
@@ -668,7 +668,7 @@ class XComApi(object):
             'dag_id',
             'dag_run_id',
             'task_id',
-            'xcom_key',
+            'key',
             'x_com',
             'update_mask'
         ]
@@ -701,10 +701,10 @@ class XComApi(object):
         if self.api_client.client_side_validation and ('task_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['task_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `task_id` when calling `update_x_com_value`")  # noqa: E501
-        # verify the required parameter 'xcom_key' is set
-        if self.api_client.client_side_validation and ('xcom_key' not in local_var_params or  # noqa: E501
-                                                        local_var_params['xcom_key'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `xcom_key` when calling `update_x_com_value`")  # noqa: E501
+        # verify the required parameter 'key' is set
+        if self.api_client.client_side_validation and ('key' not in local_var_params or  # noqa: E501
+                                                        local_var_params['key'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `key` when calling `update_x_com_value`")  # noqa: E501
         # verify the required parameter 'x_com' is set
         if self.api_client.client_side_validation and ('x_com' not in local_var_params or  # noqa: E501
                                                         local_var_params['x_com'] is None):  # noqa: E501
@@ -719,8 +719,8 @@ class XComApi(object):
             path_params['dag_run_id'] = local_var_params['dag_run_id']  # noqa: E501
         if 'task_id' in local_var_params:
             path_params['task_id'] = local_var_params['task_id']  # noqa: E501
-        if 'xcom_key' in local_var_params:
-            path_params['xcom_key'] = local_var_params['xcom_key']  # noqa: E501
+        if 'key' in local_var_params:
+            path_params['key'] = local_var_params['key']  # noqa: E501
 
         query_params = []
         if 'update_mask' in local_var_params and local_var_params['update_mask'] is not None:  # noqa: E501

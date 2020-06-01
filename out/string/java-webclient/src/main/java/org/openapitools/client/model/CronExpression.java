@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CronExpression.JSON_PROPERTY_TYPE,
   CronExpression.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:46:02.616Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:37:19.187Z[GMT]")
 public class CronExpression {
   public static final String JSON_PROPERTY_TYPE = "__type";
   private String type;

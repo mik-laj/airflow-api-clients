@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Pool.JSON_PROPERTY_QUEUED_SLOTS,
   Pool.JSON_PROPERTY_OPEN_SLOTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:47:18.700Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:53:21.630Z[GMT]")
 public class Pool {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;

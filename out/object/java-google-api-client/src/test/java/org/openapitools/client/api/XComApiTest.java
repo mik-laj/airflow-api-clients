@@ -47,8 +47,8 @@ public class XComApiTest {
         String dagId = null;
         String dagRunId = null;
         String taskId = null;
-        String key = null;
-        api.deleteXComValue(dagId, dagRunId, taskId, key);
+        String xcomKey = null;
+        api.deleteXComValue(dagId, dagRunId, taskId, xcomKey);
 
         // TODO: test validations
     }
@@ -86,8 +86,8 @@ public class XComApiTest {
         String dagId = null;
         String dagRunId = null;
         String taskId = null;
-        String key = null;
-        XCom response = api.getXComValue(dagId, dagRunId, taskId, key);
+        String xcomKey = null;
+        XCom response = api.getXComValue(dagId, dagRunId, taskId, xcomKey);
 
         // TODO: test validations
     }
@@ -124,10 +124,10 @@ public class XComApiTest {
         String dagId = null;
         String dagRunId = null;
         String taskId = null;
-        String key = null;
+        String xcomKey = null;
         XCom xcom = null;
         List<String> updateMask = null;
-        XCom response = api.updateXComValue(dagId, dagRunId, taskId, key, xcom, updateMask);
+        XCom response = api.updateXComValue(dagId, dagRunId, taskId, xcomKey, xcom, updateMask);
 
         // TODO: test validations
     }

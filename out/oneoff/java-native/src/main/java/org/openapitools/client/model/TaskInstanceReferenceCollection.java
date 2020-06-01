@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   TaskInstanceReferenceCollection.JSON_PROPERTY_TASK_INSTANCES
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:32.163Z[GMT]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:39:46.427Z[GMT]")
 public class TaskInstanceReferenceCollection {
   public static final String JSON_PROPERTY_TASK_INSTANCES = "task_instances";
   private List<TaskInstanceReference> taskInstances = null;

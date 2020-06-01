@@ -51,7 +51,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   TaskInstance.JSON_PROPERTY_EXECUTOR_CONFIG,
   TaskInstance.JSON_PROPERTY_SLA_MISS
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:32.163Z[GMT]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:39:46.427Z[GMT]")
 public class TaskInstance {
   public static final String JSON_PROPERTY_TASK_ID = "task_id";
   private String taskId;

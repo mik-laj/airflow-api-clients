@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   SLAMissCollection.JSON_PROPERTY_SLA_MISSES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:27.230Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:39:41.492Z[GMT]")
 public class SLAMissCollection {
   public static final String JSON_PROPERTY_SLA_MISSES = "sla_misses";
   private List<SLAMiss> slaMisses = null;

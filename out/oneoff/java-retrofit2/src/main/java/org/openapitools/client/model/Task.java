@@ -37,7 +37,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * Task
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-30T18:48:14.686Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-31T07:39:29.071Z[GMT]")
 public class Task {
   public static final String SERIALIZED_NAME_CLASS_REF = "class_ref";
   @SerializedName(SERIALIZED_NAME_CLASS_REF)
