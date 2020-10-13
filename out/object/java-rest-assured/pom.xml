@@ -256,6 +256,6 @@
         <gson-fire-version>1.8.4</gson-fire-version>
         <threetenbp-version>1.4.3</threetenbp-version>
         <okio-version>1.17.5</okio-version>
-        <junit-version>4.13</junit-version>
+        <junit-version>4.13.1</junit-version>
     </properties>
 </project>
