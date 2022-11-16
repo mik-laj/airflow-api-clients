@@ -302,7 +302,7 @@
         <feign-form-version>2.1.0</feign-form-version>
         <jackson-version>2.10.3</jackson-version>
         <jackson-databind-nullable-version>0.2.1</jackson-databind-nullable-version>
-        <jackson-databind-version>2.10.3</jackson-databind-version>
+        <jackson-databind-version>2.12.7.1</jackson-databind-version>
         <jackson-threetenbp-version>2.9.10</jackson-threetenbp-version>
         <junit-version>4.13</junit-version>
         <maven-plugin-version>1.0.0</maven-plugin-version>
